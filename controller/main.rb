@@ -18,3 +18,28 @@ class MainController < Controller
     "there is no 'notemplate.xhtml' associated with this action"
   end
 end
+
+class ListController < Controller
+    @@iseven = true
+    map '/list'
+
+    def initialize
+	@isodd = false
+    end
+
+    def index
+	@title = "Peterstone List"
+
+	@species_list = {
+	    :B => 'Blackbird',
+	    :C => 'Crow',
+	    :FF => 'Fieldfare',
+	    :DR => 'Spotted Redshank',
+	}
+    end
+
+    def cycle
+	(@isodd = !@isodd) ? 'even' : 'odd'
+    end
+
+end
