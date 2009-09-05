@@ -1,0 +1,15 @@
+/ navigation
+%ul
+  %li
+    %a{:href => r(:index), :title => 'Return to home page'} Home
+  %li
+    %a{:href => r(:list), :title => 'See listing of all species'} List
+  %li
+    %a{:href => r(:reports), :title => 'Choose a report tot run'} Reports
+    %li
+      %ul
+        %li
+          %a{:href => r('reports/reportid=summary_pg'),
+            :title => 'Run summary report'} Petersone List
+/ end navigation
+

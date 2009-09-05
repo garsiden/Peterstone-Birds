@@ -1,3 +1,4 @@
+-# index.hml - ListController default view
 %report
   %table.listing{:summary => @title}
     %thead
@@ -6,7 +7,6 @@
         %th Species Name
         %th Scientific Name
       %tbody
-      - row = 0
       - @species_list.each do |k, v|
         %tr{:class => cycle}
           %td= k

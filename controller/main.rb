@@ -20,7 +20,6 @@ class MainController < Controller
 end
 
 class ListController < Controller
-    @@iseven = true
     map '/list'
 
     def initialize

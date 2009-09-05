@@ -1,12 +1,21 @@
 !!! XML
 !!! 1.1
-%html(xmlns="http://www/w3.org/1999/xhtml")
+%html{html_attrs}
   %head
     %title= @title
-    %meta(http-equiv="Content-Style-Type" content="text/css")
-    %meta(name="author" content="Nigel Garside")
-    %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
-    =(css 'screen')
+    %meta{:"http-equiv" => "Content-Script-Type", :content => "text/javascript"}
+    %meta{:"http-equiv" => "Content-Style-Type", :content => "text/css"}
+    %meta{:"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8"}
+    %meta{:"http-equiv" => "expires", :content => "0"}
+    %meta{:name => "description", :content => "Description for search engines"}
+    %meta{:name => "generator", :content => "Ramaze #{Ramaze::VERSION}"}
+    %meta{:name => "keywords", :content => "Peterstone, birds"}
+    %meta{:name => "date", :content => Time.now.iso8601}
+    %meta{:name => "author", :content => "Nigel Garside"}
+    = css('screen')
   %body
     %h1= @title
-    %div#content= @content
+    -# #header= shared_partial :header
+    #navigation= shared_partial :menu
+    #content= @content
+    -# #footer= shared_partial :footer
