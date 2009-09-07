@@ -1,0 +1,102 @@
+
+/* Forms */
+/* input, textarea, select { margin: 2px } */
+input, select { vertical-align: middle; }
+
+input[type=button], input[type=submit], input[type=reset] {
+	background: #eee;
+	color: #222;
+	border: 1px outset #ccc;
+	padding: .1em .5em;
+	}
+/* input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover { */
+/*  background: #ccb; */
+/* } */
+/* input[type=button][disabled], input[type=submit][disabled], */
+/* input[type=reset][disabled] { */
+/*  background: #f6f6f6; */
+/*  border-style: solid; */
+/*  color: #999; */
+/* } */
+/* input[type=text], input.textwidget, textarea { border: 1px solid #d7d7d7 } */
+/* input[type=text], input.textwidget { padding: .25em .5em } */
+/* input[type=text]:focus, input.textwidget:focus, textarea:focus { */
+/*  border: 1px solid #886; */
+/* } */
+option { border-bottom: 1px dotted #d7d7d7; }
+/* fieldset { border: 1px solid #d7d7d7; padding: .5em; margin: 0 } */
+/* fieldset.iefix { background: transparent; border: none; padding: 0; margin: 0 } */
+/* * html fieldset.iefix { width: 98% } */
+/* fieldset.iefix p { margin: 0 } */
+legend {
+	color: #999;
+	padding: 0 .25em;
+	font-size: 95%;
+	font-weight: bold;
+	}
+/* label.disabled { color: #d7d7d7 } */
+/* .buttons { margin: .5em .5em .5em 0 } */
+/* .buttons form, .buttons form div { display: inline } */
+/* .buttons input { margin: 1em .5em .1em 0 } */
+/* .inlinebuttons input {  */
+/*  font-size: 70%; */
+/*  border-width: 1px; */
+/*  border-style: dotted; */
+/*  margin: 0; */
+/*  padding: 0.1em; */
+/*  background: none; */
+/* } */
+
+
+form {
+	margin-left: 0em;
+	margin-bottom: 2em;
+	min-width: 45em;
+	border: 1px solid #ccc;
+	float: left;
+	width: 75%;
+	}
+
+fieldset {
+	border: 1px solid #d7d7d7;
+	margin: 2em 12pt;
+	padding: 1em;
+	}
+
+label {
+	display: block;
+	float: left;
+	clear: left;
+	width: 13em;
+	padding-right: 0.5em;
+	text-align: right;
+	line-height: 1.8em;
+	}
+
+/* label.label_right { */
+/*     clear: left; */
+/*     float:right; */
+/* } */
+input[type=text], input[type=radio], input[type=button], select {
+	margin: 0 .5em .5em 0;
+	display: block;
+	float: left;
+}
+input[type=button] {
+	margin-right: 1em;
+}
+input[type=text] {
+    width: 8em;
+}
+
+br { clear: both; }
+
+legend {
+	/*     font-weight: bold; */
+	/*     font-size: 1.1em; */
+	/*     position: relative; */
+	/*     top: -.5em; */
+	}
+
+input[type=radio] { margin: .45em; }
+p { padding: 3em; }

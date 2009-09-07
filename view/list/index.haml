@@ -7,7 +7,9 @@
         %th Species Name
         %th Scientific Name
       %tbody
-      - @species_list.each do |k, v|
+      - Species.order(:species_name).each do |s|
         %tr{:class => cycle}
-          %td= k
-          %td= v 
+          %td= s.bto_code
+          %td= s.species_name
+          %td= s.scientific_name
+

@@ -1,6 +1,6 @@
 !!! XML
 !!! 1.1
-%html{html_attrs}
+%html{html_attrs('en-GB')}
   %head
     %title= @title
     %meta{:"http-equiv" => "Content-Script-Type", :content => "text/javascript"}
@@ -12,10 +12,12 @@
     %meta{:name => "keywords", :content => "Peterstone, birds"}
     %meta{:name => "date", :content => Time.now.iso8601}
     %meta{:name => "author", :content => "Nigel Garside"}
-    = css('screen')
+    = css('common')
+    = css('tables')
   %body
     %h1= @title
-    -# #header= shared_partial :header
-    #navigation= shared_partial :menu
-    #content= @content
-    -# #footer= shared_partial :footer
+    = shared_partial :header
+    #content
+      = shared_partial :menu
+      = @content
+    = shared_partial :footer
