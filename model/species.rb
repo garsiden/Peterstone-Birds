@@ -1,15 +1,14 @@
 class Species < Sequel::Model(:species)
-#    set_schema do
-#	varchar :bto_code
-#	primary_key_name = :bto_code
-#	varchar :bto_code, :auto_increment=>false
-#	varchar :species_name, :unique=>true, :empty=>false
-#	varchar :scientific_name
-#    end
+    set_schema do
+	String :name, :unique=>true, :null=>false
+	String :scientific_name, :unique=>true, :null=>false
+	primary_key :bto_code, :char,
+	    :null=>false, :size=>2, :auto_increment=>false
+    end
 
-#    set_primary_key [:bto_code]
-
-#    create_table unless table_exists?
+    create_table unless table_exists?
+    unrestrict_primary_key
+    one_to_many :sighting, :class=>'Sighting', :key=>'bto_code'
 
     if empty?
 
