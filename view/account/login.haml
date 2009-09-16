@@ -1,0 +1,12 @@
+#login
+  %form{:method => 'POST', :name => 'login'}
+    %fieldset
+      %legend Login
+      %p
+        Name
+        %input{:type => 'text', :name => 'login', :value => @login}
+        Password
+        %input{:type => 'password', :name => 'password'}
+        Remember me
+        %input{:type => 'checkbox', :name => 'remember', :checked => 'checked'} 
+      %input{:type => :submit, :value => 'Log-in Now', :class => :button}
