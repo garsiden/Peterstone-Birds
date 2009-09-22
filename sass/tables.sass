@@ -1,0 +1,67 @@
+table.listing
+  border-bottom: 1px solid #d7d7d7
+  border-collapse: collapse
+  border-spacing: 0
+  width: 100%
+
+  th
+    text-align: center
+    padding: 0 1em .1em 0
+    font-size: 12px 
+
+  thead
+    background: #f7f7f0 
+
+
+Table.listing thead th
+  border: 1px solid #d7d7d7
+  border-bottom-color: #999
+  font-size: 11px
+  font-weight: bold
+  padding: 2px .5em
+  vertical-align: bottom
+
+
+table.listing
+  thead th
+    :link:hover, :visited:hover
+      background-color: transparent
+
+    a
+      border: none
+      padding-right: 12px 
+
+  th
+    &.asc a, &.desc a
+      font-weight: bold 
+
+    &.asc a, &.desc a
+      background-position: 100% 50%
+      background-repeat: no-repeat
+
+    &.asc a
+      background-image: url(../asc.png) 
+
+    &.desc a
+      background-image: url(../desc.png) 
+
+  tbody
+    td, th
+      border: 1px dotted #ddd
+      padding: .33em .5em
+      vertical-align: top
+
+    td a:hover, th a:hover
+      background-color: transparent
+
+    tr
+      border-top: 1px solid #ddd 
+
+      &.odd
+        background-color: #fcfcfc 
+
+      &.even
+        background-color: #f7f7f7 
+
+      &:hover
+        background: #eed !important

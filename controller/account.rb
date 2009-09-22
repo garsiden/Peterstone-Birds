@@ -1,7 +1,7 @@
 class AccountController < Controller
 #  helper :simple_captcha, :identity
 #  layout 'minimal_layout'
-    layout 'default'
+    layout 'minimal_layout'
 
   # TODO: use stack
   def login
@@ -40,7 +40,7 @@ class AccountController < Controller
   def logout
     user_logout
     flash[:good] = "You logged out successfully"
-    redirect r(:/)
+    redirect MainController.r(:index)
   end
 
  end

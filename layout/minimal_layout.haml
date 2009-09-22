@@ -1,0 +1,17 @@
+!!! XML
+!!!
+
+%html
+  %head
+    %meta{'http-equiv' => "Content-Type", :content => 'text/html; charset=utf-8'}
+    %title= @title
+    %link{:rel => 'shortcut icon', :href => '/favicon.ico', :type => 'image/x-icon'}
+    = css_for *(%w( reset text clearfix common minimal ))
+  %body
+    #layout
+      #header.clearfix
+        #logo
+          %a{:href => '/'}
+            %img{:src => '/images/dipperh.jpg', :alt => @title}
+
+      #content= @content
