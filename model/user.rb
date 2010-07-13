@@ -1,8 +1,9 @@
 require 'digest'
 
-class User < Sequel::Model(:user)
+class User < Sequel::Model
     set_schema do
-	primary_key :id
+	primary_key :user_id, :char, :size=>2,
+	    :null=>false, :auto_increment=>false
 	varchar :login, :unique=>true
 	varchar :openid, :unique=>true
 	varchar :crypted_password, :size=>40
@@ -13,6 +14,8 @@ class User < Sequel::Model(:user)
     end
 
     create_table unless table_exists?
+    unrestrict_primary_key
+    one_to_many :sightings
     plugin :timestamps, :update_on_create=>true
 
     # class methods
@@ -43,7 +46,8 @@ class User < Sequel::Model(:user)
     end
 
     if empty?
-	create :login => 'garsiden', :is_admin=>true
+	create :user_id => 'NG', :login => 'garsiden', :is_admin=>true
+	create :user_id => 'EW', :login => 'wange'
     end
 
     def authenticated?(password)
