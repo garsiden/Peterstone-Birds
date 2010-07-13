@@ -1,4 +1,4 @@
-class Species < Sequel::Model(:species)
+class Species < Sequel::Model
     set_schema do
 	String :name, :unique=>true, :null=>false
 	String :scientific_name, :unique=>true, :null=>false
@@ -8,7 +8,7 @@ class Species < Sequel::Model(:species)
 
     create_table unless table_exists?
     unrestrict_primary_key
-    one_to_many :sighting, :class=>'Sighting', :key=>'bto_code'
+    one_to_many :sightings, :key=>'bto_code', :class_name=>'Sighting'
 
     if empty?
 
@@ -16,5 +16,7 @@ class Species < Sequel::Model(:species)
 	    :scientific_name => 'Peregrinus pergrinus'
 	create :bto_code => 'HY', :name=> 'Hobby',
 	    :scientific_name => 'Subutteo subutteo'
+	create :bto_code => 'DR', :name => 'Spotted Redshank',
+	    :scientific_name => 'Tringa'
     end
 end
