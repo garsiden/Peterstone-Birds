@@ -1,13 +1,13 @@
 -# index.haml - ListController default view
 -# - Species.filter(:user_id => 'NG').order(:name).each do |s|
-%report
+%div#report
   %table.listing{:summary => @title}
     %thead
       %tr
         %th Code
         %th Species Name
         %th Scientific Name
-      %tbody
+    %tbody
       - @sightings.each do |s|
         %tr{:class => cycle}
           %td= s.bto_code

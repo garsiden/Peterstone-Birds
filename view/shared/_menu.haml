@@ -7,24 +7,23 @@
       %a{:href => '/list', :title => 'A list' } List
     %li
       %a{:href => rs(:reports), :title => 'Choose a report to run'} Reports
-      %li
-        %ul
-          %li
-            %a{:href => rs('reports/reportid=summary_pg'),
-               :title => 'Run summary report'} Petersone List
+      %ul
+        %li
+          %a{:href => rs('reports/reportid=summary_pg'),
+             :title => 'Run summary report'} Petersone List
     %li
       %a{:href => MainController.r(:about)} About
-      - if logged_in?
-        - if user.is_admin
-          %li
-            %a{:href => AdminController.r} Admin
-          %li
-            %a{:href => MainController.r} Newest Stuff
-          %li
-            %a{:href => AccountController.r(:logout)} Logout
-      - else
+    - if logged_in?
+      - if user.is_admin
         %li
-          %a{:href => AccountController.r(:login)} Login
+          %a{:href => AdminController.r} Admin
+        %li
+          %a{:href => MainController.r} Newest Stuff
+        %li
+          %a{:href => AccountController.r(:logout)} Logout
+    - else
+      %li
+        %a{:href => AccountController.r(:login)} Login
  
 / end navigation
 
