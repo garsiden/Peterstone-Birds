@@ -1,54 +1,40 @@
 class ListController < Controller
+    helper :aspect
 
     def initialize
 	@isodd = false
     end
 
     def index(login = nil)
-	login_first
-	@user = login_or_user(login)
+	@user = login_or_user(login)	# base class method
 	@title = "Peterstone List"
-
 	@sightings = Species.eager_graph(:sightings).all
-
-#	if title
-#	    id = title[/^(\d+)-/, 1]
-#	    @blog = Blog[id]
-#	end
-
     end
 
     def edit(id)
-	login_first
-
-#	@user, @profile = user, user.profile
 	@user = user
-#	redirect_referrer unless @post = Blog[id]
 	@legend = "Edit Entry"
 	@submit = "Update Entry"
-
-	save
+	save				# private method
     end
 
     def new
-	login_first
-
-#	@user, @profile = user, user.profile
-	@user = user
-#	@post = Blog.new(:profile => @profile)
+	@user = user			# Helper::User instance method
 	@legend = "New Entry"
 	@submit = "Create Entry"
-
 	save
     end
 
-    #template :new, :edit
+    #template :new, :edit		# Ramaze::Controller method
 
     def cycle
 	(@isodd = !@isodd) ? 'even' : 'odd'
     end
 
-   private
+    # aspect helper method
+    before(:index, :edit, :new) {login_first}
+
+    private
 
     def save
 	return unless request.post?
