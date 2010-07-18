@@ -1,20 +1,21 @@
 # Define a subclass of Ramaze::Controller holding your defaults for all
 # controllers
 require 'controller/helpers'
-include Innate::Traited
 
 class Controller < Ramaze::Controller
     include AppHelpers
+    # Ramaze::Controller inherited methods
     layout :default
     engine :Haml
-    helper :xhtml, :user, :stack
-    #  helper :xhtml, :config, :user, :formatting, :form, :gravatar, :stack
+    helper :xhtml, :user, :stack	# stack used for call method
+    #  helper :config, :formatting, :form, :gravatar
 
     private
 
     def login_first
 	return if logged_in?
-	call AccountController.r(:login)
+	# stack method adds this request to stack and redirects to argument
+	call AccountController.r(:login)	    
     end
 
     def login_or_user(login)
@@ -27,8 +28,7 @@ class Controller < Ramaze::Controller
 	else
 	    nil
 	end
-    #ensure
-#	@profile = @user.profile if @user
+
     end
 end
 
