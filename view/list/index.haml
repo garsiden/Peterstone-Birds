@@ -12,4 +12,6 @@
           %td= s.bto_code
           %td= s.bird.name
           %td= s.first_date
+          %td
+            %a{:id=>'edit', :href => ListController.r(:edit, s.bto_code)} Edit
 

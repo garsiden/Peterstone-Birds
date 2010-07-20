@@ -8,7 +8,7 @@ class ListController < Controller
     def index(login = nil)
         @user = login_or_user(login)    # base class method
         @title = "Peterstone List"
-        @headings = ['Code', 'Species Name', 'First Date' ]
+        @headings = ['Code', 'Species Name', 'First Date', '' ]
         if login
             @sightings = @user.observations
         else
@@ -16,10 +16,12 @@ class ListController < Controller
         end
     end
 
-    def edit(id)
+    def edit(id = nil)
         @user = user
+        @title = "Edit Entry"
         @legend = "Edit Entry"
         @submit = "Update Entry"
+        @ob = Observation.first(:bto_code=>id, :user_id=>user.user_id)
         save                            # private method
     end
 
@@ -44,14 +46,14 @@ class ListController < Controller
     def save
         return unless request.post?
 
-        @post.title = request[:title]
-        @post.body = request[:body]
+        @ob.first_date = request[:first_date]
+        @ob.note = h(request[:note])
 
-        if @post.save
-            flash[:good] = "Created post"
-            redirect self.rs(:/, @post.to_url)
+        if @ob.save_changes 
+            flash[:good] = "Created observation"
+            redirect self.rs(:/, @user.login)
         else
-            flash[:bad] = "Couldn't create post"
+            flash[:bad] = "Couldn't create observation"
         end
     end
 
