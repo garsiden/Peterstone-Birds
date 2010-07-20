@@ -1,0 +1,12 @@
+%div#report
+  %table.listing{:summary => @title}
+    %thead
+      %tr
+        - @headers.each do |h|
+          %th= h
+    %tbody
+      - @sites.each do |s|
+        %tr{:class => cycle}
+          %td= s.site_id
+          %td= s.site_name
+          %td= s.grid_ref

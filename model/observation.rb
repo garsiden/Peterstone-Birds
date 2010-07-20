@@ -1,7 +1,7 @@
-class Sighting < Sequel::Model
+class Observation < Sequel::Model
 
     set_schema do
-	foreign_key :bto_code, :species,
+	foreign_key :bto_code, :birds,
 	    :type=>String, :size=>2, :null=>false
 	foreign_key :user_id, :users, :type=>String, :size=>2, :null=>false
 	Date :first_date
@@ -11,7 +11,7 @@ class Sighting < Sequel::Model
 
     create_table unless table_exists?
     unrestrict_primary_key
-    many_to_one :species, :key=>'bto_code'
+    many_to_one :bird, :key=>'bto_code'
     many_to_one :user
 
     if empty?

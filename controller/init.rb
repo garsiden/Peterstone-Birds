@@ -7,27 +7,29 @@ class Controller < Ramaze::Controller
     # Ramaze::Controller inherited methods
     layout :default
     engine :Haml
-    helper :xhtml, :user, :stack	# stack used for call method
-    #  helper :config, :formatting, :form, :gravatar
+    # stack used for call method
+    # xhtml for css/js methods
+    helper :xhtml, :user, :stack        
+    #  :config, :formatting, :form 
 
     private
 
     def login_first
-	return if logged_in?
-	# stack method adds this request to stack and redirects to argument
-	call AccountController.r(:login)	    
+        return if logged_in?
+        # stack method adds this request to stack and redirects to argument
+        call AccountController.r(:login)            
     end
 
     def login_or_user(login)
-	@user = nil
+        @user = nil
 
-	if login
-	    @user = Sequel::Model::User[:login => login]
-	elsif logged_in?
-	    @user = user
-	else
-	    nil
-	end
+        if login
+            @user = Sequel::Model::User[:login => login]
+        elsif logged_in?
+            @user = user
+        else
+            nil
+        end
 
     end
 end
@@ -38,4 +40,5 @@ require __DIR__('shared')
 require __DIR__('account')
 require __DIR__('list')
 require __DIR__('admin')
+require __DIR__('site')
 #require __DIR__('css')

@@ -2,33 +2,38 @@ class ListController < Controller
     helper :aspect
 
     def initialize
-	@isodd = false
+        @isodd = false
     end
 
     def index(login = nil)
-	@user = login_or_user(login)	# base class method
-	@title = "Peterstone List"
-	@sightings = Species.eager_graph(:sightings).all
+        @user = login_or_user(login)    # base class method
+        @title = "Peterstone List"
+        @headings = ['Code', 'Species Name', 'First Date' ]
+        if login
+            @sightings = @user.observations
+        else
+            @sightings = Observation.order(:bto_code)
+        end
     end
 
     def edit(id)
-	@user = user
-	@legend = "Edit Entry"
-	@submit = "Update Entry"
-	save				# private method
+        @user = user
+        @legend = "Edit Entry"
+        @submit = "Update Entry"
+        save                            # private method
     end
 
     def new
-	@user = user			# Helper::User instance method
-	@legend = "New Entry"
-	@submit = "Create Entry"
-	save
+        @user = user                    # Helper::User instance method
+        @legend = "New Entry"
+        @submit = "Create Entry"
+        save
     end
 
-    #template :new, :edit		# Ramaze::Controller method
+    #template :new, :edit               # Ramaze::Controller method
 
     def cycle
-	(@isodd = !@isodd) ? 'even' : 'odd'
+        (@isodd = !@isodd) ? 'even' : 'odd'
     end
 
     # aspect helper method
@@ -37,17 +42,17 @@ class ListController < Controller
     private
 
     def save
-	return unless request.post?
+        return unless request.post?
 
-	@post.title = request[:title]
-	@post.body = request[:body]
+        @post.title = request[:title]
+        @post.body = request[:body]
 
-	if @post.save
-	    flash[:good] = "Created post"
-	    redirect self.rs(:/, @post.to_url)
-	else
-	    flash[:bad] = "Couldn't create post"
-	end
+        if @post.save
+            flash[:good] = "Created post"
+            redirect self.rs(:/, @post.to_url)
+        else
+            flash[:bad] = "Couldn't create post"
+        end
     end
 
 end
