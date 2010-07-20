@@ -16,12 +16,13 @@ class ListController < Controller
         end
     end
 
-    def edit(id = nil)
+    def edit
+        bto_code = request[:bto_code]
         @user = user
         @title = "Edit Entry"
         @legend = "Edit Entry"
         @submit = "Update Entry"
-        @ob = Observation.first(:bto_code=>id, :user_id=>user.user_id)
+        @ob = Observation.first(:bto_code=>bto_code, :user_id=>user.user_id)
         save                            # private method
     end
 
@@ -51,7 +52,7 @@ class ListController < Controller
 
         if @ob.save_changes 
             flash[:good] = "Created observation"
-            redirect self.rs(:/, @user.login)
+            redirect self.route_self(:/, @user.login)
         else
             flash[:bad] = "Couldn't create observation"
         end
