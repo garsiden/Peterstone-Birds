@@ -1,11 +1,16 @@
---  SQLite
+-- Sqlite
 
-DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS users;
 
-CREATE TABLE user
+CREATE TABLE users
 (
-    user_id	CHAR(8) NOT NULL PRIMARY KEY,
-    name	VARCHAR(32),	
-    password	VARCHAR(16) NOT NULL,
-    email	VARCHAR(32) NOT NULL
+    user_id CHAR(2) NOT NULL PRIMARY KEY,
+    login VARCHAR(40) NOT NULL UNIQUE,   
+    name VARCHAR(40) NOT NULL UNIQUE,
+    openid VARCHAR(40) UNIQUE,
+    crypted_password VARCHAR(40),
+    salt VARCHAR(40),
+    created_at DATETIME,
+    updated_at DATETIME,
+    is_admin BOOLEAN DEFAULT 'f'
 );
