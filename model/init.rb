@@ -1,16 +1,11 @@
 require 'sequel'
 
-Sequel::Model.plugin :schema
+# Timestamp all model instances using +created_at+ and +updated_at+
+# (called before loading subclasses)
 Sequel::Model.plugin :timestamps
-
-#Sequel::Model.plugin :hook_class_methods
-#Sequel::Model.plugin(:validation_helpers)
-#Sequel::Model.plugin(:validation_class_methods)
+Sequel::Model.plugin :schema
 
 DB = Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://data/psbirds.db3')
-#DB = Sequel.sqlite('data/psbirds.db3')
-#DB2 = Sequel.sqlite('/usr/local/data/birdtrack2.db')
-#DB = Sequel.sqlite(':memory:')
 
 require 'model/bird'
 require 'model/user'
