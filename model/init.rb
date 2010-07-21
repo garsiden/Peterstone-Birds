@@ -7,7 +7,8 @@ Sequel::Model.plugin :timestamps
 #Sequel::Model.plugin(:validation_helpers)
 #Sequel::Model.plugin(:validation_class_methods)
 
-DB = Sequel.sqlite('data/psbirds.db3')
+DB = Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://data/psbirds.db3')
+#DB = Sequel.sqlite('data/psbirds.db3')
 #DB2 = Sequel.sqlite('/usr/local/data/birdtrack2.db')
 #DB = Sequel.sqlite(':memory:')
 
