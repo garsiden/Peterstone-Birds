@@ -19,15 +19,15 @@ class User < Sequel::Model
     one_to_many :observations
     plugin :timestamps, :update_on_create=>true
 
+    # For validation
+    attr_accessor :password, :password_confirmation
+
     # class methods
     def self.encrypt(password, salt)
         Digest::SHA1.hexdigest("--#{salt}--#{password}--")
     end
 
     def self.authenticate(creds)
-        #       if oid = hash['openid']
-        #           User[:openid => oid]
-        #       else
         login, pass = creds['login'], creds['password']
 
         if user = User[:login => login]
@@ -35,21 +35,25 @@ class User < Sequel::Model
             return user unless pass             
             user if user.authenticated?(pass)
         end
-        #       end
-    end
-    
-   # overwrite inherited instance method
-    def after_create
-        super
-        self.crypted_password = self.class.encrypt('password', 'salt')
-        @new = false
-        save
     end
 
-    if empty?
-        create :user_id => 'NG', :login => 'garsiden', :name => 'Nigel Garside',
-            :is_admin=>true
-        create :user_id => 'EW', :login => 'wange', :name => 'Eddie Wang'
+    def self.prepare(hash)
+        login, user_id, name, password, password_confirmation =
+            hash.values_at(*%w[login user_id name password
+                           password_confirmation]))
+        user = new(:login => login, :user_id => user_id, :name => name,
+                   :password => password, 
+                   :password_confirmation => password_confirmation)
+        user.salt = Digest::SHA1.hexdigest("--#{Time.now.to_f}--#{user.login}--")
+        user
+    end
+
+    # overwrite inherited instance method
+    def after_create
+        super
+        self.crypted_password = self.class.encrypt(password, salt)
+        @new = false
+        save
     end
 
     def authenticated?(password)
@@ -57,9 +61,16 @@ class User < Sequel::Model
     end
 
     def encrypt(password)
-        self.class.encrypt(password, 'salt')
+        self.class.encrypt(password, salt)
     end
 
-    
-
+    if empty?
+        #  create :user_id => 'EW', :login => 'wange', :name => 'Eddie Wang'
+        h =  {'user_id' => 'NG', 'login' => 'garsiden',
+            'name' => 'Nigel Garside', 'password' => 'maggio26',
+            'password_confirmation' => 'maggio26'}
+        user = self.prepare(h)
+        user.is_admin = true
+        user.save
+    end
 end
