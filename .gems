@@ -2,5 +2,4 @@ ramaze -v 2010.06.18
 sequel -v 3.13.0
 haml -v 3.0.13
 innate -v 2010.07
-sqlite -v 2.0.1
 sqlite3-ruby -v 1.3.1
