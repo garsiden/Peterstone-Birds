@@ -17,7 +17,7 @@
 
 # As per Ramaze proto
 require ::File.expand_path('../app', __FILE__)
-Ramaze.start(:root => __DIR__, :started => true)
+Ramaze.start(:root => __DIR__, :started => true, :mode => :live)
 run Ramaze
 
 # Heroku suggested config
