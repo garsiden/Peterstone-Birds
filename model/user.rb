@@ -40,7 +40,7 @@ class User < Sequel::Model
     def self.prepare(hash)
         login, user_id, name, password, password_confirmation =
             hash.values_at(*%w[login user_id name password
-                           password_confirmation]))
+                           password_confirmation])
         user = new(:login => login, :user_id => user_id, :name => name,
                    :password => password, 
                    :password_confirmation => password_confirmation)
@@ -69,6 +69,12 @@ class User < Sequel::Model
         h =  {'user_id' => 'NG', 'login' => 'garsiden',
             'name' => 'Nigel Garside', 'password' => 'maggio26',
             'password_confirmation' => 'maggio26'}
+        user = self.prepare(h)
+        user.is_admin = true
+        user.save
+        h =  {'user_id' => 'EW', 'login' => 'wange',
+            'name' => 'Eddie Wang', 'password' => 'dicembre21',
+            'password_confirmation' => 'dicembre21'}
         user = self.prepare(h)
         user.is_admin = true
         user.save
