@@ -1,0 +1,40 @@
+peterstonebirds TODO
+
+ 1. Report login failure to user
+        DONE - using flashbox
+
+ 2. Complete CRUD for observations
+
+ 3. Migrate to PostgreSQL.
+
+ 4. Style for forms.
+        DONE - added reference to existing forms CSS
+
+ 5. Overall site list with dates and first observer.
+
+ 6. Technical note.
+
+ 7. About Peterstone Gout/website.
+
+ 8. Incorporate BirdTrack records and reporting.
+
+ 9. Check user creation/login for use of password salt.
+        DONE - salt created using creation time and user id
+
+10. Add user name to header whenn logged in.
+
+11. Use Sequel validations on data input.
+
+12. Investigate Javascript calendar control.
+
+13. Javascript client data input validation.
+
+14. GOS submission forms
+
+15. Save a BLOB in the database.
+
+16. Investigate image sizing.
+
+17. User administration (creation, password change etc.)
+
+18. Investigate 'Remember me' for user login.
