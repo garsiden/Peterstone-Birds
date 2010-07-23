@@ -13,22 +13,40 @@ class AccountController < Controller
         # default Helper::User method argument is 'creds = request.params'
         if user_login   
             flash[:good] = "Welcome back #{user.login}"
-            redirect rs(:after_login)
+        else
+            msg = "Unable to login. Try again or return #{a('home', URI('/'))}"
+            flash[:fail] = msg
         end
+        redirect rs(:after_login)
     end
 
     def after_login
         if logged_in?
             answer MainController.r     # default to home if nothing on stack
         else
-            redirect rs(:login, :fail => :session)
+            redirect rs(:login) #, :fail => :session)
         end
     end
 
     def logout
         user_logout
-        flash[:good] = "You logged out successfully"
+        #flash[:good] = "You logged out successfully"
         redirect MainController.r(:index)
     end
 
+def create
+    redirect_referrer if logged_in?
+    @user = Sequel::Model::User.prepare(request.params)
+    # they will be used in the form
+   # @login, @email = @user.login, @user.email
+
+    if request.post?
+      if @user.save
+        flash[:good] = "You signed up, welcome on board #{@user.login}!"
+        user_login('login' => @user.login)
+        answer MainController.r     # default to home if nothing on stack
+      end
+    end
+  end
+    
 end
