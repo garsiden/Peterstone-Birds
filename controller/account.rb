@@ -14,7 +14,7 @@ class AccountController < Controller
         if user_login   
             flash[:good] = "Welcome back #{user.login}"
         else
-            msg = "Unable to login. Try again or return #{a('home', URI('/'))}"
+            msg = "Unable to login. Try again or return #{a('home', MainController.r)}"
             flash[:fail] = msg
         end
         redirect rs(:after_login)
@@ -34,19 +34,19 @@ class AccountController < Controller
         redirect MainController.r(:index)
     end
 
-def create
-    redirect_referrer if logged_in?
-    @user = Sequel::Model::User.prepare(request.params)
-    # they will be used in the form
-   # @login, @email = @user.login, @user.email
+    def create
+        redirect_referrer if logged_in?
+        @user = Sequel::Model::User.prepare(request.params)
+        # they will be used in the form
+        # @login, @email = @user.login, @user.email
 
-    if request.post?
-      if @user.save
-        flash[:good] = "You signed up, welcome on board #{@user.login}!"
-        user_login('login' => @user.login)
-        answer MainController.r     # default to home if nothing on stack
-      end
+        if request.post?
+            if @user.save
+                flash[:good] = "You signed up, welcome on board #{@user.login}!"
+                user_login('login' => @user.login)
+                answer MainController.r     # default to home if nothing on stack
+            end
+        end
     end
-  end
-    
+
 end
