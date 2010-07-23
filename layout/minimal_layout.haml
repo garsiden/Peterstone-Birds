@@ -6,10 +6,10 @@
     %title= @title
     %link{:rel => 'shortcut icon', :href => '/favicon.ico', :type => 'image/x-icon'}
     -# note use of 'splat' operator, *, to expand array elements as method arguments
-    = css_for(*(%w( reset text clearfix common minimal )))
+    = css_for(*(%w( reset common forms )))
   %body
     #layout
-      #header.clearfix
+      #header
         #logo
           %a{:href => '/'}
             %img{:src => '/images/dipperh.jpg', :alt => @title}
