@@ -1,12 +1,12 @@
 / form to edit observation
-%form{:action=>'', :id=>'edit_list', :method=>'post', :title=>@title}
+%form{:action=>"#{r(:edit)}", :id=>'edit_list', :method=>'post', :title=>@title}
   %fieldset
     %legend
       #{@legend}
     %label{:for=>'code'}
       Code:
-    %input{:type => 'text', :id => 'code', :size => 6, :maxlength => '2',
-      :value=>@ob.bto_code}
+    %input{:type => 'text', :id => 'code', :name => 'bto_code',
+    :size => 6, :maxlength => '2', :value=>@ob.bto_code}
     %label{:for=>'first_date'}
       Date:
     %input{:type => 'text', :id=>'first_date', :name => 'first_date',
