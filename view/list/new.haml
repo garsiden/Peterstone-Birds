@@ -1,0 +1,17 @@
+%form{:action => "#{r(:new)}", :id=>'new_list', :method=>'post', :title=>@title}
+  %fieldset
+    %legend
+      #{@legend}
+    %label{:for=>'birds'}
+      Species:
+    %select{:id=>'birds', :name=>'bto_code'} 
+      - @birds.each do |b|
+        %option{:value=>"#{b.bto_code}"}= b.name
+    %br
+    %label{:for=>'date'}
+      Date:
+    %input{:type=>'text', :id=>'date', :name=>'first_date'}
+    %br
+    %input{:type=>'submit', :value=>@submit}
+
+

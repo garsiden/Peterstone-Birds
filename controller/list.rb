@@ -22,15 +22,19 @@ class ListController < Controller
         @title = "Edit Entry"
         @legend = "Edit Entry"
         @submit = "Update Entry"
-#        @ob = Observation.first(:bto_code=>bto_code, :user_id=>user.user_id)
         @ob = Observation[user.user_id, bto_code]
         save                            # private method
     end
 
-    def new
+    def new 
         @user = user                    # Helper::User instance method
         @legend = "New Entry"
         @submit = "Create Entry"
+        
+        @birds = Bird.filter(
+            :bto_code=> Observation.filter(
+                :user_id=>user.user_id).select(:bto_code)).invert.order(:name)
+        @ob = Observation.new(:user_id => user.user_id)
         save
     end
 
@@ -50,6 +54,7 @@ class ListController < Controller
 
         @ob.first_date = request[:first_date]
         @ob.note = h(request[:note])
+        @ob.bto_code = request[:bto_code]
 
         if @ob.save_changes 
             flash[:good] = "Created observation"
