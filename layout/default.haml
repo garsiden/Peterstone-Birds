@@ -12,8 +12,7 @@
     %meta{:name => "keywords", :content => "Peterstone, birds"}
     %meta{:name => "date", :content => Time.now.iso8601}
     %meta{:name => "author", :content => "Nigel Garside"}
-    = css('common')
-    = css('tables')
+    = css_for(*(%w(reset common tables forms)))
   %body
     %h1= @title
     = shared_partial :header
