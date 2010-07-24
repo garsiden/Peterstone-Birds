@@ -22,7 +22,8 @@ class ListController < Controller
         @title = "Edit Entry"
         @legend = "Edit Entry"
         @submit = "Update Entry"
-        @ob = Observation.first(:bto_code=>bto_code, :user_id=>user.user_id)
+#        @ob = Observation.first(:bto_code=>bto_code, :user_id=>user.user_id)
+        @ob = Observation[user.user_id, bto_code]
         save                            # private method
     end
 
