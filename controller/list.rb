@@ -10,9 +10,10 @@ class ListController < Controller
         @title = "Peterstone List"
         @headings = ['Code', 'Species Name', 'First Date', '' ]
         if login
-            @sightings = @user.observations
+            #@sightings = @user.observations.sort! {|a,b| b.first_date <=> a.first_date}
+            @sightings = @user.observations_dataset.eager(:bird).order(:first_date.desc)
         else
-            @sightings = Observation.order(:bto_code)
+            @sightings = Observation.eager(:bird).order(:first_date.desc)
         end
     end
 
@@ -28,13 +29,14 @@ class ListController < Controller
 
     def new 
         @user = user                    # Helper::User instance method
-        @legend = "New Entry"
-        @submit = "Create Entry"
-        
-        @birds = Bird.filter(
-            :bto_code=> Observation.filter(
-                :user_id=>user.user_id).select(:bto_code)).invert.order(:name)
-        @ob = Observation.new(:user_id => user.user_id)
+
+        if not request.post?
+            @legend = "New Entry"
+            @title = @legend
+            @submit = "Create Entry"
+            @birds = Bird.filter(:bto_code=> Observation.filter(:user_id=>user.user_id).
+                                 select(:bto_code)).invert.order(:name)
+        end
         save
     end
 
@@ -52,6 +54,7 @@ class ListController < Controller
     def save
         return unless request.post?
 
+        @ob = Observation.new(:user_id => user.user_id)
         @ob.first_date = request[:first_date]
         @ob.note = h(request[:note])
         @ob.bto_code = request[:bto_code]
