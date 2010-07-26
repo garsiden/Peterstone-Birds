@@ -40,14 +40,19 @@ class ListController < Controller
         save
     end
 
-    #template :new, :edit               # Ramaze::Controller method
+    def delete 
+        if bto_code = request[:bto_code]
+            Observation[user.user_id, bto_code].delete
+        end
+        redirect self.route_self(:/, user.login)
+    end
 
     def cycle
         (@isodd = !@isodd) ? 'even' : 'odd'
     end
 
     # aspect helper method
-    before(:index, :edit, :new) {login_first}
+    before(:index, :edit, :new, :delete) {login_first}
 
     private
 

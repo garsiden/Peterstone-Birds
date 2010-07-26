@@ -14,5 +14,8 @@
           %td
             %a{:id=>'edit',
               :href => ListController.route(:edit, :bto_code => s.bto_code)} Edit
+            &nbsp;
+            %a{:id=>'delete',
+              :href=> route(:delete, :bto_code => s.bto_code)} Delete
   %br
   %a{:href=>"#{ListController.r(:new)}"} Add New
