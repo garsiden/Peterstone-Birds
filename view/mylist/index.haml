@@ -1,0 +1,21 @@
+-# index.haml - ListController default view
+%div#report
+  %table.listing{:summary => @title}
+    %thead
+      %tr
+        - @headings.each do |h|
+          %th=h
+    %tbody
+      - @sightings.each do |s|
+        %tr{:class => cycle}
+          %td= s.bto_code
+          %td= s.bird.name
+          %td= s.first_date
+          %td
+            %a{:id=>'edit',
+              :href => ListController.route(:edit, :bto_code => s.bto_code)} Edit
+            &nbsp;
+            %a{:id=>'delete',
+              :href=> route(:delete, :bto_code => s.bto_code)} Delete
+  %br
+  %a{:href=>"#{ListController.r(:new)}"} Add New
