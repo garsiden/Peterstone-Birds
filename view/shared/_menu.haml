@@ -20,7 +20,7 @@
       %li
         %a{:href => SiteController.r} Sites
       %li
-        %a{:href => ListController.r(user.login)} My List
+        %a{:href => MyListController.r(user.login)} My List
       %li
         %a{:href => AccountController.r(:logout)} Logout
     - else
