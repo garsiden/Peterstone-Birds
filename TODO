@@ -4,6 +4,7 @@ peterstonebirds TODO
         DONE - using flashbox
 
  2. Complete CRUD for observations
+        DONE - edit, delete, new and index methods
 
  3. Migrate to PostgreSQL.
 
@@ -11,6 +12,7 @@ peterstonebirds TODO
         DONE - added reference to existing forms CSS
 
  5. Overall site list with dates and first observer.
+        DONE
 
  6. Technical note.
 
@@ -38,3 +40,9 @@ peterstonebirds TODO
 17. User administration (creation, password change etc.)
 
 18. Investigate 'Remember me' for user login.
+
+19. Justify text/numbers/dates in tables
+
+20. Move database access to model classes.
+
+21  Ivestigate use of Sass for CSS
