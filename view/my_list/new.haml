@@ -11,10 +11,14 @@
     %label{:for=>'date'}
       Date:
     %input{:type=>'text', :id=>'date', :name=>'first_date'}
+    %script{:type=>'text/javascript'}
+      var d = new LiveValidation('date', {validMessage: " "});
+      d.add(Validate.Presence, {failureMessage: "Please enter a date"});
+    </script>
     %br
     %label{:for=>'note'}
       Note:
-    %textarea{:name=>'note', :id=>'note', :rows=>10, :cols=>40}
+    %textarea{:name=>'note', :id=>'note', :rows=>10, :cols=>35}
     %br
     %br
     %input{:type=>'submit', :value=>@submit}
