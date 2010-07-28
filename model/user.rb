@@ -67,21 +67,21 @@ class User < Sequel::Model
         save
     end
 
-    def before_create
-        self.updated_at = self.created_at = Time.now  
-        super
-    end
+   # def before_create
+   #     self.updated_at = self.created_at = Time.now  
+   #     super
+   # end
 
-    def before_save
-        self.updated_at = Time.now
-        super
-    end
+   # def before_save
+   #     self.updated_at = Time.now
+   #     super
+   # end
 
     # Remember until next year
-    def remember_me
-        self.remember_token_expire_at = Time.now.utc + (1 * 365 * 24 * 60 * 60)
-        self.remember_token ||= "#{uuid}-#{uuid}"
-    end
+   # def remember_me
+   #     self.remember_token_expire_at = Time.now.utc + (1 * 365 * 24 * 60 * 60)
+   #     self.remember_token ||= "#{uuid}-#{uuid}"
+   # end
 
     def authenticated?(password)
         crypted_password == encrypt(password)
@@ -108,8 +108,8 @@ class User < Sequel::Model
 
     private
 
-    def uuid
-        return rand(1e128)
-    end
+#    def uuid
+#        return rand(1e128)
+#    end
 
 end
