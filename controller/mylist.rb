@@ -5,7 +5,7 @@ class MyListController < ListController
         @user = login_or_user(login)    # base class method
         @title = "Peterstone List"
         @headings = ['Code', 'Species Name', 'First Date', '' ]
-        @sightings = @user.observations_dataset.eager(:bird).order(:first_date.desc)
+        @sightings = @user.my_list
     end
     
     def edit
@@ -25,8 +25,7 @@ class MyListController < ListController
             @legend = "New Entry"
             @title = @legend
             @submit = "Create Entry"
-            @birds = Bird.filter(:bto_code=> Observation.filter(:user_id=>user.user_id).
-                                 select(:bto_code)).invert.order(:name)
+            @birds = user.unseen_list
         end
 
         @ob = Observation.new(:user_id => user.user_id)

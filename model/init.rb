@@ -11,4 +11,3 @@ DB = Sequel.connect(ENV['DATABASE_URL'] ||
 require 'model/bird'
 require 'model/user'
 require 'model/observation'
-require 'model/site'

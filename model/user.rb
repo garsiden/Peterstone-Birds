@@ -19,6 +19,7 @@ class User < Sequel::Model
     one_to_many :observations
     plugin :timestamps, :update_on_create=>true
 
+
     # For validation
     attr_accessor :password, :password_confirmation
 
@@ -48,12 +49,38 @@ class User < Sequel::Model
         user
     end
 
-    # overwrite inherited instance method
+    # Database access
+    def my_list
+        observations_dataset.eager(:bird).order(:first_date.desc) 
+    end
+
+    def unseen_list
+        Bird.filter(:bto_code=> Observation.filter(:user_id=>user_id).
+                    select(:bto_code)).invert.order(:name)
+    end
+
+    #overwrite inherited instance methods
     def after_create
         super
         self.crypted_password = self.class.encrypt(password, salt)
         @new = false
         save
+    end
+
+    def before_create
+        self.updated_at = self.created_at = Time.now  
+        super
+    end
+
+    def before_save
+        self.updated_at = Time.now
+        super
+    end
+
+    # Remember until next year
+    def remember_me
+        self.remember_token_expire_at = Time.now.utc + (1 * 365 * 24 * 60 * 60)
+        self.remember_token ||= "#{uuid}-#{uuid}"
     end
 
     def authenticated?(password)
@@ -65,18 +92,24 @@ class User < Sequel::Model
     end
 
     if empty?
-        #  create :user_id => 'EW', :login => 'wange', :name => 'Eddie Wang'
-        h =  {'user_id' => 'NG', 'login' => 'garsiden',
+        new_user =  {'user_id' => 'NG', 'login' => 'garsiden',
             'name' => 'Nigel Garside', 'password' => 'maggio26',
             'password_confirmation' => 'maggio26'}
-        user = self.prepare(h)
+        user = self.prepare(new_user)
         user.is_admin = true
         user.save
-        h =  {'user_id' => 'EW', 'login' => 'wange',
+        new_user =  {'user_id' => 'EW', 'login' => 'wange',
             'name' => 'Eddie Wang', 'password' => 'dicembre21',
             'password_confirmation' => 'dicembre21'}
-        user = self.prepare(h)
+        user = self.prepare(new_user)
         user.is_admin = true
         user.save
     end
+
+    private
+
+    def uuid
+        return rand(1e128)
+    end
+
 end
