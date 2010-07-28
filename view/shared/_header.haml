@@ -2,7 +2,6 @@
 #header
   %a{:id => 'logo', :href => '/', :title => 'Return to home page'}
     %img{:src => '/images/dipperh.jpg', :width => 110, :height => 94, :alt => 'Dipper'}
+  %p.right= "Logged in: #{user.name}" if logged_in?
   %hr
 / end header
-
--#  =a('text', :img => '/images/dipperh.jpg')
