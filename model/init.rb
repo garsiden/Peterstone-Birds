@@ -5,7 +5,8 @@ require 'sequel'
 Sequel::Model.plugin :timestamps
 Sequel::Model.plugin :schema
 
-DB = Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://data/psbirds.db3')
+DB = Sequel.connect(ENV['DATABASE_URL'] ||
+                    'postgres://garsiden:maggio26@localhost/psbirds')
 
 require 'model/bird'
 require 'model/user'
