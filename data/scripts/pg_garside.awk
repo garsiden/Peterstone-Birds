@@ -1,8 +1,14 @@
-# Process tab separated file and output to CSV
+# Process "|" separated file and output as:
+#     NG <tab> bto_code <tab> first_date <tab> NULL
+#
+# Source file format:
+#   XX <|> species name <|> number <|> YYYY-MM-DD
 
 BEGIN {
-    FS = "|"
-    OFS = ","
+#   default FS is all whitespace, so will remove tabs and spaces
+    OFS = "\t"
 }
-#{ printf( "EW\",%s\",\"%s\"\n\"", $1, $2) }
-{ print "\"" $1 "\"", "\"" $2 "\"", "\"" $3 "\"" }
+# print first and last fields only and add \N
+{print "NG", $1, $(NF), "\\N"}
+
+

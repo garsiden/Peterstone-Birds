@@ -1,8 +1,9 @@
-# Process tab separated file and output to CSV
+# Output in format suitable for PostgreSQL COPY
+# Source file format (BTO code and date):
+#   XX <tab> YYYY-XX-XX
 
 BEGIN {
-    FS = "\t"
-    OFS = ","
+    FS  = "\t"
+    OFS = "\t"
 }
-#{ printf( "EW\",%s\",\"%s\"\n\"", $1, $2) }
-{ print "\"EW\"", "\"" $1 "\"", "\"" $2 "\"" }
+{ print "EW", $1, $2, "\\N" }
