@@ -9,6 +9,8 @@ require 'haml'
 
 # Make sure that Ramaze knows where you are
 Ramaze.options.roots = [__DIR__]
+# Route for images
+Ramaze::Route[%r!/gif/(.+)\.gif!] = '/images/%s'
 
 # Initialize controllers and models
 require __DIR__('model/init')
