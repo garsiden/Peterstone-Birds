@@ -1,5 +1,17 @@
 class MyListController < ListController
+    require 'date'
+
     helper :aspect
+
+    def initialize
+        if @bto_code = request[:bto_code]
+            session[:bto_code] = @bto_code
+        else
+            @bto_code = session[:bto_code]
+        end
+
+        super
+    end
 
     def index(login)
         @user = login_or_user(login)    # base class method
@@ -9,18 +21,14 @@ class MyListController < ListController
     end
     
     def edit
-        bto_code = request[:bto_code]
-        @user = user
         @title = "Edit Entry"
         @legend = "Edit Entry"
         @submit = "Update Entry"
-        @ob = Observation[user.user_id, bto_code]
+        @ob = Observation[user.user_id, @bto_code]
         save                            # private method
     end
     
     def new 
-        @user = user                    # Helper::User instance method
-
         if not request.post?
             @legend = "New Entry"
             @title = @legend
@@ -28,13 +36,14 @@ class MyListController < ListController
             @birds = user.unseen_list
         end
 
-        @ob = Observation.new(:user_id => user.user_id)
+        @ob = Observation.new(:user_id => user.user_id,
+                             :bto_code => @bto_code)
         save
     end
 
     def delete 
-        if bto_code = request[:bto_code]
-            Observation[user.user_id, bto_code].delete
+        if @bto_code
+            Observation[user.user_id, @bto_code].delete
         end
         redirect self.route_self(:/, user.login)
     end
@@ -47,17 +56,16 @@ class MyListController < ListController
     def save
         return unless request.post?
 
-        @ob.first_date = request[:first_date]
+        fd = Date.strptime(request[:first_date], "%d/%m/%Y")
+        @ob.first_date = fd
         @ob.note = h(request[:note])
-        @ob.bto_code = request[:bto_code]
 
         if @ob.save_changes 
             flash[:good] = "Created observation"
-            redirect self.route_self(:/, @user.login)
+            redirect self.route_self(:/, user.login)
         else
             flash[:bad] = "Couldn't create observation"
         end
     end
-
 end
 
