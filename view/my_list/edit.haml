@@ -3,10 +3,8 @@
   %fieldset
     %legend
       #{@legend}
-    %label{:for=>'code'}
-      %b Code
-    %input{:type => 'text', :id => 'code', :name => 'bto_code',
-    :size => 6, :maxlength => '2', :value=>@ob.bto_code}
+    %h3=@ob.bird.name
+    %br
     %label{:for=>'first_date'}
       %b Date
       (yyyy-mm-dd)
