@@ -11,6 +11,8 @@
     %label{:for=>'date'}
       Date:
     %input{:type=>'text', :id=>'date', :name=>'first_date'}
+    %input{:type=>'button', :value=>'select date',
+      :onclick=>"displayCalendar(document.forms[0].first_date, 'dd/mm/yyyy', this)" }
     %script{:type=>'text/javascript'}
       var d = new LiveValidation('date', {validMessage: " "});
       d.add(Validate.Presence, {failureMessage: "Please enter a date"});
