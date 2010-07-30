@@ -4,16 +4,19 @@
     %legend
       #{@legend}
     %label{:for=>'code'}
-      Code:
+      %b Code
     %input{:type => 'text', :id => 'code', :name => 'bto_code',
     :size => 6, :maxlength => '2', :value=>@ob.bto_code}
     %label{:for=>'first_date'}
-      Date:
+      %b Date
+      (yyyy-mm-dd)
     %input{:type => 'text', :id=>'first_date', :name => 'first_date',
       :value => @ob.first_date}
+    %input{:type=>'button', :value=>'change date',
+      :onclick=>"displayCalendar(document.forms[0].first_date, 'yyyy-mm-dd', this)" }
     %br
     %label{:for=>'note'}
-      Note:
+      Note
     %textarea{:name=>'note', :id=>'note', :rows=>10, :cols=>35}
       #{h(@ob.note).gsub("\n", '')}
     %br
