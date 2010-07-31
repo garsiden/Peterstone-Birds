@@ -1,28 +1,27 @@
 / form to edit observation
-%form{:action=>"#{r(:edit)}", :id=>'edit_list', :method=>'post', :title=>@title}
+%form{:action=>route(:edit, :bto_code=>@bto_code), :id=>'edit_list',
+  :method=>'post', :title=>@title}
   %fieldset
-    %legend
-      #{@legend}
-    %h3=@ob.bird.name
+    %legend= @legend
+    %h3= @ob.bird.name
     %br
     %label{:for=>'first_date'}
       %b Date
-      (yyyy-mm-dd)
+      (dd/mm/yyyy)
     %input{:type => 'text', :id=>'first_date', :name => 'first_date',
-      :value => @ob.first_date}
+      :value => @ob.first_date.strftime("%d/%m/%Y")}
     %input{:type=>'button', :value=>'change date',
-      :onclick=>"displayCalendar(document.forms[0].first_date, 'yyyy-mm-dd', this)" }
+      :onclick=>"displayCalendar(document.forms[0].first_date, 'dd/mm/yyyy', this)" }
     %br
-    %label{:for=>'note'}
-      Note
+    %label{:for=>'note'} Note
     %textarea{:name=>'note', :id=>'note', :rows=>10, :cols=>35}
-      #{h(@ob.note).gsub("\n", '')}
+      = h(@ob.note).gsub("\n", '')
     %br
     %br
     %div
       %input{:type=>'submit', :value=>@submit}
       %input{:type=>'reset'}
-      %button{:type=>'button', :name=>'Cancel', :value=>'Cancel',
+      %button{:type=>'button', :name=>'Cancel',
         :onclick=> "window.location='#{MyListController.r(user.login)}'"}
         Cancel
 / end observation form        
