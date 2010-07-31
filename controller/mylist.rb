@@ -4,12 +4,7 @@ class MyListController < ListController
     helper :aspect
 
     def initialize
-        if @bto_code = request[:bto_code]
-            session[:bto_code] = @bto_code
-        else
-            @bto_code = session[:bto_code]
-        end
-
+        @bto_code = request[:bto_code]
         super
     end
 
@@ -19,7 +14,7 @@ class MyListController < ListController
         @headings = ['Code', 'Species Name', 'First Date', '' ]
         @sightings = @user.my_list
     end
-    
+
     def edit
         @title = "Edit Entry"
         @legend = "Edit Entry"
@@ -27,24 +22,23 @@ class MyListController < ListController
         @ob = Observation[user.user_id, @bto_code]
         save                            # private method
     end
-    
+
     def new 
         if not request.post?
-            @legend = "New Entry"
-            @title = @legend
+            @title = "New Entry"
+            @legend = @title
             @submit = "Create Entry"
             @birds = user.unseen_list
+        else
+            @ob = Observation.new(:user_id => user.user_id,
+                                  :bto_code => @bto_code)
         end
 
-        @ob = Observation.new(:user_id => user.user_id,
-                             :bto_code => @bto_code)
         save
     end
 
     def delete 
-        if @bto_code
-            Observation[user.user_id, @bto_code].delete
-        end
+        Observation[user.user_id, @bto_code].delete if @bto_code
         redirect self.route_self(:/, user.login)
     end
 
@@ -56,8 +50,8 @@ class MyListController < ListController
     def save
         return unless request.post?
 
-        fd = Date.strptime(request[:first_date], "%d/%m/%Y")
-        @ob.first_date = fd
+        first_date = Date.strptime(request[:first_date], "%d/%m/%Y")
+        @ob.first_date = first_date
         @ob.note = h(request[:note])
 
         if @ob.save_changes 
