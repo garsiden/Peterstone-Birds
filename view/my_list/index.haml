@@ -1,10 +1,10 @@
 -# index.haml - MyListController default view
-%div#report
+%div
   %table.listing{:summary => @title}
     %thead
       %tr
         - @headings.each do |h|
-          %th=h
+          %th= h
     %tbody
       - @sightings.each do |s|
         %tr{:class => cycle}
@@ -13,9 +13,9 @@
           %td= s.first_date
           %td
             %a{:id=>'edit',
-              :href => MyListController.route(:edit, :bto_code => s.bto_code)} Edit
+              :href => route(:edit, :bto_code => s.bto_code)} Edit
             &nbsp;
             %a{:id=>'delete',
               :href=> route(:delete, :bto_code => s.bto_code)} Delete
   %br
-  %a{:href=>"#{MyListController.r(:new)}"} Add New
+  %a{:href=>route(:new)} Add New
