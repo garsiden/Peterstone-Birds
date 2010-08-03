@@ -9,6 +9,6 @@
       - @sightings.each do |s|
         %tr{:class => cycle}
           %td= s.bto_code
-          %td= s.bird.name
+          %td.left= s.bird.name
           %td= s.first_date
           %td= s.user_id

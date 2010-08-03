@@ -10,7 +10,7 @@ table.listing {
 }
 table.listing th { text-align: center; padding: 0 1em .1em 0; font-size: 12px }
 table.listing thead { background: #f7f7f0 }
-Table.listing thead th {
+table.listing thead th {
  border: 1px solid #d7d7d7;
  border-bottom-color: #999;     /* grey 60 */
  font-size: 11px;
@@ -18,7 +18,7 @@ Table.listing thead th {
  padding: 2px .5em;
  vertical-align: bottom;
 }
-table.listing thead th :link:hover, table.listing thead th :visited:hover {
+table.listing thead th a:link:hover, table.listing thead th a:visited:hover {
  background-color: transparent;
 }
 table.listing thead th a { border: none; padding-right: 12px }
@@ -41,3 +41,6 @@ table.listing tbody tr { border-top: 1px solid #ddd }
 table.listing tbody tr.odd { background-color: #fcfcfc }
 table.listing tbody tr.even { background-color: #f7f7f7 }
 table.listing tbody tr:hover { background: #eed !important }
+table.listing td { text-align: center}
+table.listing td.left { text-align: left }
+table.listing td.right { text-align: right }
