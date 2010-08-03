@@ -1,4 +1,4 @@
-peterstonebirds TODO
+                              peterstonebirds TODO
 
  1. Report login failure to user
         DONE - using flashbox
@@ -7,6 +7,7 @@ peterstonebirds TODO
         DONE - edit, delete, new and index methods
 
  3. Migrate to PostgreSQL.
+        DONE
 
  4. Style for forms.
         DONE - added reference to existing forms CSS
@@ -18,31 +19,57 @@ peterstonebirds TODO
 
  7. About Peterstone Gout/website.
 
- 8. Incorporate BirdTrack records and reporting.
+ 8. Move database access to model classes.
+        DONE
 
- 9. Check user creation/login for use of password salt.
+ 9. Javascript client data input validation.
+
+10  Add total number of birds on user's list page.
+
+11. User administration (creation, password change etc.)
+
+12  Import observations for EW and NG
+        DONE
+
+13. Check user creation/login for use of password salt.
         DONE - salt created using creation time and user id
 
-10. Add user name to header whenn logged in.
+14. Investigate 'Remember me' for user login.
 
-11. Use Sequel validations on data input.
+15. Justify text/numbers/dates in tables
+        DONE
 
-12. Investigate Javascript calendar control.
+16. Add user name to header whenn logged in.
+        DONE
 
-13. Javascript client data input validation.
+17. Use Sequel validations on data input.
 
-14. GOS submission forms
+18. Review PostgreSQL database table structure
 
-15. Save a BLOB in the database.
+19. Filter list of species to add by GOS list
+        DONE
 
-16. Investigate image sizing.
+Part II
 
-17. User administration (creation, password change etc.)
+ 1. Investigate Javascript calendar control.
+        DONE
 
-18. Investigate 'Remember me' for user login.
+ 2. GOS submission forms
 
-19. Justify text/numbers/dates in tables
+ 3. Save a BLOB in the database.
 
-20. Move database access to model classes.
+ 4. Investigate image sizing.
 
-21  Ivestigate use of Sass for CSS
+ 5. Incorporate BirdTrack records and reporting.
+
+ 6. Consider pagination for long lists.
+
+ 7. Sorting on table fields
+
+ 8. Admin method to update BirdTrack records
+
+ 9. Admin method to update psbirds from BirdTrack records
+
+10. Investigate use of Sass for CSS
+
+11. Consider using DataMapper
