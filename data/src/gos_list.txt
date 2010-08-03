@@ -1,0 +1,295 @@
+1	RTDI	Red-throated Diver	Y	16-Apr-64	D	Gavia stellata		Y
+2	BTDI	Black-throated Diver	Y	05-Feb-15	D	Gavia arctica		Y
+3	GNDI	Great Northern Diver	Y	01-Mar-29	D	Gavia immer		Y
+6	LIGR	Little Grebe	Y		A	Tachybaptus ruficollis		N
+7	GCGR	Great-crested Grebe	Y		A	Podiceps cristatus		N
+8	RNGR	Red-necked Grebe	Y	03-Dec-78	D	Podiceps grisegena		Y
+9	SLGR	Slavonian Grebe	Y		D	Podiceps auritus		Y
+10	BNGR	Black-necked Grebe	Y	06-Mar-48	D	Podiceps nigricollis		Y
+11	FULM	Fulmar	Y	07-Sep-67	A	Fulmarus glacialis		N
+12	COSH	Cory's Shearwater	Y	07-Sep-83	D	Calonectris diomedea		Y
+15	MASH	Manx Shearwater	Y		A	Puffinus puffinus		N
+17	STPE	Storm Petrel	Y	15-Oct-63	D	Hydrobates pelagicus		Y
+18	LEPE	Leach's Petrel	Y	31-Dec-36	D	Oceanodroma leucorhoa		Y
+19	GANN	Gannet	Y		A	Sula bassana		N
+20	CORM	Cormorant	Y		"C,U"	Phalacrocorax carbo		N
+21	SHAG	Shag	Y	15-Feb-07	D	Phalacrocorax aristotelis		Y
+22	BITT	Bittern	Y		D	Botaurus stellaris		Y
+23	AMBI	American Bittern	Y	29-Oct-81	D	Botaurus lentiginosus		Y
+24	LIBI	Little Bittern	Y	15-May-94	D	Ixobrychus minutus		Y
+25	NIHE	Night Heron	Y	22-May-83	D	Nycticorax nycticorax		Y
+27	CAEG	Cattle Egret	Y	01-Mar-81	D	Bulbulcus ibis		Y
+28	LIEG	Little Egret	Y	05-May-89	D	Egretta garzetta		Y
+29	GWEG	Great White Egret	Y		D	Egretta alba		Y
+30	GRHE	Grey Heron	Y		"B,C,U"	Ardea cinerea		N
+31	PUHE	Purple Heron	Y	26-Sep-93	D	Ardea purpurea		Y
+33	WHST	White Stork	Y	22-Jun-86	D	Ciconia ciconia		Y
+34	GLIB	Glossy Ibis	Y	11-Oct-02	D	Plegadis falcinellus		Y
+35	SPOO	Spoonbill	Y	07-Jun-73	D	Platalea leucorodia		Y
+36	MUSW	Mute Swan	Y		"B,C,U"	Cygnus olor		N
+37	BESW	Bewick's Swan	Y		A	Cygnus columbianus bewickii		N
+38	WHSW	Whooper Swan	Y		D	Cygnus cygnus		Y
+39	BEGO	Bean Goose	Y		D	Anser fabalis		Y
+40	PFGO	Pink-footed Goose	Y		D	Anser brachyrhynchus		Y
+41	WFGO	White-fronted Goose	Y		D	Anser albifrons		Y
+43	GRGO	Greylag Goose	Y	05-Sep-67	D	Anser anser		Y
+44	CAGO	Canada Goose	Y		A	Branta canadensis		N
+45	BAGO	Barnacle Goose	Y	10-Oct-70	D	Branta leucopsis		Y
+46	BRGO	Brent Goose	Y		A	Branta bernicla		N
+48	EGGO	Egyptian Goose	Y	03-Apr-83	D	Alopochen aegypticans		Y
+49	RUSH	Ruddy Shelduck	Y	23-May-65	D	Tadorna ferruginea		Y
+50	SHEL	Shelduck	Y		"B,C,U"	Tadorna tadorna		N
+51	MAND	Mandarin	Y	14-Nov-87	D	Aix galericulata		Y
+52	EUWI	Eurasian Wigeon	Y		"C,U"	Anas penelope		N
+53	AMWI	American Wigeon	Y	25-Aug-95	D	Anas americana		Y
+54	GADW	Gadwall	Y		"C,U"	Anas strepera		N
+55	TEAL	Teal	Y		"C,U"	Anas crecca		N
+56	MALL	Mallard	Y		"B,C,U"	Anas platyrhynchos		N
+57	PINT	Pintail	Y		A	Anas acuta		N
+58	GARG	Garganey	Y		D	Anas querquedula		Y
+60	SHOV	Shoveler	Y		A	Anas clypeata		N
+61	RCPO	Red-crested Pochard	Y	22-Dec-72	D	Netta rufina		Y
+62	POCH	Pochard	Y		"C,U"	Aythya ferina		N
+63	RNDU	Ring-necked Duck	Y	May-00	D	Aythya collaris		Y
+64	FEDU	Ferruginous Duck	Y	28-Oct-73	D	Aythya nyroca		Y
+65	TUDU	Tufted Duck	Y		"B,C,U"	Aythya fuligula		N
+66	SCAU	Scaup	Y		A	Aythya marila		N
+67	EIDE	Eider	Y		D	Somateria mollissima		Y
+68	LTDU	Long-tailed Duck	Y	18-Dec-66	D	Clangula hyemalis		Y
+69	COSC	Common Scoter	Y		A	Melanitta nigra		N
+71	VESC	Velvet Scoter	Y	29-Dec-38	D	Melanitta fusca		Y
+72	GOEY	Goldeneye	Y		A	Bucephala clangula		N
+74	SMEW	Smew	Y	01-Dec-38	D	Mergus albellus		Y
+75	RBME	Red-breasted Merganser	Y	01-Jan-20	D	Mergus serrator		Y
+76	GOOS	Goosander	Y		A	Mergus merganser		N
+77	RUDU	Ruddy Duck	Y	15-Dec-77	A	Oxyura jamaicensis		N
+78	HOBU	Honey Buzzard	Y	10-Jun-75	D	Pernis apivorus		Y
+79	BLKI	Black Kite	Y	15-May-85	D	Milvus migrans		Y
+80	REKI	Red Kite	Y		D	Milvus milvus		Y
+82	MAHA	Marsh Harrier	Y		D	Circus aeruginosus		Y
+83	HEHA	Hen Harrier	Y		D	Circus cyaneus		Y
+84	MOHA	Montagu's Harrier	Y		D	Circus pygargus		Y
+85	GOSH	Goshawk	Y		D	Accipiter gentilis		N
+86	SPAR	Sparrowhawk	Y		"B,C,U"	Accipiter nisus		N
+87	BUZZ	Buzzard	Y		"B,C,U"	Buteo buteo		N
+88	RLBU	Rough-legged Buzzard	Y	21-Jan-73	D	Buteo lagopus		Y
+89	GOEA	Golden Eagle	Y	24-Mar-85	D	Aquila chrysaetos		Y
+90	OSPR	Osprey	Y		D	Pandion haliaetus		Y
+91	KEST	Kestrel	Y		"B,C,U"	Falco tinnunculus		N
+93	MERL	Merlin	Y		A	Falco columbarius		N
+94	HOBB	Hobby	Y		A	Falco subbuteo		N
+95	PERE	Peregrine	Y		A	Falco peregrinus		N
+96	REGR	Red Grouse	Y		A	Lagopus lagopus		N
+97	BLGR	Black Grouse	Y		D	Tetrao tetrix		Y
+98	RLPA	Red-legged Partridge	Y		A	Alectoris rufa		N
+99	GRPA	Grey Partridge	Y		A	Perdix perdix		N
+100	QUAI	Quail	Y		D	Coturnix coturnix		Y
+101	PHEA	Pheasant	Y		"B,C,U"	Phasianus colchicus		N
+102	GOPH	Golden Pheasant	Y	29-Nov-78	D	Chrysolophus pictus		Y
+103	WARA	Water Rail	Y		A	Rallus aquaticus		N
+104	SPCR	Spotted Crake	Y		D	Porzana porzana		Y
+108	CORN	Corncrake	Y		D	Crex crex		Y
+109	MOOR	Moorhen	Y		"B,C,U"	Gallinula chloropus		N
+110	COOT	Coot	Y		"B,C,U"	Fulica atra		N
+111	CRAN	Crane	Y	25-Jan-78	D	Grus grus		Y
+112	OYST	Oystercatcher	Y		"B,C,U"	Haematopus ostralegus		N
+113	BWST	Black-winged Stilt	Y		D	Himantopus himantopus		
+114	AVOC	Avocet	Y		D	Recurvirostra avosetta		Y
+115	STCU	Stone Curlew	Y	10-Apr-70	D	Burhinus oedicnemus		Y
+118	LRPL	Little Ringed Plover	Y	04-Jul-64	A	Charadrius dubius		N
+119	RIPL	Ringed Plover	Y		"B,C,U"	Charadrius hiaticula		N
+121	KEPL	Kentish Plover	Y	21-Apr-78	D	Charadrius alexandrinus		Y
+122	GSPL	Greater Sand Plover	Y	16-May-88	D	Charadrius leschenaultii		Y
+123	DOTT	Dotterel	Y	01-Sep-72	D	Charadrius morinellus		Y
+126	GOPL	Golden Plover	Y		A	Pluvialis apricaria		N
+127	GRPL	Grey Plover	Y		"C,U"	Pluvialis squatarola		N
+129	LAPW	Lapwing	Y		"B,C,U"	Vanellus vanellus		N
+130	KNOT	Knot	Y		"C,U"	Calidris canutus		N
+131	SAND	Sanderling	Y		"C,U"	Calidris alba		N
+133	LIST	Little Stint	Y		A	Calidris minuta		N
+134	TEST	Temminck's Stint	Y	18-May-87	D	Calidris temminckii		Y
+136	WRSA	White-rumped Sandpiper	Y	11-Aug-95	D	Calidris fuscicollis		Y
+137	BASA	Baird's Sandpiper	Y	Sep-98	D	Calidris bairdii		Y
+138	PESA	Pectoral Sandpiper	Y		D	Calidris melanotos		Y
+139	CUSA	Curlew Sandpiper	Y		A	Calidris ferruginea		N
+140	PUSA	Purple Sandpiper	Y		D	Calidris maritima		Y
+141	DUNL	Dunlin	Y		"C,U"	Calidris alpina		N
+142	BBSA	Broad-billed Sandpiper	Y	07-May-79	D	Limicola falcinellus		Y
+144	BUSA	Buff-breasted Sandpiper	Y	13-Sep-78	D	Tryngites subruficollis		Y
+145	RUFF	Ruff	Y		A	Philomachus pugnax		N
+146	JASN	Jack Snipe	Y		A	Lymnocryptes minimus		N
+147	SNIP	Snipe	Y		"B,C,U"	Gallinago gallinago		N
+148	LBDO	Long-billed Dowitcher	Y	14-Sep-85	D	Limnodromus scolopaceus		Y
+149	WOCO	Woodcock	Y		A	Scolopax rusticola		N
+150	BLGO	Black-tailed Godwit	Y		"C,U"	Limosa limosa		N
+151	BTGO	Bar-tailed Godwit	Y		"C,U"	Limosa lapponica		N
+152	WHIM	Whimbrel	Y		"C,U"	Numenius phaeopus		N
+153	CURL	Curlew	Y		"B,C,U"	Numenius arquata		N
+154	SPRE	Spotted Redshank	Y		A	Tringa erythropus		N
+155	REDS	Redshank	Y		"B,C,U"	Tringa totanus		N
+157	GREE	Greenshank	Y		"C,U"	Tringa nebularia		N
+159	LEYE	Lesser Yellowlegs	Y	25-Sep-81	D	Tringa flavipes		Y
+160	GRSA	Green Sandpiper	Y		A	Tringa ochropus		N
+161	WOSA	Wood Sandpiper	Y		D	Tringa glareola		Y
+163	COSA	Common Sandpiper	Y		"B,C,U"	Actitis hypoleucos		N
+164	SPSA	Spotted Sandpiper	Y	26-Oct-80	D	Actitis macularia		Y
+165	TURN	Turnstone	Y		A	Arenaria interpres		N
+167	RNPH	Red-necked Phalarope	Y	15-Nov-72	D	Phalaropus lobatus		Y
+168	GRPH	Grey Phalarope	Y		D	Phalaropus fulicarius		Y
+169	POSK	Pomarine Skua	Y	21-May-83	D	Stercorarius pomarinus		Y
+170	ARSK	Arctic Skua	Y		D	Stercorarius parasiticus		Y
+171	LTSK	Long-tailed Skua	Y		D	Stercorarius longicaudus		Y
+172	GRSK	Great Skua	Y		D	Stercorarius skua		Y
+174	MEGU	Mediterranean Gull	Y	03-Apr-75	A	Larus melanocephalus		N
+177	LIGU	Little Gull	Y	16-Aug-72	A	Larus minutus		N
+178	SAGU	Sabine's Gull	Y	05-Sep-83	D	Larus sabini		Y
+180	BHGU	Black-headed Gull	Y		"B,C,U"	Larus ridibundus		N
+181	RBGU	Ring-billed Gull	Y	28-May-81	D	Larus delawarensis		Y
+182	COGU	Common Gull	Y		"C,U"	Larus canus		N
+183	LBBG	Lesser Black-backed Gull	Y		"B,C,U"	Larus fuscus		N
+184	HEGU	Herring Gull	Y		"B,C,U"	Larus argentatus		N
+185	YLGU	Yellow-legged Gull	Y		D	Larus argentatus michallis	Y	
+186	ICGU	Iceland Gull	Y	20-Jan-84	D	Larus glaucoides		Y
+187	GLGU	Glaucous Gull	Y		D	Larus hyperboreus		Y
+188	GBBG	Great Black-backed Gull	Y		"B,C,U"	Larus marinus		N
+190	KITT	Kittiwake	Y		A	Rissa tridactyla		Y
+192	GBTE	Gull-billed Tern	Y	05-Jul-79	D	Gelochelidon nilotica		Y
+196	SATE	Sandwich Tern	Y		A	Sterna sandvicensis		N
+197	ROTE	Roseate Tern	Y	07-Jul-82	D	Sterna dougallii		Y
+198	COTE	Common Tern	Y		A	Sterna hirundo		N
+199	ARTE	Arctic Tern	Y		A	Sterna paradisaea		N
+201	LITE	Little Tern	Y		D	Sterna albifrons		Y
+202	WHTE	Whiskered Tern	Y	15-Jul-94	D	Chlidonias hybridus		Y
+203	BLTE	Black Tern	Y		D	Childonias niger		Y
+204	WWBT	White-winged Black Tern	Y	29-May-91	D	Chlidonias leucopterus		Y
+205	GUIL	Guillemot	Y		D	Uria aalge		Y
+206	RAZO	Razorbill	Y		D	Alca torda		Y
+209	LIAU	Little Auk	Y		D	Alle alle		Y
+210	PUFF	Puffin	Y		D	Fratercula arctica		Y
+211	FEPI	Feral Pigeon	Y		"B,U"	Columba livia		N
+212	WOPI	Woodpigeon	Y		"B,C,M,U"	Columba palumbus		N
+213	STDO	Stock Dove	Y		"B,C,U"	Columba oenas		N
+214	CODO	Collared Dove	Y		"B,C,U"	Streptopelia decaocto		N
+215	TUDO	Turtle Dove	Y		A	Streptopelia turtur		N
+216	RNPA	Ringed-necked Parakeet	Y		D	Psittacula krameri		Y
+218	CUCK	Cuckoo	Y		"B,E/L,U"	Cuculus canorus		N
+219	BAOW	Barn Owl	Y		A	Tyto alba		N
+220	SNOW	Snowy Owl	Y		D	Nyctea scandiaca		Y
+221	LIOW	Little Owl	Y		"B,U"	Athene noctua		N
+222	TAOW	Tawny Owl	Y		"B,U"	Strix aluco		N
+223	LEOW	Long-eared Owl	Y		D	Asio otus		Y
+224	SEOW	Short-eared Owl	Y		A	Asio flammeus		N
+225	NIJA	Nightjar	Y		A	Caprimulgus europaeus		N
+226	SWIF	Swift	Y		"B,C,E/L"	Apus apus		N
+227	ALSW	Alpine Swift	Y	15-Apr-88	D	Apus melba		Y
+228	KING	Kingfisher	Y		"B,U"	Alcedo atthis		N
+229	BEEE	Bee-eater	Y	06-Jun-81	D	Merops apiaster		Y
+230	ROLL	Roller	Y	30-Sep-87	D	Coracias garrulus		Y
+231	HOOP	Hoopoe	Y		D	Upupa epops		Y
+232	WRYN	Wryneck	Y		D	Jynx torquilla		Y
+233	GRWO	Green Woodpecker	Y		"B,U"	Picus viridis		N
+234	GSWO	Great Spotted Woodpecker	Y		"B,U"	Dendrocopos major		N
+235	LSWO	Lesser Spotted Woodpecker	Y		A	Dendrocopos minor		N
+237	WOLA	Woodlark	Y		D	Lullula arborea		Y
+238	SKLA	Skylark	Y		"B,C,M,U"	Alauda arvensis		N
+239	SHLA	Shore Lark	Y		D	Eremophila alpestris		Y
+240	SAMA	Sand Martin	Y		"B,C,E/L,M"	Riparia riparia		N
+241	SWAL	Swallow	Y		"B,C,E/L,M"	Hirundo rustica		N
+243	HOMA	House Martin	Y		"B,C,E/L,M"	Delichon urbica		N
+244	RIPI	Richard's Pipit	Y		D	Anthus novaeseelaniae		Y
+245	TAPI	Tawny Pipit	Y	27-Apr-88	D	Anthus campestris		Y
+247	TRPI	Tree Pipit	Y		"B,E/L,M"	Anthus trivialis		N
+248	MEPI	Meadow Pipit	Y		"B,C,M,U"	Anthus pratensis		N
+250	ROPI	Rock Pipit	Y		A	Anthus spinoletta		N
+251	WAPI	Water Pipit	Y	01-Jan-86	D	Anthus spinoletta spinoletta		Y
+252	BHWA	Blue-headed Wagtail	Y	06-Jun-36	D	Motacilla flava flava	Y	Y
+252	GHWA	Grey-headed Wagtail	Y	26-May-94	D	Motacilla flava thumbergi	Y	Y
+252	YEWA	Yellow Wagtail	Y		"B,E/L,M"	Motacilla flava		N
+254	GRWG	Grey Wagtail	Y		"B,M"	Motacilla cinerea		N
+255	WHWA	White Wagtail	Y		"E/L,M"	Motacilla alba alba	Y	N
+255	PIWA	Pied Wagtail	Y		"B,M"	Motacilla alba yarrellii		N
+256	WAXW	Waxwing	Y		D	Bombycilla garrulus		Y
+257	DIPP	Dipper	Y		"B,C,U"	Cinclus cinclus		N
+258	WREN	Wren	Y		"B,U"	Troglodytes troglodytes		N
+259	DUNN	Dunnock	Y		"B,U"	Prunella modularis		N
+260	ROBI	Robin	Y		"B,U"	Erithacus rubecula		N
+261	NIGH	Nightingale	Y		D	Luscinia megarhynchos		Y
+262	BLUE	Bluethroat	Y	Oct-00	D	Luscinia svecica		Y
+263	BLRE	Black Redstart	Y		D	Phoenicurus ochruros		Y
+264	REST	Redstart	Y		"B,E/L,"	Phoenicurus phoenicurus		N
+265	WHIN	Whinchat	Y		"B,E/L"	Saxicola rubetra		N
+266	STON	Stonechat	Y		A	Saxicola torquata		N
+267	WHEA	Northern Wheatear	Y		"B,C,E/L"	Oenanthe oenanthe		N
+270	DEWH	Desert Wheatear	Y	Dec-96	D	Oenanthe deserti		Y
+271	RIOU	Ring Ouzel	Y		A	Turdus torquatus		N
+272	BLBI	Blackbird	Y		"B,U"	Turdus merula		N
+273	FIEL	Fieldfare	Y		"C,E/L,M"	Turdus pilaris		N
+274	SOTH	Song Thrush	Y		"B,U"	Turdus philomelos		N
+275	REDW	Redwing	Y		"C,E/L,M"	Turdus iliacus		N
+276	MITH	Mistle Thrush	Y		"B,C"	Turdus viscivorus		N
+277	CEWA	Cetti's Warbler	Y	16-Mar-88	D	Cettia cetti		Y
+278	GRWA	Grasshopper Warbler	Y		A	Locustella naevia		N
+280	AQWA	Aquatic Warbler	Y	20-Aug-89	D	Acrocephalus melanopogon		Y
+281	SEWA	Sedge Warbler	Y		"B,E/L"	Acrocephalus schoenobaenus		N
+282	MAWA	Marsh Warbler	Y		D	Acrocephalus palustris		Y
+283	REWA	Reed Warbler	Y		"B,E/L"	Acrocephalus scirpaceus		N
+285	MEWA	Melodious Warbler	Y		D	Hippolais polyglotta		Y
+286	DAWA	Dartford Warbler	Y	03-Dec-84	D	Sylvia undata		Y
+288	BAWA	Barred Warbler	Y	29-Aug-94	D	Sylvia nisoria		Y
+289	LEWH	Lesser Whitethroat	Y		"B,E/L"	Sylvia curruca		N
+290	WHIT	Whitethroat	Y		"B,E/L"	Sylvia communis		N
+291	GAWA	Garden Warbler	Y		"B,E/L"	Sylvia borin		N
+292	BLCA	Blackcap	Y		"B,E/L,U"	Sylvia atricapilla		N
+296	YBWA	Yellow-browed Warbler	Y	14-Oct-88	D	Phylloscopus Inornatus		Y
+300	WOWA	Wood Warbler	Y		"B,E/L"	Phylloscopus sibilatrix		N
+301	CHIF	Chiffchaff	Y		"B,E/L,U"	Phylloscopus collybita		N
+302	WIWA	Willow Warbler	Y		"B,E/L"	Phylloscopus trochilus		N
+303	GOCR	Goldcrest	Y		"B,M"	Regulus regulus		N
+304	FIRE	Firecrest	Y		D	Regulus ignicapillus		Y
+305	SPFL	Spotted Flycatcher	Y		"B,E/L"	Muscicapa striata		N
+306	RBFL	Red-breasted Flycatcher	Y		D	Ficedula parva		Y
+307	PIFL	Pied Flycatcher	Y		"B,E/L"	Ficedula hypoleuca		N
+308	BETI	Bearded Tit	Y		D	Panurus biarmicus		Y
+309	LTTI	Long-tailed Tit	Y		"B,M"	Aegithalos caudatus		N
+310	MATI	Marsh Tit	Y		"B,M"	Parus palustris		N
+311	WITI	Willow Tit	Y		"B,M"	Parus montanus		N
+312	COTI	Coal Tit	Y		"B,M"	Parus ater		N
+313	BLTI	Blue Tit	Y		"B,M"	Parus caeruleus		N
+314	GRTI	Great Tit	Y		"B,M"	Parus major		N
+315	NUTH	Nuthatch	Y		B	Sitta europaea		N
+316	TREE	Treecreeper	Y		B	Certhia familiaris		N
+318	GOOR	Golden Oriole	Y		D	Oriolus oriolus		Y
+320	RBSH	Red-backed Shrike	Y		D	Lanius collurio		Y
+322	GGSH	Great Grey Shrike	Y		D	Lanius excubitor		Y
+323	WOSH	Woodchat Shrike	Y	01-Oct-83	D	Lanius senator		Y
+324	JAY	Jay	Y		"B,M"	Garrulus glandarius		N
+325	MAGP	Magpie	Y		"B,C"	Pica pica		N
+326	NUTC	Nutcracker	Y		D	Nucifraga caryocatactes		Y
+327	CHOU	Chough	Y	30-Sep-72	D	Pyrrhocorax pyrrhocorax		Y
+327	JACK	Jackdaw	Y		"B,C"	Corvus monedula		N
+328	ROOK	Rook	Y		"B,C"	Corvus frugilegus		N
+329	CACR	Carrion Crow	Y		"B,C"	Corvus corone corone		N
+330	HOCR	Hooded Crow	Y		D	Corvus corone cornix	Y	Y
+331	RAVE	Raven	Y		"B,C"	Corvus corax		N
+332	STAR	Starling	Y		"B,C"	Sturnus vulgaris		N
+333	RCST	Rose Coloured Starling	Y		D	Sturnus roseus		Y
+334	HOSP	House Sparrow	Y		"B,C"	Passer domesticus		N
+335	TRSP	Tree Sparrow	Y		A	Passer montanus		N
+336	CHAF	Chaffinch	Y		"B,C,M"	Fringilla coelebs		N
+337	BRAM	Brambling	Y		"C,E/L,M"	Fringilla montifringilla		N
+339	GRFI	Greenfinch	Y		"B,C,M"	Carduelis chloris		N
+340	GOFI	Goldfinch	Y		"B,C,M"	Carduelis carduelis		N
+341	SISK	Siskin	Y		"B,C,M"	Carduelis spinus		N
+342	LINN	Linnet	Y		"B,C,M"	Carduelis cannabina		N
+343	TWIT	Twite	Y		D	Caruelis flavirostris		Y
+344	REDP	Redpoll	Y		"B,C,M"	Carduelis flammea		N
+346	CROS	Crossbill	Y		"B,C,M"	Loxia curvirostra		N
+348	BULL	Bullfinch	Y		"B,C"	Pyrrhula pyrrhula		N
+349	HAWF	Hawfinch	Y		A	Coccothraustes coccothraustes		N
+350	LAPL	Lapland Bunting	Y	13-Dec-70	D	Calcarius lapponicus		Y
+351	SNBU	Snow Bunting	Y		D	Plectrophenax nivalis		Y
+352	YELL	Yellowhammer	Y		"B,C"	Emberiza citrinella		N
+353	CIBU	Cirl Bunting	Y		D	Emberiza cirlus		Y
+354	ORBU	Ortolan Bunting	Y		D	Emberiza hortulana		Y
+355	REBU	Reed Bunting	Y		"B,C,M"	Emberiza schoeniclus		N
+356	COBU	Corn Bunting	Y		D	Miliaria calandra		Y

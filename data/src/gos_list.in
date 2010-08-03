@@ -1,0 +1,295 @@
+RTDI	Red-throated Diver	Gavia stellata
+BTDI	Black-throated Diver	Gavia arctica
+GNDI	Great Northern Diver	Gavia immer
+LIGR	Little Grebe	Tachybaptus ruficollis
+GCGR	Great-crested Grebe	Podiceps cristatus
+RNGR	Red-necked Grebe	Podiceps grisegena
+SLGR	Slavonian Grebe	Podiceps auritus
+BNGR	Black-necked Grebe	Podiceps nigricollis
+FULM	Fulmar	Fulmarus glacialis
+COSH	Cory's Shearwater	Calonectris diomedea
+MASH	Manx Shearwater	Puffinus puffinus
+STPE	Storm Petrel	Hydrobates pelagicus
+LEPE	Leach's Petrel	Oceanodroma leucorhoa
+GANN	Gannet	Sula bassana
+CORM	Cormorant	Phalacrocorax carbo
+SHAG	Shag	Phalacrocorax aristotelis
+BITT	Bittern	Botaurus stellaris
+AMBI	American Bittern	Botaurus lentiginosus
+LIBI	Little Bittern	Ixobrychus minutus
+NIHE	Night Heron	Nycticorax nycticorax
+CAEG	Cattle Egret	Bulbulcus ibis
+LIEG	Little Egret	Egretta garzetta
+GWEG	Great White Egret	Egretta alba
+GRHE	Grey Heron	Ardea cinerea
+PUHE	Purple Heron	Ardea purpurea
+WHST	White Stork	Ciconia ciconia
+GLIB	Glossy Ibis	Plegadis falcinellus
+SPOO	Spoonbill	Platalea leucorodia
+MUSW	Mute Swan	Cygnus olor
+BESW	Bewick's Swan	Cygnus columbianus bewickii
+WHSW	Whooper Swan	Cygnus cygnus
+BEGO	Bean Goose	Anser fabalis
+PFGO	Pink-footed Goose	Anser brachyrhynchus
+WFGO	White-fronted Goose	Anser albifrons
+GRGO	Greylag Goose	Anser anser
+CAGO	Canada Goose	Branta canadensis
+BAGO	Barnacle Goose	Branta leucopsis
+BRGO	Brent Goose	Branta bernicla
+EGGO	Egyptian Goose	Alopochen aegypticans
+RUSH	Ruddy Shelduck	Tadorna ferruginea
+SHEL	Shelduck	Tadorna tadorna
+MAND	Mandarin	Aix galericulata
+EUWI	Eurasian Wigeon	Anas penelope
+AMWI	American Wigeon	Anas americana
+GADW	Gadwall	Anas strepera
+TEAL	Teal	Anas crecca
+MALL	Mallard	Anas platyrhynchos
+PINT	Pintail	Anas acuta
+GARG	Garganey	Anas querquedula
+SHOV	Shoveler	Anas clypeata
+RCPO	Red-crested Pochard	Netta rufina
+POCH	Pochard	Aythya ferina
+RNDU	Ring-necked Duck	Aythya collaris
+FEDU	Ferruginous Duck	Aythya nyroca
+TUDU	Tufted Duck	Aythya fuligula
+SCAU	Scaup	Aythya marila
+EIDE	Eider	Somateria mollissima
+LTDU	Long-tailed Duck	Clangula hyemalis
+COSC	Common Scoter	Melanitta nigra
+VESC	Velvet Scoter	Melanitta fusca
+GOEY	Goldeneye	Bucephala clangula
+SMEW	Smew	Mergus albellus
+RBME	Red-breasted Merganser	Mergus serrator
+GOOS	Goosander	Mergus merganser
+RUDU	Ruddy Duck	Oxyura jamaicensis
+HOBU	Honey Buzzard	Pernis apivorus
+BLKI	Black Kite	Milvus migrans
+REKI	Red Kite	Milvus milvus
+MAHA	Marsh Harrier	Circus aeruginosus
+HEHA	Hen Harrier	Circus cyaneus
+MOHA	Montagu's Harrier	Circus pygargus
+GOSH	Goshawk	Accipiter gentilis
+SPAR	Sparrowhawk	Accipiter nisus
+BUZZ	Buzzard	Buteo buteo
+RLBU	Rough-legged Buzzard	Buteo lagopus
+GOEA	Golden Eagle	Aquila chrysaetos
+OSPR	Osprey	Pandion haliaetus
+KEST	Kestrel	Falco tinnunculus
+MERL	Merlin	Falco columbarius
+HOBB	Hobby	Falco subbuteo
+PERE	Peregrine	Falco peregrinus
+REGR	Red Grouse	Lagopus lagopus
+BLGR	Black Grouse	Tetrao tetrix
+RLPA	Red-legged Partridge	Alectoris rufa
+GRPA	Grey Partridge	Perdix perdix
+QUAI	Quail	Coturnix coturnix
+PHEA	Pheasant	Phasianus colchicus
+GOPH	Golden Pheasant	Chrysolophus pictus
+WARA	Water Rail	Rallus aquaticus
+SPCR	Spotted Crake	Porzana porzana
+CORN	Corncrake	Crex crex
+MOOR	Moorhen	Gallinula chloropus
+COOT	Coot	Fulica atra
+CRAN	Crane	Grus grus
+OYST	Oystercatcher	Haematopus ostralegus
+BWST	Black-winged Stilt	Himantopus himantopus
+AVOC	Avocet	Recurvirostra avosetta
+STCU	Stone Curlew	Burhinus oedicnemus
+LRPL	Little Ringed Plover	Charadrius dubius
+RIPL	Ringed Plover	Charadrius hiaticula
+KEPL	Kentish Plover	Charadrius alexandrinus
+GSPL	Greater Sand Plover	Charadrius leschenaultii
+DOTT	Dotterel	Charadrius morinellus
+GOPL	Golden Plover	Pluvialis apricaria
+GRPL	Grey Plover	Pluvialis squatarola
+LAPW	Lapwing	Vanellus vanellus
+KNOT	Knot	Calidris canutus
+SAND	Sanderling	Calidris alba
+LIST	Little Stint	Calidris minuta
+TEST	Temminck's Stint	Calidris temminckii
+WRSA	White-rumped Sandpiper	Calidris fuscicollis
+BASA	Baird's Sandpiper	Calidris bairdii
+PESA	Pectoral Sandpiper	Calidris melanotos
+CUSA	Curlew Sandpiper	Calidris ferruginea
+PUSA	Purple Sandpiper	Calidris maritima
+DUNL	Dunlin	Calidris alpina
+BBSA	Broad-billed Sandpiper	Limicola falcinellus
+BUSA	Buff-breasted Sandpiper	Tryngites subruficollis
+RUFF	Ruff	Philomachus pugnax
+JASN	Jack Snipe	Lymnocryptes minimus
+SNIP	Snipe	Gallinago gallinago
+LBDO	Long-billed Dowitcher	Limnodromus scolopaceus
+WOCO	Woodcock	Scolopax rusticola
+BLGO	Black-tailed Godwit	Limosa limosa
+BTGO	Bar-tailed Godwit	Limosa lapponica
+WHIM	Whimbrel	Numenius phaeopus
+CURL	Curlew	Numenius arquata
+SPRE	Spotted Redshank	Tringa erythropus
+REDS	Redshank	Tringa totanus
+GREE	Greenshank	Tringa nebularia
+LEYE	Lesser Yellowlegs	Tringa flavipes
+GRSA	Green Sandpiper	Tringa ochropus
+WOSA	Wood Sandpiper	Tringa glareola
+COSA	Common Sandpiper	Actitis hypoleucos
+SPSA	Spotted Sandpiper	Actitis macularia
+TURN	Turnstone	Arenaria interpres
+RNPH	Red-necked Phalarope	Phalaropus lobatus
+GRPH	Grey Phalarope	Phalaropus fulicarius
+POSK	Pomarine Skua	Stercorarius pomarinus
+ARSK	Arctic Skua	Stercorarius parasiticus
+LTSK	Long-tailed Skua	Stercorarius longicaudus
+GRSK	Great Skua	Stercorarius skua
+MEGU	Mediterranean Gull	Larus melanocephalus
+LIGU	Little Gull	Larus minutus
+SAGU	Sabine's Gull	Larus sabini
+BHGU	Black-headed Gull	Larus ridibundus
+RBGU	Ring-billed Gull	Larus delawarensis
+COGU	Common Gull	Larus canus
+LBBG	Lesser Black-backed Gull	Larus fuscus
+HEGU	Herring Gull	Larus argentatus
+YLGU	Yellow-legged Gull	Larus argentatus michallis
+ICGU	Iceland Gull	Larus glaucoides
+GLGU	Glaucous Gull	Larus hyperboreus
+GBBG	Great Black-backed Gull	Larus marinus
+KITT	Kittiwake	Rissa tridactyla
+GBTE	Gull-billed Tern	Gelochelidon nilotica
+SATE	Sandwich Tern	Sterna sandvicensis
+ROTE	Roseate Tern	Sterna dougallii
+COTE	Common Tern	Sterna hirundo
+ARTE	Arctic Tern	Sterna paradisaea
+LITE	Little Tern	Sterna albifrons
+WHTE	Whiskered Tern	Chlidonias hybridus
+BLTE	Black Tern	Childonias niger
+WWBT	White-winged Black Tern	Chlidonias leucopterus
+GUIL	Guillemot	Uria aalge
+RAZO	Razorbill	Alca torda
+LIAU	Little Auk	Alle alle
+PUFF	Puffin	Fratercula arctica
+FEPI	Feral Pigeon	Columba livia
+WOPI	Woodpigeon	Columba palumbus
+STDO	Stock Dove	Columba oenas
+CODO	Collared Dove	Streptopelia decaocto
+TUDO	Turtle Dove	Streptopelia turtur
+RNPA	Ringed-necked Parakeet	Psittacula krameri
+CUCK	Cuckoo	Cuculus canorus
+BAOW	Barn Owl	Tyto alba
+SNOW	Snowy Owl	Nyctea scandiaca
+LIOW	Little Owl	Athene noctua
+TAOW	Tawny Owl	Strix aluco
+LEOW	Long-eared Owl	Asio otus
+SEOW	Short-eared Owl	Asio flammeus
+NIJA	Nightjar	Caprimulgus europaeus
+SWIF	Swift	Apus apus
+ALSW	Alpine Swift	Apus melba
+KING	Kingfisher	Alcedo atthis
+BEEE	Bee-eater	Merops apiaster
+ROLL	Roller	Coracias garrulus
+HOOP	Hoopoe	Upupa epops
+WRYN	Wryneck	Jynx torquilla
+GRWO	Green Woodpecker	Picus viridis
+GSWO	Great Spotted Woodpecker	Dendrocopos major
+LSWO	Lesser Spotted Woodpecker	Dendrocopos minor
+WOLA	Woodlark	Lullula arborea
+SKLA	Skylark	Alauda arvensis
+SHLA	Shore Lark	Eremophila alpestris
+SAMA	Sand Martin	Riparia riparia
+SWAL	Swallow	Hirundo rustica
+HOMA	House Martin	Delichon urbica
+RIPI	Richard's Pipit	Anthus novaeseelaniae
+TAPI	Tawny Pipit	Anthus campestris
+TRPI	Tree Pipit	Anthus trivialis
+MEPI	Meadow Pipit	Anthus pratensis
+ROPI	Rock Pipit	Anthus spinoletta
+WAPI	Water Pipit	Anthus spinoletta spinoletta
+BHWA	Blue-headed Wagtail	Motacilla flava flava
+GHWA	Grey-headed Wagtail	Motacilla flava thumbergi
+YEWA	Yellow Wagtail	Motacilla flava
+GRWG	Grey Wagtail	Motacilla cinerea
+WHWA	White Wagtail	Motacilla alba alba
+PIWA	Pied Wagtail	Motacilla alba yarrellii
+WAXW	Waxwing	Bombycilla garrulus
+DIPP	Dipper	Cinclus cinclus
+WREN	Wren	Troglodytes troglodytes
+DUNN	Dunnock	Prunella modularis
+ROBI	Robin	Erithacus rubecula
+NIGH	Nightingale	Luscinia megarhynchos
+BLUE	Bluethroat	Luscinia svecica
+BLRE	Black Redstart	Phoenicurus ochruros
+REST	Redstart	Phoenicurus phoenicurus
+WHIN	Whinchat	Saxicola rubetra
+STON	Stonechat	Saxicola torquata
+WHEA	Northern Wheatear	Oenanthe oenanthe
+DEWH	Desert Wheatear	Oenanthe deserti
+RIOU	Ring Ouzel	Turdus torquatus
+BLBI	Blackbird	Turdus merula
+FIEL	Fieldfare	Turdus pilaris
+SOTH	Song Thrush	Turdus philomelos
+REDW	Redwing	Turdus iliacus
+MITH	Mistle Thrush	Turdus viscivorus
+CEWA	Cetti's Warbler	Cettia cetti
+GRWA	Grasshopper Warbler	Locustella naevia
+AQWA	Aquatic Warbler	Acrocephalus melanopogon
+SEWA	Sedge Warbler	Acrocephalus schoenobaenus
+MAWA	Marsh Warbler	Acrocephalus palustris
+REWA	Reed Warbler	Acrocephalus scirpaceus
+MEWA	Melodious Warbler	Hippolais polyglotta
+DAWA	Dartford Warbler	Sylvia undata
+BAWA	Barred Warbler	Sylvia nisoria
+LEWH	Lesser Whitethroat	Sylvia curruca
+WHIT	Whitethroat	Sylvia communis
+GAWA	Garden Warbler	Sylvia borin
+BLCA	Blackcap	Sylvia atricapilla
+YBWA	Yellow-browed Warbler	Phylloscopus Inornatus
+WOWA	Wood Warbler	Phylloscopus sibilatrix
+CHIF	Chiffchaff	Phylloscopus collybita
+WIWA	Willow Warbler	Phylloscopus trochilus
+GOCR	Goldcrest	Regulus regulus
+FIRE	Firecrest	Regulus ignicapillus
+SPFL	Spotted Flycatcher	Muscicapa striata
+RBFL	Red-breasted Flycatcher	Ficedula parva
+PIFL	Pied Flycatcher	Ficedula hypoleuca
+BETI	Bearded Tit	Panurus biarmicus
+LTTI	Long-tailed Tit	Aegithalos caudatus
+MATI	Marsh Tit	Parus palustris
+WITI	Willow Tit	Parus montanus
+COTI	Coal Tit	Parus ater
+BLTI	Blue Tit	Parus caeruleus
+GRTI	Great Tit	Parus major
+NUTH	Nuthatch	Sitta europaea
+TREE	Treecreeper	Certhia familiaris
+GOOR	Golden Oriole	Oriolus oriolus
+RBSH	Red-backed Shrike	Lanius collurio
+GGSH	Great Grey Shrike	Lanius excubitor
+WOSH	Woodchat Shrike	Lanius senator
+JAY	Jay	Garrulus glandarius
+MAGP	Magpie	Pica pica
+NUTC	Nutcracker	Nucifraga caryocatactes
+CHOU	Chough	Pyrrhocorax pyrrhocorax
+JACK	Jackdaw	Corvus monedula
+ROOK	Rook	Corvus frugilegus
+CACR	Carrion Crow	Corvus corone corone
+HOCR	Hooded Crow	Corvus corone cornix
+RAVE	Raven	Corvus corax
+STAR	Starling	Sturnus vulgaris
+RCST	Rose Coloured Starling	Sturnus roseus
+HOSP	House Sparrow	Passer domesticus
+TRSP	Tree Sparrow	Passer montanus
+CHAF	Chaffinch	Fringilla coelebs
+BRAM	Brambling	Fringilla montifringilla
+GRFI	Greenfinch	Carduelis chloris
+GOFI	Goldfinch	Carduelis carduelis
+SISK	Siskin	Carduelis spinus
+LINN	Linnet	Carduelis cannabina
+TWIT	Twite	Caruelis flavirostris
+REDP	Redpoll	Carduelis flammea
+CROS	Crossbill	Loxia curvirostra
+BULL	Bullfinch	Pyrrhula pyrrhula
+HAWF	Hawfinch	Coccothraustes coccothraustes
+LAPL	Lapland Bunting	Calcarius lapponicus
+SNBU	Snow Bunting	Plectrophenax nivalis
+YELL	Yellowhammer	Emberiza citrinella
+CIBU	Cirl Bunting	Emberiza cirlus
+ORBU	Ortolan Bunting	Emberiza hortulana
+REBU	Reed Bunting	Emberiza schoeniclus
+COBU	Corn Bunting	Miliaria calandra
