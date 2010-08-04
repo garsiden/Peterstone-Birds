@@ -12,8 +12,8 @@
     %meta{:name => "keywords", :content => "Peterstone, birds"}
     %meta{:name => "date", :content => Time.now.iso8601}
     %meta{:name => "author", :content => "Nigel Garside"}
-    = js_for(*(%W( LiveValidation calendar)))
-    = css_for(*(%w(common tables forms calendar)))
+    = js_for(*(%w( LiveValidation calendar)))
+    = css_for(*(%w(common tables forms calendar livevalidation)))
   %body
     %h1= @title
     = shared_partial :header
