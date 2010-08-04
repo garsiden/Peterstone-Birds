@@ -10,7 +10,7 @@
         %tr{:class => cycle}
           %td= s.bto_code
           %td.left= s.bird.name
-          %td= s.first_date
+          %td= s.first_date.strftime("%d-%m-%Y")
           %td.left
             %a{:id=>'edit',
               :href => route(:edit, :bto_code => s.bto_code)} Edit

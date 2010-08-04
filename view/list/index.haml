@@ -10,5 +10,5 @@
         %tr{:class => cycle}
           %td= s.bto_code
           %td.left= s.bird.name
-          %td= s.first_date
+          %td= s.first_date.strftime("%d-%m-%Y")
           %td= s.user_id
