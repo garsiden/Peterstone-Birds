@@ -1,0 +1,10 @@
+%form{:action => route(:edit_user, :user_id=>@user.user_id), :id=>'edit_user',
+    :method=>'post', :title=>@title}
+  %fieldset
+    %legend= @legend
+    %label{:for=>'login'} Login
+    %input{:type=>'text', :id=>'login', :name=>'login', :value=>@user.login}
+    %label{:for=>'name'} Name
+    %input{:type=>'text', :id=>'name', :name=>'name', :value => @user.name}
+    %br
+    %input{:type=>'submit', :value=>@submit}

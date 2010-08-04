@@ -16,7 +16,7 @@
     - if logged_in?
       - if user.is_admin
         %li
-          %a{:href => AdminController.r} Admin
+          %a{:href => AdminController.r(:users)} Admin
       %li
         %a{:href => MyListController.r(user.login)} My List
       %li

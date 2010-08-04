@@ -1,0 +1,19 @@
+%table.listing{:summary => @title}
+  %thead
+    %tr
+      - @headings.each do |h|
+        %th= h
+  %tbody
+    - @users.each do |u|
+      %tr{:class => cycle}
+        %td= u.user_id
+        %td.left= u.login
+        %td.left= u.name
+        %td= u.created_at.strftime("%d-%m-%Y %X")
+        %td= u.updated_at.strftime("%d-%m-%Y %X")
+        %td
+          %a{:href=>AdminController.r(:edit_user, :user_id => u.user_id)} Edit
+%br
+%a{:href=>route(:new_user)} Add User
+
+  
