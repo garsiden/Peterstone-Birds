@@ -28,7 +28,8 @@ class MyListController < ListController
             @title = "New Entry"
             @legend = @title
             @submit = "Create Entry"
-            @birds = user.unseen_list
+            @birds = user.unseen_list.all
+            @birds.insert(0, Bird.new({:bto_code=>"XX", :name=>"-- Select Species -- "}))
         else
             @ob = Observation.new(:user_id => user.user_id,
                                   :bto_code => @bto_code)
