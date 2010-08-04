@@ -56,7 +56,7 @@ class User < Sequel::Model
 
     def unseen_list
         Bird.filter(:bto_code=> Observation.filter(:user_id=>user_id).
-                    select(:bto_code)).invert, ~:gos_code=>nil).order(:name)
+                    select(:bto_code).invert, ~:gos_code=>nil).order(:name)
     end
 
     #overwrite inherited instance methods
