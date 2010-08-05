@@ -1,23 +1,27 @@
+/ form to edit an observation
 %form{:action => route(:new), :id=>'new_list', :method=>'post', :title=>@title}
   %fieldset
     %legend= @legend
-    %label{:for=>'birds'} Species:
+    %label{:for=>'birds'}
+      %b Species
     %select{:id=>'birds', :name=>'bto_code'} 
       - @birds.each do |b|
         %option{:value=>b.bto_code}= b.name
     %br
-    %label{:for=>'date'} Date:
+    %label{:for=>'date'} 
+      %b Date
+      (dd/mm/yyyy)
     %input{:type=>'text', :id=>'date', :name=>'first_date'}
     %input{:type=>'button', :value=>'select date',
-      :onclick=>"displayCalendar(document.forms[0].first_date, 'dd/mm/yyyy', this)" }
+      :onclick=>"displayCalendar(document.forms[0].first_date, 'dd-mm-yyyy', this)" }
     %script{:type=>'text/javascript'}
       var d = new LiveValidation('date', {validMessage: " "});
       d.add(Validate.Presence, {failureMessage: "Please enter a date"});
     %br
-    %label{:for=>'note'} Note:
+    %label{:for=>'note'} 
+      %b Note
     %textarea{:name=>'note', :id=>'note', :rows=>10, :cols=>35}
     %br
     %br
     %input{:type=>'submit', :value=>@submit}
-
-
+/ end of observation form
