@@ -31,4 +31,8 @@ module AppHelpers
         end
     end
 
+    # Toggle table row class for list formatting
+    def cycle
+        (@isodd = !@isodd) ? 'even' : 'odd'
+    end
 end

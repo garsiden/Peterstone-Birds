@@ -1,4 +1,4 @@
-class MyListController < ListController
+class MyListController < Controller
     require 'date'
 
     helper :aspect
