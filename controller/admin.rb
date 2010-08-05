@@ -2,15 +2,7 @@ class AdminController < Controller
 
     helper :aspect
 
-    before(:users, :user_edit, :user_new) {login_first}
-
-    def initialize
-        @isodd = false
-    end
-
-    def cycle
-        (@isodd = !@isodd) ? 'even' : 'odd'
-    end
+    before_all {login_first; redirect_referrer unless user.is_admin}
 
     def users
         @title = "Users"
@@ -20,16 +12,17 @@ class AdminController < Controller
 
     def edit_user 
         user_id = request[:user_id]
-        @user = Sequel::Model::User[user_id]
+        @edit_user = Sequel::Model::User[user_id]
 
         if not request.post?
             @title = ' Edit User'
             @submit = "Update"
-            @legend = "Edit User #{@user.name}"
+            @legend = "Edit User"  
         else
-            @user.login = request[:login]
-            @user.name = request[:name]
-            if @user.save_changes
+            @edit_user.login = request[:login]
+            @edit_user.name = request[:name]
+            @edit_user.is_admin = request[:is_admin]
+            if @edit_user.save_changes
                 redirect self.route_self(:users)
             end
         end
@@ -42,8 +35,8 @@ class AdminController < Controller
             @submit = "Submit"
             @legend = @title
         else
-            user = Sequel::Model::User.prepare(request)
-            if user.save
+            new_user = Sequel::Model::User.prepare(request)
+            if new_user.save
                 redirect self.route_self(:users)
             end
         end

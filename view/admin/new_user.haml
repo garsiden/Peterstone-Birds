@@ -1,18 +1,29 @@
+/ form to add new user
 %form{:action => route(:new_user), :id=>'new_user', :method=>'post', :title=>@title}
   %fieldset
     %legend= @legend
-    %label{:for=>'user_id'} User ID
+    %label{:for=>'user_id'} 
+      %b User ID
     %input{:type=>'text', :id=>'user_id', :name=>'user_id'}
-    %label{:for=>'login'} Login 
+    %label{:for=>'login'} 
+      %b Login 
     %input{:type=>'text', :id=>'login', :name=>'login'}
     %br
-    %label{:for=>'name'} Name
+    %label{:for=>'name'} 
+      %b Name
     %input{:type=>'text', :id=>'name', :name=>'name'}
     %br
-    %label{:for=>'password'} Password
+    %label{:for=>'is_admin'} 
+      %b Administrator?
+    %input{:type=>'checkbox', :id=>'is_admin', :name=>'is_admin'}
+    %label{:for=>'password'} 
+      %b Password
     %input{:type=>'password', :id=>'password', :name=>'password'}
     %br
-    %label{:for=>'password_confirmation'} Confirm Password
+    %label{:for=>'password_confirmation'} 
+      %b Confirm Password
     %input{:type=>'password', :id=>'password_confirmation', :name=>'password_confirmation'}
     %br
+    %br
     %input{:type=>'submit', :value=>@submit}
+/ end of user form
