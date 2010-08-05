@@ -12,7 +12,7 @@
         %td= u.created_at.strftime("%d-%m-%Y %X")
         %td= u.updated_at.strftime("%d-%m-%Y %X")
         %td
-          %a{:href=>AdminController.r(:edit_user, :user_id => u.user_id)} Edit
+          %a{:href=>route(:edit_user, :user_id => u.user_id)} Edit
 %br
 %a{:href=>route(:new_user)} Add User
 
