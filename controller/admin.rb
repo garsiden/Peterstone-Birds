@@ -20,8 +20,7 @@ class AdminController < Controller
             @legend = "Edit User"  
         else
             login, name, is_admin = request.values_at(*%w[login name is_admin])
-            @edit_user.set({:login=>login, :name=>name, :is_admin=>is_admin})
-            if @edit_user.save_changes
+            if @edit_user.update({:login=>login, :name=>name, :is_admin=>is_admin})
                 redirect self.route_self(:users)
             end
         end
