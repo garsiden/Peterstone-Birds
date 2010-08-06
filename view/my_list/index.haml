@@ -1,5 +1,24 @@
 -# index.haml - MyListController default view
-%div
+%div{:id=>'top'}
+  %table.listing{:style=>'width: 500px'}
+    %thead
+      %tr
+        %th{:colspan=>'2'} Summary
+    %tbody
+      %tr
+        %td.left{:style=>'width: 250px'} Number of species
+        %td{:style=>'width:250px'}= @sightings.count
+      %tr
+        %td.left Latest sighting
+        %td=@sightings.first.bird.name
+      %tr
+        %td
+        %td= @sightings.first.first_date.strftime("%d-%m-%Y")
+  %br
+  %a{:href=>route(:new)} Add New
+  %br
+  %br
+
   %table.listing{:summary => @title}
     %thead
       %tr
@@ -12,10 +31,10 @@
           %td.left= s.bird.name
           %td= s.first_date.strftime("%d-%m-%Y")
           %td.left
-            %a{:id=>'edit',
-              :href => route(:edit, :bto_code => s.bto_code)} Edit
+            %a{:href => route(:edit, :bto_code => s.bto_code)} Edit
             &nbsp;
-            %a{:id=>'delete',
-              :href=> route(:delete, :bto_code => s.bto_code)} Delete
+            %a{ :href=> route(:delete, :bto_code => s.bto_code)} Delete
   %br
   %a{:href=>route(:new)} Add New
+  &nbsp;
+  %a{:href=>'#top'} Back to top
