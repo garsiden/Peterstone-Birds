@@ -24,6 +24,15 @@ class Observation < Sequel::Model
         validates_not_string :first_date
     end
 
+    # class method
+    def self.total
+        self.distinct.select(:bto_code).count
+    end
+
+    def self.latest
+        self.eager(:bird, :user).order(:first_date.desc).first
+    end
+        
     def self.first_observations
 
         obs = self.eager(:bird).order(:bto_code, :first_date)
