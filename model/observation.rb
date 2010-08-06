@@ -15,6 +15,15 @@ class Observation < Sequel::Model
     many_to_one :user
 
 
+    # Validations
+    self.raise_on_typecast_failure = false
+    def validate
+        validates_unique([:user_id, :bto_code])
+        validates_length_range 1..2, :bto_code
+        validates_exact_length 2, :user_id
+        validates_not_string :first_date
+    end
+
     def self.first_observations
 
         obs = self.eager(:bird).order(:bto_code, :first_date)
