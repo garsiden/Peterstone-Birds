@@ -9,9 +9,9 @@
       %b Date
       (dd/mm/yyyy)
     %input{:type => 'text', :id=>'first_date', :name => 'first_date',
-      :value => @ob.first_date.strftime("%d/%m/%Y")}
+      :value => @ob.first_date.strftime("%d-%m-%Y")}
     %input{:type=>'button', :value=>'change date',
-      :onclick=>"displayCalendar(document.forms[0].first_date, 'dd/mm/yyyy', this)" }
+      :onclick=>"displayCalendar(document.forms[0].first_date, 'dd-mm-yyyy', this)" }
     %br
     %label{:for=>'note'} Note
     %textarea{:name=>'note', :id=>'note', :rows=>10, :cols=>35}
