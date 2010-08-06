@@ -15,6 +15,9 @@ class MainController < Controller
             @title << ", #{user.name}"
         end
         @title << '!'
+
+        @bird_latest = Observation.latest
+        @bird_count = Observation.total
     end
 
     # the string returned at the end of the function is used as the html body

@@ -1,50 +1,20 @@
-<div style='none'>
-Ramaze is working correctly with this application, now you can start working.
-To start you can modify:
-%ol
-  %li
-    <code>view/index.haml</code>, this page
-  %li
-    <code>layout/default.haml</code>, the layout for this page.
-  %li
-    <code> controller/main.rb</code>, where you can change the header of this
-    page and the <a href="/notemplate"> notemplate </a> action.
+/ Start of summary
+%table.listing{:style=>'width: 500px'}
+  %thead
+    %tr
+      %th{:colspan=>'2'} Summary
+  %tbody
+    %tr
+      %td.left{:style=>'width: 250px'} Number of species
+      %td{:style=>'width:250px'}= @bird_count
+    %tr
+      %td.left Latest sighting
+      %td=@bird_latest.bird.name
+    %tr
+      %td
+      %td= @bird_latest.first_date.strftime("%d-%m-%Y")
+    %tr
+      %td
+      %td= @bird_latest.user.name
+/ end of summary
 
-For more documentation, check out
-%a(href="http://ramaze.net") ramaze.net
-and
-%a(href="http://wiki.ramaze.net") wiki.ramaze.net
-, which includes:
-%ul
-  %li 
-    %a(href="http://wiki.ramaze.net/Walkthrough") getting started
-    guide
-  %li
-    some
-    %a(href="http://wiki.ramaze.net/Screencasts") screencasts
-  %li
-    and an
-    %a(href="http://wiki.ramaze.net/Tutorials/Todolist") introductory tutorial
-
-
-  You can also read the
-  %a(href="http://ramaze.rubyforge.org/rdoc/files/doc/README.html") rdocs
-  or browse around the
-  %a(href="http://source.ramaze.net") Ramaze source code.
-  
-
-  For help with Ramaze, visit
-  %a(href="irc://chat.freenode.net/ramaze") ramaze on irc.freenode.net
-  \.
-  
-  
-You can use
-%a(href="http://embed.mibbit.com/?server=irc.freenode.net&amp;channel=#ramaze,#ruby-lang&amp;forcePrompt=true") Mibbit
-, an AJAX based IRC client or
-%a(href="http://java.freenode.net/?channel=ramaze") the official freenode irc java applet
-\.
-
-Feel free to post to the
-%a(href="http://groups.google.com/group/ramaze") Ramaze Google Group
-, your first mail has to go through moderation, so please be patient.
-</div>
