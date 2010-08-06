@@ -55,8 +55,8 @@ class User < Sequel::Model
     end
 
     def unseen_list
-        Bird.filter(:bto_code=> Observation.filter(:user_id=>user_id).
-                    select(:bto_code).invert, ~:gos_code=>nil).order(:name)
+        Bird.filter(~:bto_code=> Observation.filter(:user_id=>user_id).
+                    select(:bto_code), ~:gos_code=>nil).order(:name)
     end
 
     #overwrite inherited instance methods
@@ -78,10 +78,10 @@ class User < Sequel::Model
     end
 
     # Remember until next year
-#    def remember_me
-#        self.remember_token_expire_at = Time.now.utc + (1 * 365 * 24 * 60 * 60)
-#        self.remember_token ||= "#{uuid}-#{uuid}"
-#    end
+    #    def remember_me
+    #        self.remember_token_expire_at = Time.now.utc + (1 * 365 * 24 * 60 * 60)
+    #        self.remember_token ||= "#{uuid}-#{uuid}"
+    #    end
 
     def authenticated?(password)
         crypted_password == encrypt(password)
