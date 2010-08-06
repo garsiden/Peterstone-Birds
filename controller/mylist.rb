@@ -51,7 +51,7 @@ class MyListController < Controller
     def save
         return unless request.post?
 
-        first_date = Date.strptime(request[:first_date], "%d/%m/%Y")
+        first_date = Date.strptime(request[:first_date], "%d-%m-%Y")
         @ob.first_date = first_date
         @ob.note = h(request[:note])
 
