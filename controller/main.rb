@@ -7,6 +7,9 @@
 
 class MainController < Controller
     # the index action is called automatically when no other action is specified
+
+    alias_view 'about', 'technical_note'
+
     def index
         @title = "Welcome to Peterstone"
         login_or_user nil
@@ -20,6 +23,10 @@ class MainController < Controller
         @bird_count = Observation.total
     end
 
+    def about
+        @title = "Technical Note"
+    end
+        
     # the string returned at the end of the function is used as the html body
     # if there is no template for the action. if there is a template, the string
     # is silently ignored
