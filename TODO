@@ -25,6 +25,7 @@
  9. Javascript client data input validation.
 
 10  Add total number of birds on user's list page.
+        DONE
 
 11. User administration (creation, password change etc.)
 
@@ -39,15 +40,20 @@
 15. Justify text/numbers/dates in tables
         DONE
 
-16. Add user name to header whenn logged in.
+16. Add user name to header when logged in.
         DONE
 
 17. Use Sequel validations on data input.
 
 18. Review PostgreSQL database table structure
+        DONE
 
 19. Filter list of species to add by GOS list
         DONE
+
+20. Clean up menu
+
+21. Review page headings
 
 Part II
 
@@ -73,3 +79,11 @@ Part II
 10. Investigate use of Sass for CSS
 
 11. Consider using DataMapper
+
+12. New logo to replace Dipper
+
+13. List of rare species from BOG
+
+14. By species info
+
+15. Tooltip info
