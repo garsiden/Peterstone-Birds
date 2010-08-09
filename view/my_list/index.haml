@@ -3,7 +3,7 @@
   %table.listing{:style=>'width: 500px'}
     %thead
       %tr
-        %th{:colspan=>'2'} Summary
+        %th{:colspan=>'2'}= "Summary for #{user.name}"
     %tbody
       %tr
         %td.left{:style=>'width: 250px'} Number of species
@@ -19,22 +19,22 @@
   %br
   %br
 
-  %table.listing{:summary => @title}
-    %thead
-      %tr
-        - @headings.each do |h|
-          %th= h
-    %tbody
-      - @sightings.each do |s|
-        %tr{:class => cycle}
+    %table.listing{:summary => @title}
+      %thead
+        %tr
+          - @headings.each do |h|
+            %th= h
+      %tbody
+        - @sightings.each do |s|
+          %tr{:class => cycle}
           %td= s.bto_code
           %td.left= s.bird.name
           %td= s.first_date.strftime("%d-%m-%Y")
           %td.left
-            %a{:href => route(:edit, :bto_code => s.bto_code)} Edit
-            &nbsp;
-            %a{ :href=> route(:delete, :bto_code => s.bto_code)} Delete
-  %br
-  %a{:href=>route(:new)} Add New
-  &nbsp;
-  %a{:href=>'#top'} Back to top
+              %a{:href => route(:edit, :bto_code => s.bto_code)} Edit
+              &nbsp;
+              %a{ :href=> route(:delete, :bto_code => s.bto_code)} Delete
+    %br
+    %a{:href=>route(:new)} Add New
+    &nbsp;
+    %a{:href=>'#top'} Back to top
