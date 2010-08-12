@@ -12,6 +12,11 @@ class Controller < Ramaze::Controller
     helper :xhtml, :user, :stack        
     #  :config, :formatting, :form 
 
+    def initialize
+        @header_text = "Peterstone Birds"
+        super
+    end
+
     private
 
     def login_first
