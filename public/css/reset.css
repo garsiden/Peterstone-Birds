@@ -1,13 +1,14 @@
 /*
-  Copyright (c) 2007, Yahoo! Inc. All rights reserved.
-  Code licensed under the BSD License:
-  http://developer.yahoo.net/yui/license.txt
-  version: 2.3.1
-  */
-body {
-	color: #000;
-	background: #FFF;
-	}
+Copyright (c) 2010, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.com/yui/license.html
+version: 3.1.1
+build: 47
+ */
+html {
+    color:#000;
+    background:#FFF;
+}
 
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
 	margin: 0;
@@ -41,10 +42,7 @@ abbr, acronym {
 	font-variant: normal;
 	}
 
-sup, sub {
-	line-height: -1px;
-	vertical-align: text-top;
-	}
+sup { vertical-align: text-top;}
 
 sub { vertical-align: text-bottom; }
 
@@ -53,3 +51,7 @@ input, textarea, select {
 	font-size: inherit;
 	font-weight: inherit;
 	}
+
+input,textarea,select { *font-size:100%; }
+
+legend { color:#000; }
