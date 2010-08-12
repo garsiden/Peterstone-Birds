@@ -7,7 +7,6 @@ class AccountController < Controller
 
     def login
         redirect_referrer if logged_in?
-        push request.referrer unless inside_stack?
         return unless request.post?
 
         # default Helper::User method argument is 'creds = request.params'
@@ -22,9 +21,9 @@ class AccountController < Controller
 
     def after_login
         if logged_in?
-            answer MainController.r     # default to home if nothing on stack
+            answer MyListController.r(user.login)     # default to home if nothing on stack
         else
-            redirect rs(:login) #, :fail => :session)
+            redirect MainController.r #, :fail => :session)
         end
     end
 
