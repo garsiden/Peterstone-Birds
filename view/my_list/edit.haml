@@ -1,6 +1,5 @@
-/ form to edit observation
-%form{:action=>route(:edit, :bto_code=>@bto_code), :id=>'edit_list',
-  :method=>'post', :title=>@title}
+-# form to edit observation
+%form#edit_list{:action=>route(:edit, :bto_code=>@bto_code), :method=>'post', :title=>@title}
   %fieldset
     %legend= @legend
     %h3= @ob.bird.name
@@ -8,13 +7,13 @@
     %label{:for=>'first_date'}
       %b Date
       (dd/mm/yyyy)
-    %input{:type => 'text', :id=>'first_date', :name => 'first_date',
+    %input#first_date{:type => 'text', :name => 'first_date',
       :value => @ob.first_date.strftime("%d-%m-%Y")}
     %input{:type=>'button', :value=>'change date',
       :onclick=>"displayCalendar(document.forms[0].first_date, 'dd-mm-yyyy', this)" }
     %br
     %label{:for=>'note'} Note
-    %textarea{:name=>'note', :id=>'note', :rows=>10, :cols=>35}
+    %textarea#note{:name=>'note', :rows=>10, :cols=>35}
       = h(@ob.note).gsub("\n", '')
     %br
     %br
@@ -24,4 +23,3 @@
       %button{:type=>'button', :name=>'Cancel',
         :onclick=> "window.location='#{MyListController.r(user.login)}'"}
         Cancel
-/ end observation form        
