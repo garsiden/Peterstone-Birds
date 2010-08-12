@@ -1,7 +1,7 @@
-/ header
 #header
-  %a{:id => 'logo', :href => '/', :title => 'Return to home page'}
-    %img{:src => '/images/dipperh.jpg', :width => 110, :height => 94, :alt => 'Dipper'}
-  %p.right= "Logged in: #{user.name}" if logged_in?
-  %hr
-/ end header
+  %img{:src => '/images/curlew.jpg',:alt => 'Curlew'}
+  #header-text
+    %h1= @header_text
+    %p.right= "Logged in: #{user.name}" if logged_in?
+
+-#  %a{:id => 'logo', :href => '/', :title => 'Return to home page'}
