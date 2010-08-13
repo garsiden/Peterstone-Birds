@@ -1,0 +1,20 @@
+@import url("reset.css");
+#layout #header, #layout #content {
+  width: 380px;
+  padding: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  background: #ffeecc;
+  border: 0.5em solid #eeddbb;
+}
+#layout #header {
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+#layout #content {
+  color: #111111;
+}
+#layout #content input.button {
+  width: auto;
+}
