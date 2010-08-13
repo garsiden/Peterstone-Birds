@@ -1,18 +1,51 @@
 @import url("reset.css")
+@import colours
+@import fonts
 
-#layout
-  #header, #content
-    :width 380px
-    :padding 1em
-    :margin-left auto
-    :margin-right auto
-    :background #fec
-    :border 0.5em solid #edb
-  #header
-    :text-align center
-    :margin-top 2em
-    :margin-bottom 2em
-  #content
-    :color #111
-    input.button
+body
+  :font-family $sans_serif_fonts
+  :font-size  62.5%
+
+#wrapper
+  :font-size 1.4em
+
+#header, #content
+  :width 450px
+  :padding 1em
+  :margin-left auto
+  :margin-right auto
+  :background $pale_yellow
+  :border 0.5em solid $Brown
+
+#header
+  :text-align center
+  :margin-top 2em
+  :margin-bottom 2em
+
+#logo
+  img
+    :border 1px solid gray
+
+form
+  label
+    :display block
+    :font-weight bold
+    :float left
+    :clear left
+    :width 9em
+    :text-align right
+    :margin-right 1em
+    :padding-right 1em
+  input
+    :display block
+    :float left
+    :margin 0 0 0.5em 0
+    button
       :width auto
+  legend
+    :font-size 1.4em
+    :font-weight bold
+    :position relative
+    :top -0.4em
+  br
+    :clear both
