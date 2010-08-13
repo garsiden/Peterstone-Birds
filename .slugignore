@@ -1,5 +1,5 @@
 TODO
 data/
 tmp/
-public/stylesheets/
-sass/
+public/css/sass/
+scripts/
