@@ -11,7 +11,7 @@ $page_width_px: 800
 
 /* General
 html
-  background: #f7f7f0
+  background: $background
 
 body
   font-family: $sans_serif_fonts
@@ -39,11 +39,12 @@ h4
 /* Layout Wrapper
 #wrapper
   font-size: #{ $wrapper_font_size }em 
-  width: #{ $page_width_px / $wrapper_font_size / 10 - 1 }em
+  width: #{ floor($page_width_px / $wrapper_font_size / 10 - 1) }em
   max-width: 95%
   margin: 1em auto
   text-align: left
   background: white
+  border: 1px solid $border_light
 
 /* Layout Content/Header
 #content, #header-text
@@ -71,7 +72,7 @@ h4
     margin-top: 13px
     height: 2.2em
     font-size: 0.9em
-    color: $grey
+    color: $light_text
     padding-right: 1em
 
 #content-inner
@@ -90,18 +91,18 @@ h4
   padding: 10px 15px 10px 15px
   height: 5em
   font-size: 0.75em
-  color: $grey
+  color: $light_text
   p
     &.left
       position: absolute
     &.right
       float: right
 
-// Navigation styling (to be checked)
+// Navigation 
 #navigation
-  /*#f7f7f0
-  background-color: $pale_yellow
-  border: 1px solid $medium_grey
+  background-color: $menu_background
+  border: 1px solid $border_dark
+  font-weight: normal
   ul
     list-style: none
     margin: 0.4em
@@ -111,48 +112,15 @@ h4
   a
     border-bottom: none
 
-
-/* Link styles
-// link-visited-hover-active
-// link = unvisited
-//
-// Defaults (dark red, 3 shades of grey & dotted border)
-\:link, :visited
-  text-decoration: none
-  color: $dark_red
-  *
-  border-bottom: 1px dotted $grey
-
-\:link:hover, :visited:hover
-  background-color: $light_grey
-  color: $dark_grey
-//end default
-
-// Alternative (red with solid blue border)
-\:link, :visited
-  color: $red
-  border-bottom: 1px solid $blue
-
-\:link:hover, :visited:hover
-  color: $blue
-  background-color: transparent
-  border-bottom: 1px solid $pink
-
 a
-  color: $red
-  border-bottom: 1px solid $blue
-  &:link, &:visited
-    color: $red
-    border-bottom: 1px solid $blue
-a
-  &:hover, &:visited:hover
-    color: $blue
-    background-color: transparent
-    border-bottom: 1px solid $pink
+  &:link
+    color: $link
+  &:visited
+    color: $visited
 
 #navigation
-  &:hover, &:visited:hover
-    color: $blue
-    background-color: transparent
-    border-bottom: 1px solid $pink
-
+  a
+    &:link, &:visited
+      text-decoration: none
+    &:link:hover, &:visited:hover
+      text-decoration: underline
