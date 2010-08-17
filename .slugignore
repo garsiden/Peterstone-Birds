@@ -2,4 +2,5 @@ TODO
 data/
 tmp/
 public/css/sass/
+public/css/palette/
 scripts/
