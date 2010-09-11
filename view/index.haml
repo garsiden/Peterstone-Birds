@@ -1,12 +1,11 @@
-/ Start of summary
-%table.listing{:style=>'width: 500px'}
+%table.listing
   %thead
     %tr
       %th{:colspan=>'2'} Summary
   %tbody
     %tr
-      %td.left{:style=>'width: 250px'} Number of species
-      %td{:style=>'width:250px'}= @bird_count
+      %td.left Number of species
+      %td= @bird_count
     %tr
       %td.left Latest sighting
       %td=@bird_latest.bird.name
@@ -16,5 +15,3 @@
     %tr
       %td
       %td= @bird_latest.user.name
-/ end of summary
-
