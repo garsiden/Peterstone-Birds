@@ -15,9 +15,9 @@
     = js_for(*(%w( LiveValidation calendar)))
     = css_for(*(%w(common tables forms calendar livevalidation)))
   %body
-    %h1= @title
-    = shared_partial :header
-    #content
+    #wrapper
+      = shared_partial :header
+      #content
+        #content-inner= @content
       = shared_partial :menu
-      = @content
-    = shared_partial :footer
+      = shared_partial :footer
