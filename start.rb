@@ -3,5 +3,7 @@
 # All application related things should go into `app.rb`, this file is simply
 # for options related to running the application locally.
 
+require 'rubygems'
+
 require File.expand_path('app', File.dirname(__FILE__))
 Ramaze.start(:adapter => :mongrel, :port => 7000, :file => __FILE__)
