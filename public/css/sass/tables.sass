@@ -1,19 +1,31 @@
+@import colours
+
+$border_table = $secondary-b-5
+$background_thead = $secondary-a-5
+$border_th = $secondary-a-1
+$border_th_bottom = $secondary-b-1
+$border_td = $secondary-a-2
+$border_tr = lighten($secondary-a-2, 10)
+$background_odd = #fcfcfc
+$background_even = #f7f7f7
+$background_hover = lighten($primary-1, 20)
+
 table.listing
-  /*  clear: both;
-  border-bottom: 1px solid #d7d7d7
+  //  clear: both;
+  border-bottom: 1px solid $border_table 
   border-collapse: collapse
   border-spacing: 0
-  /* margin-top: 1em;
+  // margin-top: 1em;
   width: 100%
   th
     text-align: center
     padding: 0 1em .1em 0
     font-size: 12px
   thead
-    background: #f7f7f0
+    background: $background_thead
     th
-      border: 1px solid #d7d7d7
-      border-bottom-color: #999
+      border: 1px solid $border_th
+      border-bottom-color: $border_th_bottom
       /* grey 60
       font-size: 11px
       font-weight: bold
@@ -30,25 +42,25 @@ table.listing
     &.asc a, &.desc a
       background-position: 100% 50%
       background-repeat: no-repeat
-    &.asc a
+    //&.asc a
       background-image: url(../asc.png)
-    &.desc a
+    //&.desc a
       background-image: url(../desc.png)
   tbody
     td, th
-      border: 1px dotted #ddd
+      border: 1px dotted $border_td
       padding: .33em .5em
       vertical-align: top
     td a:hover, th a:hover
       background-color: transparent
     tr
-      border-top: 1px solid #ddd
+      border-top: 1px solid $border_tr
       &.odd
-        background-color: #fcfcfc
+        background-color: $background_odd
       &.even
-        background-color: #f7f7f7
+        background-color: $background_even
       &:hover
-        background: #eed !important
+        background: $background_hover !important
   td
     text-align: center
     &.left

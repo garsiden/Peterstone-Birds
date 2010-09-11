@@ -1,5 +1,54 @@
 /* Forms
-/* input, textarea, select { margin: 2px }
+
+// Basic form layout
+form
+  margin-left: 0em
+  margin-bottom: 2em
+  min-width: 45em
+  border: 1px solid #ccc
+  float: left
+  width: 75%
+  legend
+    :font-size 1.4em
+    :font-weight bold
+    :position relative
+    //:top -0.5em
+    :padding 0 .25em
+  fieldset
+    border: 1px solid #d7d7d7
+    margin: 2em 12pt
+    padding: 1em
+  label
+    :display block
+    :font-weight normal
+    :float left
+    :clear left
+    :width 9em
+    :text-align right
+    :margin-right 1em
+    :padding-right 1em
+    line-height: 1.8em
+    white-space: nowrap
+  input
+    :display block
+    :float left
+    :margin 0 0 0.5em 0
+    button
+      :width auto
+  br
+    clear: both
+/* label.label_right {
+/*     clear: left;
+/*     float:right;
+/* }
+
+/* fieldset { border: 1px solid #d7d7d7; padding: .5em; margin: 0 }
+/* fieldset.iefix { background: transparent; border: none; padding: 0; margin: 0 }
+/* * html fieldset.iefix { width: 98% }
+/* fieldset.iefix p { margin: 0 }
+// Input
+
+// input, textarea, select { margin: 2px }
 
 input, select
   vertical-align: middle
@@ -11,6 +60,32 @@ input
     border: 1px outset #ccc
     padding: .1em .5em
 
+input
+  &[type=text], &[type=radio], &[type=button]
+    margin: 0 .5em .5em 0
+    display: block
+    float: left
+
+input
+  &[type=button]
+    margin-right: 1em
+  &[type=text]
+    width: 8em
+
+input[type=radio]
+  margin: .45em
+
+option
+  border-bottom: 1px dotted #d7d7d7
+
+select
+  margin: 0 .5em .5em 0
+  display: block
+  float: left
+
+p
+  padding: 3em
+  
 /* input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
 /*  background: #ccb;
 /* }
@@ -26,20 +101,6 @@ input
 /*  border: 1px solid #886;
 /* }
 
-option
-  border-bottom: 1px dotted #d7d7d7
-
-/* fieldset { border: 1px solid #d7d7d7; padding: .5em; margin: 0 }
-/* fieldset.iefix { background: transparent; border: none; padding: 0; margin: 0 }
-/* * html fieldset.iefix { width: 98% }
-/* fieldset.iefix p { margin: 0 }
-
-legend
-  color: #999
-  padding: 0 .25em
-  font-size: 95%
-  font-weight: bold
-
 /* label.disabled { color: #d7d7d7 }
 /* .buttons { margin: .5em .5em .5em 0 }
 /* .buttons form, .buttons form div { display: inline }
@@ -53,61 +114,4 @@ legend
 /*  background: none;
 /* }
 
-form
-  margin-left: 0em
-  margin-bottom: 2em
-  min-width: 45em
-  border: 1px solid #ccc
-  float: left
-  width: 75%
 
-fieldset
-  border: 1px solid #d7d7d7
-  margin: 2em 12pt
-  padding: 1em
-
-label
-  display: block
-  float: left
-  clear: left
-  width: 13em
-  padding-right: 0.5em
-  text-align: right
-  line-height: 1.8em
-
-/* label.label_right {
-/*     clear: left;
-/*     float:right;
-/* }
-
-input
-  &[type=text], &[type=radio], &[type=button]
-    margin: 0 .5em .5em 0
-    display: block
-    float: left
-
-select
-  margin: 0 .5em .5em 0
-  display: block
-  float: left
-
-input
-  &[type=button]
-    margin-right: 1em
-  &[type=text]
-    width: 8em
-
-br
-  clear: both
-
-legend
-  /*     font-weight: bold;
-  /*     font-size: 1.1em;
-  /*     position: relative;
-  /*     top: -.5em;
-
-input[type=radio]
-  margin: .45em
-
-p
-  padding: 3em
