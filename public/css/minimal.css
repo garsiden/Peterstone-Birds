@@ -1,20 +1,35 @@
 @import url("reset.css");
-#layout #header, #layout #content {
-  width: 380px;
+body {
+  font-family: "Lucida Grande", "Geneva", "Verdana", "Arial", "Bitstream Vera Sans", sans-serif;
+  font-size: 62.5%; }
+
+#wrapper {
+  font-size: 1.4em; }
+
+#header, #content {
+  width: 450px;
   padding: 1em;
   margin-left: auto;
   margin-right: auto;
-  background: #ffeecc;
-  border: 0.5em solid #eeddbb;
-}
-#layout #header {
+  background: #f4f7f3;
+  border: 0.5em solid #58545c; }
+
+#header {
   text-align: center;
   margin-top: 2em;
-  margin-bottom: 2em;
-}
-#layout #content {
-  color: #111111;
-}
-#layout #content input.button {
+  margin-bottom: 2em; }
+
+#logo img {
+  border: 1px solid #58545c; }
+
+#wrapper input.button {
   width: auto;
-}
+  float: right; }
+
+#content form {
+  float: none;
+  width: auto;
+  min-width: 0;
+  margin: 1em; }
+  #content form legend {
+    top: 0; }
