@@ -1,3 +1,3 @@
 ramaze -v 2010.06.18
-sequel -v 3.13.0
-haml -v 3.0.13
+sequel -v 3.15.0
+haml -v 3.0.18
