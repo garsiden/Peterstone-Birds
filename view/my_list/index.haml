@@ -1,40 +1,39 @@
--# index.haml - MyListController default view
-%div{:id=>'top'}
-  %table.listing{:style=>'width: 500px'}
-    %thead
-      %tr
-        %th{:colspan=>'2'}= "Summary for #{user.name}"
-    %tbody
-      %tr
-        %td.left{:style=>'width: 250px'} Number of species
-        %td{:style=>'width:250px'}= @sightings.count
-      %tr
-        %td.left Latest sighting
-        %td=@sightings.first.bird.name
-      %tr
-        %td
-        %td= @sightings.first.first_date.strftime("%d-%m-%Y")
-  %br
-  %a{:href=>route(:new)} Add New
-  %br
-  %br
+%table.listing
+  %thead
+    %tr
+      %th{:colspan=>'2'}= "Summary for #{user.name}"
+  %tbody
+    %tr
+      %td.left Number of species
+      %td= @sightings.count
+    %tr
+      %td.left Latest sighting
+      %td=@sightings.first.bird.name
+    %tr
+      %td
+      %td= @sightings.first.first_date.strftime("%d-%m-%Y")
+%br
+%a{:href=>route(:new)} Add New 
+%br
+%br
 
-    %table.listing{:summary => @title}
-      %thead
-        %tr
-          - @headings.each do |h|
-            %th= h
-      %tbody
-        - @sightings.each do |s|
-          %tr{:class => cycle}
-          %td= s.bto_code
-          %td.left= s.bird.name
-          %td= s.first_date.strftime("%d-%m-%Y")
-          %td.left
-              %a{:href => route(:edit, :bto_code => s.bto_code)} Edit
-              &nbsp;
-              %a{ :href=> route(:delete, :bto_code => s.bto_code)} Delete
-    %br
-    %a{:href=>route(:new)} Add New
-    &nbsp;
-    %a{:href=>'#top'} Back to top
+%table.listing{:summary => @title}
+  %thead
+    %tr
+      - @headings.each do |h|
+        %th= h
+  %tbody
+    - @sightings.each do |s|
+      %tr{:class => cycle}
+        %td= s.bto_code
+        %td.left= s.bird.name
+        %td= s.first_date.strftime("%d-%m-%Y")
+        %td.left
+          %a{:href => route(:edit, :bto_code => s.bto_code)} Edit
+          &nbsp;
+          %a{ :href=> route(:delete, :bto_code => s.bto_code)} Delete
+%br
+- if @sightings.count > 50
+  %a{:href=>route(:new)} Add New
+  &nbsp;
+  %a{:href=>'#top'} Back to top

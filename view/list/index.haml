@@ -1,14 +1,12 @@
--# index.haml - ListController default view
-%div#report
-  %table.listing{:summary => @title}
-    %thead
-      %tr
-        - @headings.each do |h|
-          %th=h
-    %tbody
-      - @sightings.each do |s|
-        %tr{:class => cycle}
-          %td= s.bto_code
-          %td.left= s.bird.name
-          %td= s.first_date.strftime("%d-%m-%Y")
-          %td= s.user_id
+%table.listing{:summary => @title}
+  %thead
+    %tr
+      - @headings.each do |h|
+        %th=h
+  %tbody
+    - @sightings.each do |s|
+      %tr{:class => cycle}
+        %td= s.bto_code
+        %td.left= s.bird.name
+        %td= s.first_date.strftime("%d-%m-%Y")
+        %td= s.user_id
