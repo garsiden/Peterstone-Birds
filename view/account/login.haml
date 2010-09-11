@@ -1,21 +1,16 @@
 %form{:method => 'post', :id => 'login', :action => 'login'}
   %fieldset
-    %legend
-      Login
+    %legend Login
     %br
-    %label{:for => 'login'}
-      Name
+    %label{:for => 'login'} Name
     %input{:type => 'text', :name => 'login'}
     %br
-    %label{:for => 'password'}
-      Password
+    %label{:for => 'password'} Password
     %input{:type => 'password', :name => 'password'}
-    %br
-    %label{:for => 'remember'}
-      Remember me
-    %input{:type => 'checkbox', :name => 'remember', :checked => 'checked'} 
+    -#%br
+    -#%label{:for => 'remember'} Remember me
+    -#%input{:type => 'checkbox', :name => 'remember', :checked => 'checked'} 
     %br
     %br
     %input{:type => :submit, :value => 'Log-in Now', :class => :button}
-%br
 #{flashbox}
