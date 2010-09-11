@@ -11,14 +11,7 @@ class MainController < Controller
     alias_view 'about', 'technical_note'
 
     def index
-        @title = "Welcome to Peterstone"
-        login_or_user nil
-
-        if @user
-            @title << ", #{user.name}"
-        end
-        @title << '!'
-
+        @title = "Peterstone Birds"
         @bird_latest = Observation.latest
         @bird_count = Observation.total
     end
