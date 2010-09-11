@@ -3,4 +3,6 @@ data/
 tmp/
 public/css/sass/
 public/css/palette/
+public/css/.sass-cache/
+public/.sass-cache/
 scripts/
