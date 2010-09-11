@@ -2,16 +2,16 @@
 !!! 1.1
 %html{html_attrs('en-GB')}
   %head
-    %meta{'http-equiv' => "Content-Type", :content => 'text/html; charset=utf-8'}
+    %meta{:"http-equiv" => "Content-Type", :content => 'text/html; charset=utf-8'}
+    %meta{:"http-equiv" => "Content-Style-Type", :content => "text/css"}
     %title= @title
     %link{:rel => 'shortcut icon', :href => '/favicon.ico', :type => 'image/x-icon'}
     -# note use of 'splat' operator, *, to expand array elements as method arguments
-    = css_for(*(%w( common forms )))
+    = css_for(*(%w( minimal forms )))
   %body
-    #layout
+    #wrapper
       #header
         #logo
           %a{:href => '/'}
-            %img{:src => '/images/dipperh.jpg', :alt => @title}
-
+            %img{:src => '/images/curlew.jpg', :alt => @title}
       #content= @content
