@@ -1,13 +1,15 @@
 /* Forms
+@import url("calendar.css")
+@import url("livevalidation.css")
 
 // Basic form layout
 form
-  margin-left: 0em
-  margin-bottom: 2em
-  min-width: 45em
-  border: 1px solid #ccc
-  float: left
-  width: 75%
+  :margin-left 0em
+  :margin-bottom 2em
+  :min-width 45em
+  :border 1px solid #ccc
+  :float left
+  :width 75%
   legend
     :font-size 1.4em
     :font-weight bold
@@ -15,9 +17,9 @@ form
     //:top -0.5em
     :padding 0 .25em
   fieldset
-    border: 1px solid #d7d7d7
-    margin: 2em 12pt
-    padding: 1em
+    :border 1px solid #d7d7d7
+    :margin 2em 12pt
+    :padding 1em
   label
     :display block
     :font-weight normal
@@ -36,55 +38,43 @@ form
     button
       :width auto
   br
-    clear: both
-/* label.label_right {
-/*     clear: left;
-/*     float:right;
-/* }
+    :clear both
+  p
+    :padding 3em
 
-/* fieldset { border: 1px solid #d7d7d7; padding: .5em; margin: 0 }
-/* fieldset.iefix { background: transparent; border: none; padding: 0; margin: 0 }
-/* * html fieldset.iefix { width: 98% }
-/* fieldset.iefix p { margin: 0 }
-// Input
+  input, select
+    vertical-align: middle
 
-// input, textarea, select { margin: 2px }
+  input
+    &[type=button], &[type=submit], &[type=reset]
+      background: #eee
+      color: #222
+      border: 1px outset #ccc
+      padding: .1em .5em
 
-input, select
-  vertical-align: middle
+  input
+    &[type=text], &[type=radio], &[type=button]
+      margin: 0 .5em .5em 0
+      display: block
+      float: left
 
-input
-  &[type=button], &[type=submit], &[type=reset]
-    background: #eee
-    color: #222
-    border: 1px outset #ccc
-    padding: .1em .5em
+  input
+    &[type=button]
+      margin-right: 1em
+    &[type=text]
+      width: 8em
 
-input
-  &[type=text], &[type=radio], &[type=button]
+  input[type=radio]
+    margin: .45em
+
+  option
+    border-bottom: 1px dotted #d7d7d7
+
+  select
     margin: 0 .5em .5em 0
     display: block
     float: left
 
-input
-  &[type=button]
-    margin-right: 1em
-  &[type=text]
-    width: 8em
-
-input[type=radio]
-  margin: .45em
-
-option
-  border-bottom: 1px dotted #d7d7d7
-
-select
-  margin: 0 .5em .5em 0
-  display: block
-  float: left
-
-p
-  padding: 3em
   
 /* input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
 /*  background: #ccb;
@@ -114,4 +104,17 @@ p
 /*  background: none;
 /* }
 
+
+/* label.label_right {
+/*     clear: left;
+/*     float:right;
+/* }
+
+/* fieldset { border: 1px solid #d7d7d7; padding: .5em; margin: 0 }
+/* fieldset.iefix { background: transparent; border: none; padding: 0; margin: 0 }
+/* * html fieldset.iefix { width: 98% }
+/* fieldset.iefix p { margin: 0 }
+// Input
+
+// input, textarea, select { margin: 2px }
 

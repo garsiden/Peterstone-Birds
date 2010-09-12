@@ -1,4 +1,6 @@
 /* Forms */
+@import url("calendar.css");
+@import url("livevalidation.css");
 form {
   margin-left: 0em;
   margin-bottom: 2em;
@@ -34,47 +36,31 @@ form {
       width: auto; }
   form br {
     clear: both; }
-
-/* label.label_right { */
-/*     clear: left; */
-/*     float:right; */
-/* } */
-/* fieldset { border: 1px solid #d7d7d7; padding: .5em; margin: 0 } */
-/* fieldset.iefix { background: transparent; border: none; padding: 0; margin: 0 } */
-/* * html fieldset.iefix { width: 98% } */
-/* fieldset.iefix p { margin: 0 } */
-input, select {
-  vertical-align: middle; }
-
-input[type=button], input[type=submit], input[type=reset] {
-  background: #eeeeee;
-  color: #222222;
-  border: 1px outset #cccccc;
-  padding: 0.1em 0.5em; }
-
-input[type=text], input[type=radio], input[type=button] {
-  margin: 0 0.5em 0.5em 0;
-  display: block;
-  float: left; }
-
-input[type=button] {
-  margin-right: 1em; }
-input[type=text] {
-  width: 8em; }
-
-input[type=radio] {
-  margin: 0.45em; }
-
-option {
-  border-bottom: 1px dotted #d7d7d7; }
-
-select {
-  margin: 0 0.5em 0.5em 0;
-  display: block;
-  float: left; }
-
-p {
-  padding: 3em; }
+  form p {
+    padding: 3em; }
+  form input, form select {
+    vertical-align: middle; }
+  form input[type=button], form input[type=submit], form input[type=reset] {
+    background: #eeeeee;
+    color: #222222;
+    border: 1px outset #cccccc;
+    padding: 0.1em 0.5em; }
+  form input[type=text], form input[type=radio], form input[type=button] {
+    margin: 0 0.5em 0.5em 0;
+    display: block;
+    float: left; }
+  form input[type=button] {
+    margin-right: 1em; }
+  form input[type=text] {
+    width: 8em; }
+  form input[type=radio] {
+    margin: 0.45em; }
+  form option {
+    border-bottom: 1px dotted #d7d7d7; }
+  form select {
+    margin: 0 0.5em 0.5em 0;
+    display: block;
+    float: left; }
 
 /* input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover { */
 /*  background: #ccb; */
@@ -102,3 +88,11 @@ p {
 /*  padding: 0.1em; */
 /*  background: none; */
 /* } */
+/* label.label_right { */
+/*     clear: left; */
+/*     float:right; */
+/* } */
+/* fieldset { border: 1px solid #d7d7d7; padding: .5em; margin: 0 } */
+/* fieldset.iefix { background: transparent; border: none; padding: 0; margin: 0 } */
+/* * html fieldset.iefix { width: 98% } */
+/* fieldset.iefix p { margin: 0 } */
