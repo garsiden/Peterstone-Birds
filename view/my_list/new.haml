@@ -7,16 +7,22 @@
     %select{:id=>'birds', :name=>'bto_code'} 
       - @birds.each do |b|
         %option{:value=>b.bto_code}= b.name
+    %script{:type=>'text/javascript'}
+      var birds_validate = new LiveValidation('birds', {validMessage: " "});
+      birds_validate.add(Validate.Exclusion, { within: ["XX"], 
+      failureMessage: "Please select a species"});
     %br
     %label{:for=>'date'} 
       %b Date
-      (dd/mm/yyyy)
+      (dd-mm-yyyy)
     %input{:type=>'text', :id=>'date', :name=>'first_date'}
     %input{:type=>'button', :value=>'select date',
       :onclick=>"displayCalendar(document.forms[0].first_date, 'dd-mm-yyyy', this)" }
     %script{:type=>'text/javascript'}
-      var d = new LiveValidation('date', {validMessage: " "});
-      d.add(Validate.Presence, {failureMessage: "Please enter a date"});
+      var date_validate = new LiveValidation('date', {validMessage: " "});
+      date_validate.add(Validate.Format,
+      { pattern: /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/,
+      failureMessage: "Please enter a valid date"});
     %br
     %label{:for=>'note'} 
       %b Note
