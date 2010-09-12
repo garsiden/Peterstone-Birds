@@ -10,7 +10,6 @@ class Controller < Ramaze::Controller
     # stack used for call method
     # xhtml for css/js methods
     helper :xhtml, :user, :stack        
-    #  :config, :formatting, :form 
 
     def initialize
         @header_text = "Peterstone Birds"
@@ -46,4 +45,3 @@ require __DIR__('account')
 require __DIR__('list')
 require __DIR__('mylist')
 require __DIR__('admin')
-#require __DIR__('css')
