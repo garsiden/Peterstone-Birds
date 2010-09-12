@@ -3,57 +3,25 @@
  1. Report login failure to user
         DONE - using flashbox
 
- 2. Complete CRUD for observations
-        DONE - edit, delete, new and index methods
-
- 3. Migrate to PostgreSQL.
-        DONE
-
- 4. Style for forms.
+ 2. Style for forms.
         DONE - added reference to existing forms CSS
 
- 5. Overall site list with dates and first observer.
-        DONE
+ 3. Technical note.
 
- 6. Technical note.
+ 4. About Peterstone Gout/website.
 
- 7. About Peterstone Gout/website.
+ 5. Javascript client data input validation.
 
- 8. Move database access to model classes.
-        DONE
+ 6. User administration (creation, password change etc.)
 
- 9. Javascript client data input validation.
+ 7. Investigate 'Remember me' for user login.
 
-10  Add total number of birds on user's list page.
-        DONE
+ 8. Use validations on data input.
 
-11. User administration (creation, password change etc.)
+ 9. Clean up menu
 
-12  Import observations for EW and NG
-        DONE
+10. Review page headings
 
-13. Check user creation/login for use of password salt.
-        DONE - salt created using creation time and user id
-
-14. Investigate 'Remember me' for user login.
-
-15. Justify text/numbers/dates in tables
-        DONE
-
-16. Add user name to header when logged in.
-        DONE
-
-17. Use Sequel validations on data input.
-
-18. Review PostgreSQL database table structure
-        DONE
-
-19. Filter list of species to add by GOS list
-        DONE
-
-20. Clean up menu
-
-21. Review page headings
 
 Part II
 
@@ -79,8 +47,10 @@ Part II
 10. Investigate use of Sass for CSS
 
 11. Consider using DataMapper
+        DONE
 
 12. New logo to replace Dipper
+        DONE
 
 13. List of rare species from BOG
 
