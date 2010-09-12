@@ -6,9 +6,14 @@
     %br
     %label{:for=>'first_date'}
       %b Date
-      (dd/mm/yyyy)
-    %input#first_date{:type => 'text', :name => 'first_date',
+      (dd-mm-yyyy)
+    %input#date{:type => 'text', :name => 'first_date',
       :value => @ob.first_date.strftime("%d-%m-%Y")}
+    %script{:type=>'text/javascript'}
+      var date_validate = new LiveValidation('date', {validMessage: " "});
+      date_validate.add(Validate.Format,
+      { pattern: /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/,
+      failureMessage: "Please enter a valid date"});
     %input{:type=>'button', :value=>'change date',
       :onclick=>"displayCalendar(document.forms[0].first_date, 'dd-mm-yyyy', this)" }
     %br
