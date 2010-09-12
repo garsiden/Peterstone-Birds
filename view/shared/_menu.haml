@@ -1,15 +1,14 @@
 #navigation
   %ul
     %li
-      %a{:href => MainController.r(:index), :title => 'Return to home page'} Home
+      %a{:href => MainController.r(:index)} Home
     %li
       %a{:href => '/list', :title => 'A list' } List
     %li
-      %a{:href => rs(:reports), :title => 'Choose a report to run'} Reports
+      %a{:href => rs(:reports) } Reports
       %ul
         %li
-          %a{:href => rs('reports/reportid=summary_pg'),
-             :title => 'Run summary report'} Petersone List
+          %a{:href => rs('reports/reportid=summary_pg') } Peterstone List
     %li
       %a{:href => MainController.r(:about)} About
     - if logged_in?
