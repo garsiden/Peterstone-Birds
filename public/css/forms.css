@@ -5,7 +5,7 @@ form {
   margin-left: 0em;
   margin-bottom: 2em;
   min-width: 45em;
-  border: 1px solid #cccccc;
+  border: 1px solid #58545c;
   float: left;
   width: 75%; }
   form legend {
@@ -14,7 +14,7 @@ form {
     position: relative;
     padding: 0 0.25em; }
   form fieldset {
-    border: 1px solid #d7d7d7;
+    border: 1px solid #8c8296;
     margin: 2em 12pt;
     padding: 1em; }
   form label {
@@ -41,9 +41,9 @@ form {
   form input, form select {
     vertical-align: middle; }
   form input[type=button], form input[type=submit], form input[type=reset] {
-    background: #eeeeee;
-    color: #222222;
-    border: 1px outset #cccccc;
+    background: #cdd9c4;
+    color: #290d45;
+    border: 1px #2f5a11 double;
     padding: 0.1em 0.5em; }
   form input[type=text], form input[type=radio], form input[type=button] {
     margin: 0 0.5em 0.5em 0;
@@ -55,44 +55,7 @@ form {
     width: 8em; }
   form input[type=radio] {
     margin: 0.45em; }
-  form option {
-    border-bottom: 1px dotted #d7d7d7; }
   form select {
     margin: 0 0.5em 0.5em 0;
     display: block;
     float: left; }
-
-/* input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover { */
-/*  background: #ccb; */
-/* } */
-/* input[type=button][disabled], input[type=submit][disabled], */
-/* input[type=reset][disabled] { */
-/*  background: #f6f6f6; */
-/*  border-style: solid; */
-/*  color: #999; */
-/* } */
-/* input[type=text], input.textwidget, textarea { border: 1px solid #d7d7d7 } */
-/* input[type=text], input.textwidget { padding: .25em .5em } */
-/* input[type=text]:focus, input.textwidget:focus, textarea:focus { */
-/*  border: 1px solid #886; */
-/* } */
-/* label.disabled { color: #d7d7d7 } */
-/* .buttons { margin: .5em .5em .5em 0 } */
-/* .buttons form, .buttons form div { display: inline } */
-/* .buttons input { margin: 1em .5em .1em 0 } */
-/* .inlinebuttons input { */
-/*  font-size: 70%; */
-/*  border-width: 1px; */
-/*  border-style: dotted; */
-/*  margin: 0; */
-/*  padding: 0.1em; */
-/*  background: none; */
-/* } */
-/* label.label_right { */
-/*     clear: left; */
-/*     float:right; */
-/* } */
-/* fieldset { border: 1px solid #d7d7d7; padding: .5em; margin: 0 } */
-/* fieldset.iefix { background: transparent; border: none; padding: 0; margin: 0 } */
-/* * html fieldset.iefix { width: 98% } */
-/* fieldset.iefix p { margin: 0 } */
