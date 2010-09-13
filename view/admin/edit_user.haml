@@ -1,6 +1,6 @@
 / form to edit user
 %form{:action => route(:edit_user, :user_id=>@edit_user.user_id), :id=>'edit_user',
-    :method=>'post', :title=>@title}
+    :method=>'post'}
   %fieldset
     %legend= @legend
     %b= "User ID: #{@edit_user.user_id}"

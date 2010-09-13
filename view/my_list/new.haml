@@ -1,5 +1,5 @@
 / form to edit an observation
-%form{:action => route(:new), :id=>'new_list', :method=>'post', :title=>@title}
+%form{:action => route(:new), :id=>'new_list', :method=>'post'}
   %fieldset
     %legend= @legend
     %label{:for=>'birds'}
@@ -16,13 +16,13 @@
       %b Date
       (dd-mm-yyyy)
     %input{:type=>'text', :id=>'date', :name=>'first_date'}
-    %input{:type=>'button', :value=>'select date',
-      :onclick=>"displayCalendar(document.forms[0].first_date, 'dd-mm-yyyy', this)" }
     %script{:type=>'text/javascript'}
       var date_validate = new LiveValidation('date', {validMessage: " "});
       date_validate.add(Validate.Format,
       { pattern: /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/,
       failureMessage: "Please enter a valid date"});
+    %input{:type=>'button', :value=>'select date',
+      :onclick=>"displayCalendar(document.forms[0].first_date, 'dd-mm-yyyy', this)" }
     %br
     %label{:for=>'note'} 
       %b Note
