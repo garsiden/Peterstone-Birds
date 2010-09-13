@@ -1,13 +1,18 @@
 /* Forms
 @import url("calendar.css")
 @import url("livevalidation.css")
+@import colours
+
+$button_background = $primary-5
+$button_border     = $primary-3
+$button_text       = $secondary-b-3
 
 // Basic form layout
 form
   :margin-left 0em
   :margin-bottom 2em
   :min-width 45em
-  :border 1px solid #ccc
+  :border 1px solid $border_dark
   :float left
   :width 75%
   legend
@@ -17,7 +22,7 @@ form
     //:top -0.5em
     :padding 0 .25em
   fieldset
-    :border 1px solid #d7d7d7
+    :border 1px solid $border_light
     :margin 2em 12pt
     :padding 1em
   label
@@ -29,8 +34,8 @@ form
     :text-align right
     :margin-right 1em
     :padding-right 1em
-    line-height: 1.8em
-    white-space: nowrap
+    :line-height 1.8em
+    :white-space nowrap
   input
     :display block
     :float left
@@ -47,9 +52,9 @@ form
 
   input
     &[type=button], &[type=submit], &[type=reset]
-      background: #eee
-      color: #222
-      border: 1px outset #ccc
+      background: $button_background
+      color: $button_text
+      border: 1px $button_border  double
       padding: .1em .5em
 
   input
@@ -67,53 +72,50 @@ form
   input[type=radio]
     margin: .45em
 
-  option
-    border-bottom: 1px dotted #d7d7d7
-
   select
     margin: 0 .5em .5em 0
     display: block
     float: left
 
   
-/* input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
-/*  background: #ccb;
-/* }
-/* input[type=button][disabled], input[type=submit][disabled],
-/* input[type=reset][disabled] {
-/*  background: #f6f6f6;
-/*  border-style: solid;
-/*  color: #999;
-/* }
-/* input[type=text], input.textwidget, textarea { border: 1px solid #d7d7d7 }
-/* input[type=text], input.textwidget { padding: .25em .5em }
-/* input[type=text]:focus, input.textwidget:focus, textarea:focus {
-/*  border: 1px solid #886;
-/* }
+// input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+//  background: #ccb;
+// }
+// input[type=button][disabled], input[type=submit][disabled],
+// input[type=reset][disabled] {
+//  background: #f6f6f6;
+//  border-style: solid;
+//  color: #999;
+// }
+// input[type=text], input.textwidget, textarea { border: 1px solid #d7d7d7 }
+// input[type=text], input.textwidget { padding: .25em .5em }
+// input[type=text]:focus, input.textwidget:focus, textarea:focus {
+//  border: 1px solid #886;
+// }
 
-/* label.disabled { color: #d7d7d7 }
-/* .buttons { margin: .5em .5em .5em 0 }
-/* .buttons form, .buttons form div { display: inline }
-/* .buttons input { margin: 1em .5em .1em 0 }
-/* .inlinebuttons input {
-/*  font-size: 70%;
-/*  border-width: 1px;
-/*  border-style: dotted;
-/*  margin: 0;
-/*  padding: 0.1em;
-/*  background: none;
-/* }
+// label.disabled { color: #d7d7d7 }
+// .buttons { margin: .5em .5em .5em 0 }
+// .buttons form, .buttons form div { display: inline }
+// .buttons input { margin: 1em .5em .1em 0 }
+// .inlinebuttons input {
+//  font-size: 70%;
+//  border-width: 1px;
+//  border-style: dotted;
+//  margin: 0;
+//  padding: 0.1em;
+//  background: none;
+// }
 
 
-/* label.label_right {
-/*     clear: left;
-/*     float:right;
-/* }
+// label.label_right {
+//     clear: left;
+//     float:right;
+// }
 
-/* fieldset { border: 1px solid #d7d7d7; padding: .5em; margin: 0 }
-/* fieldset.iefix { background: transparent; border: none; padding: 0; margin: 0 }
-/* * html fieldset.iefix { width: 98% }
-/* fieldset.iefix p { margin: 0 }
+// fieldset { border: 1px solid #d7d7d7; padding: .5em; margin: 0 }
+// fieldset.iefix { background: transparent; border: none; padding: 0; margin: 0 }
+// * html fieldset.iefix { width: 98% }
+// fieldset.iefix p { margin: 0 }
 // Input
 
 // input, textarea, select { margin: 2px }
