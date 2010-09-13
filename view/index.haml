@@ -11,7 +11,7 @@
       %td=@bird_latest.bird.name
     %tr
       %td
-      %td= @bird_latest.first_date.strftime("%d-%m-%Y")
+      %td= @bird_latest.first_date.strftime("%e %B %Y")
     %tr
       %td
-      %td= @bird_latest.user.name
+      %td= @bird_latest.user.user_id

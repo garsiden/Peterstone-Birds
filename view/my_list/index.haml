@@ -11,7 +11,7 @@
       %td=@sightings.first.bird.name
     %tr
       %td
-      %td= @sightings.first.first_date.strftime("%d-%m-%Y")
+      %td= @sightings.first.first_date.strftime("%e %B %Y")
 %br
 %a{:href=>route(:new)} Add New 
 %br
@@ -36,4 +36,4 @@
 - if @sightings.count > 50
   %a{:href=>route(:new)} Add New
   &nbsp;
-  %a{:href=>'#top'} Back to top
+  %a{:href=>'#wrapper'} Back to top
