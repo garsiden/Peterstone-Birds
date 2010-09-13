@@ -11,13 +11,12 @@ class MainController < Controller
     alias_view 'about', 'technical_note'
 
     def index
-        @title = "Peterstone Birds"
         @bird_latest = Observation.latest
         @bird_count = Observation.total
     end
 
     def about
-        @title = "Technical Note"
+        @title += "- Technical Note"
     end
         
     # the string returned at the end of the function is used as the html body

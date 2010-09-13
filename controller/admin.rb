@@ -5,7 +5,7 @@ class AdminController < Controller
     before_all {login_first; redirect_referrer unless user.is_admin}
 
     def users
-        @title = "Users"
+        @title += " - Users"
         @headings = %w( ID Login Name Created Updated ) << ' '
         @users = Sequel::Model::User.order(:created_at)
     end
@@ -15,7 +15,7 @@ class AdminController < Controller
         @edit_user = Sequel::Model::User[user_id]
 
         if not request.post?
-            @title = ' Edit User'
+            @title += " - Edit User #{user.name}"
             @submit = "Update"
             @legend = "Edit User"  
         else
@@ -29,9 +29,9 @@ class AdminController < Controller
     def new_user
 
         if not request.post?
-            @title = "Add User"
+            @title += " - Add User"
             @submit = "Submit"
-            @legend = @title
+            @legend = 'Add User' 
         else
             new_user = Sequel::Model::User.prepare(request)
             if new_user.save

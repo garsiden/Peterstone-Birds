@@ -12,7 +12,7 @@ class Controller < Ramaze::Controller
     helper :xhtml, :user, :stack        
 
     def initialize
-        @header_text = "Peterstone Birds"
+        @header_text =  @title = "Peterstone Birds"
         super
     end
 
