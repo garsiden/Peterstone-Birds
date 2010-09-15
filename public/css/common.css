@@ -135,3 +135,13 @@ a:visited {
 #navigation a:link:hover, #navigation a:visited:hover {
   text-decoration: underline;
 }
+
+#textnote h3 {
+  margin-top: 0;
+}
+#textnote p {
+  margin: 1em 0 1em 0;
+}
+#textnote ul li {
+  margin: 0.5em 0 0.5em 0;
+}
