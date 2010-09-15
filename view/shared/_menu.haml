@@ -4,21 +4,25 @@
       %a{:href => MainController.r(:index)} Home
     %li
       %a{:href => '/list', :title => 'A list' } List
-    -#%li
-      %a{:href => rs(:reports) } Reports
-      %ul
-        %li
-          %a{:href => rs('reports/reportid=summary_pg') } Peterstone List
-    %li
-      %a{:href => MainController.r(:about)} About
     - if logged_in?
       - if user.is_admin
         %li
           %a{:href => AdminController.r(:users)} Admin
       %li
         %a{:href => MyListController.r(user.login)} My List
+    %li
+      %a{:href => MainController.r(:about)} About
+    %li
+      %a{:href => MainController.r(:technical_note)} Technical Note
+    - if logged_in?
       %li
         %a{:href => AccountController.r(:logout)} Logout
     - else
       %li
         %a{:href => AccountController.r(:login)} Login
+        
+    -#%li
+      %a{:href => rs(:reports) } Reports
+      %ul
+        %li
+          %a{:href => rs('reports/reportid=summary_pg') } Peterstone List
