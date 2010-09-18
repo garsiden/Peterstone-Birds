@@ -10,9 +10,7 @@ class AccountController < Controller
         return unless request.post?
 
         # default Helper::User method argument is 'creds = request.params'
-        if user_login   
-            flash[:good] = "Welcome back #{user.login}"
-        else
+        unless user_login   
             msg = "Unable to login. Try again or return #{a('home', MainController.r)}"
             flash[:fail] = msg
         end
