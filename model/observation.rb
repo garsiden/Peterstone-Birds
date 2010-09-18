@@ -1,5 +1,7 @@
 class Observation < Sequel::Model
 
+    require 'date'
+
     set_schema do
         foreign_key :bto_code, :birds,
             :type=>String, :size=>2, :null=>false
@@ -14,17 +16,27 @@ class Observation < Sequel::Model
     many_to_one :bird, :key=>'bto_code'
     many_to_one :user
 
-
-    # Validations
+    # validations
     self.raise_on_typecast_failure = false
     def validate
         validates_unique([:user_id, :bto_code])
         validates_length_range 1..2, :bto_code
         validates_exact_length 2, :user_id
-        validates_not_string :first_date
+#       validates_not_string :first_date
     end
 
-    # class method
+    # instance methods
+    #
+    # try to format first_date field as date, return value on failure
+    def first_date_str fmt = '%d-%m-%Y'
+        begin
+            return first_date.strftime(fmt)
+        rescue
+            return first_date
+        end
+    end
+
+    # class methods
     def self.total
         self.distinct.select(:bto_code).count
     end
@@ -34,7 +46,6 @@ class Observation < Sequel::Model
     end
         
     def self.first_observations
-
         obs = self.eager(:bird).order(:bto_code, :first_date)
 
         first_obs = Array.new
@@ -53,4 +64,3 @@ class Observation < Sequel::Model
         create :user_id=>'EW', :bto_code=>'DR', :first_date=>'2004-01-01'
     end
 end
-
