@@ -8,9 +8,9 @@
       %b Date
       (dd-mm-yyyy)
     %input#date{:type => 'text', :name => 'first_date',
-      :value => @ob.first_date.strftime("%d-%m-%Y")}
+      :value => @ob.first_date_str}
     %script{:type=>'text/javascript'}
-      var date_validate = new LiveValidation('date', {validMessage: " "});
+      var date_validate = new LiveValidation('date', {validMessage: " ", onlyOnSubmit: true});
       date_validate.add(Validate.Format,
       { pattern: /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/,
       failureMessage: "Please enter a valid date"});
@@ -24,3 +24,4 @@
     %br
     %div
       %input{:type=>'submit', :value=>@submit}
+#{flashbox}

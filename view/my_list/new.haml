@@ -6,7 +6,7 @@
       %b Species
     %select{:id=>'birds', :name=>'bto_code'} 
       - @birds.each do |b|
-        %option{:value=>b.bto_code}= b.name
+        %option{:value=>b.bto_code, :selected  => (b.bto_code == @ob.bto_code)}= b.name
     %script{:type=>'text/javascript'}
       var birds_validate = new LiveValidation('birds', {validMessage: " "});
       birds_validate.add(Validate.Exclusion, { within: ["XX"], 
@@ -15,9 +15,10 @@
     %label{:for=>'date'} 
       %b Date
       (dd-mm-yyyy)
-    %input{:type=>'text', :id=>'date', :name=>'first_date'}
+    %input{:type=>'text', :id=>'date', :name=>'first_date',
+      :value => @ob.first_date}
     %script{:type=>'text/javascript'}
-      var date_validate = new LiveValidation('date', {validMessage: " "});
+      var date_validate = new LiveValidation('date', {validMessage: " ", onlyOnSubmit: true});
       date_validate.add(Validate.Format,
       { pattern: /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/,
       failureMessage: "Please enter a valid date"});
@@ -27,7 +28,10 @@
     %label{:for=>'note'} 
       %b Note
     %textarea{:name=>'note', :id=>'note', :rows=>10, :cols=>35}
+      = h(@ob.note).gsub("\n", '')
     %br
     %br
     %input{:type=>'submit', :value=>@submit}
+%br
+#{flashbox}
 / end of observation form
