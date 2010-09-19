@@ -37,8 +37,9 @@ class Observation < Sequel::Model
     end
 
     # class methods
-    def self.total
-        self.distinct.select(:bto_code).count
+    # example of a dataset_method
+    def_dataset_method(:total) do
+        distinct.select(:bto_code).count
     end
 
     def self.latest
