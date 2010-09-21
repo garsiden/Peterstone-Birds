@@ -145,3 +145,10 @@ a:visited {
 #textnote ul li {
   margin: 0.5em 0 0.5em 0;
 }
+
+hr {
+  color: #58545c;
+  background-color: #8c8296;
+  height: 1px;
+  border-width: 0;
+}
