@@ -27,7 +27,6 @@ class AdminController < Controller
     end
 
     def new_user
-
         if not request.post?
             @title += " - Add User"
             @submit = "Submit"
@@ -36,6 +35,25 @@ class AdminController < Controller
             new_user = Sequel::Model::User.prepare(request)
             if new_user.save
                 redirect self.route_self(:users)
+            end
+        end
+    end
+    
+    def change_password
+        user_id = request[:user_id]
+        @pwd_user = Sequel::Model::User[user_id]
+
+        if not request.post?
+            @title += ' - Change Password'
+            @submit = 'Submit'
+            @legend = 'Change Password'
+        else
+            new_password = request[:new_password]
+            if (@pwd_user.change_password(new_password))
+                redirect self.route_self(:users)
+            else
+                flash[:user_pwd_error] = "Unable to change user's password"
+                redirect request.request_uri
             end
         end
     end
