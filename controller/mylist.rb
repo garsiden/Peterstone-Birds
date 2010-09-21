@@ -13,6 +13,15 @@ class MyListController < Controller
         @title += " - List for #{user.name}" 
         @headings = ['Code', 'Species Name', 'First Date', '' ]
         @sightings = @user.my_list
+
+        if @sightings.first 
+            @num_species = @sightings.count
+            @latest_name = @sightings.first.bird.name
+            @latest_date= @sightings.first.first_date.strftime("%e %B %Y")
+        else
+            @num_species = 'None';
+            @latest_name = @latest_date = '&nbsp;'
+        end
     end
 
     def edit
@@ -65,8 +74,6 @@ class MyListController < Controller
             @ob.first_date = request[:first_date]
             flash[:error] = 'Unable to add sighting'
             session[:ob] = @ob
-            puts request.to_s
-            puts request.request_uri()
             redirect request.request_uri()
         else
             @ob.first_date = first_date

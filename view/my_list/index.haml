@@ -5,13 +5,13 @@
   %tbody
     %tr
       %td.left Number of species
-      %td= @sightings.count
+      %td= @num_species
     %tr
       %td.left Latest sighting
-      %td=@sightings.first.bird.name
+      %td=@latest_name
     %tr
       %td
-      %td= @sightings.first.first_date.strftime("%e %B %Y")
+      %td= @latest_date
 %br
 %a{:href=>route(:new)} Add New 
 %br
