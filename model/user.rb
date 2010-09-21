@@ -14,11 +14,8 @@ class User < Sequel::Model
         boolean :is_admin, :default=>false
     end
 
-    create_table unless table_exists?
-    unrestrict_primary_key
     one_to_many :observations
     plugin :timestamps, :update_on_create=>true
-
 
     # For validation
     attr_accessor :password, :password_confirmation
@@ -39,14 +36,21 @@ class User < Sequel::Model
     end
 
     def self.prepare(hash)
-        login, user_id, name, password, password_confirmation =
+        login, user_id, name, password, password_confirmation, is_admin =
             hash.values_at(*%w[login user_id name password
-                           password_confirmation])
+                           password_confirmation is_admin])
         user = new(:login => login, :user_id => user_id, :name => name,
                    :password => password, 
-                   :password_confirmation => password_confirmation)
+                   :password_confirmation => password_confirmation,
+                   :is_admin => is_admin)
         user.salt = Digest::SHA1.hexdigest("--#{Time.now.to_f}--#{user.login}--")
         user
+    end
+
+    def change_password (new_password)
+        salt = Digest::SHA1.hexdigest("--#{Time.now.to_f}--#{login}--")
+        crypted_password = self.class.encrypt(new_password, salt)
+        save    
     end
 
     # Database access
@@ -89,21 +93,6 @@ class User < Sequel::Model
 
     def encrypt(password)
         self.class.encrypt(password, salt)
-    end
-
-    if empty?
-        new_user =  {'user_id' => 'NG', 'login' => 'garsiden',
-            'name' => 'Nigel Garside', 'password' => 'maggio26',
-            'password_confirmation' => 'maggio26'}
-        user = self.prepare(new_user)
-        user.is_admin = true
-        user.save
-        new_user =  {'user_id' => 'EW', 'login' => 'wange',
-            'name' => 'Eddie Wang', 'password' => 'dicembre21',
-            'password_confirmation' => 'dicembre21'}
-        user = self.prepare(new_user)
-        user.is_admin = true
-        user.save
     end
 
     private
