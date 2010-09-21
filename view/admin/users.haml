@@ -10,9 +10,10 @@
         %td.left= u.login
         %td.left= u.name
         %td= u.created_at.strftime("%d-%m-%Y %X")
-        %td= u.updated_at.strftime("%d-%m-%Y %X")
-        %td
+        %td.left
           %a{:href=>route(:edit_user, :user_id => u.user_id)} Edit
+          &nbsp;
+          %a{:href=>route(:delete_user, :user_id => u.user_id)} Delete
 %br
 %a{:href=>route(:new_user)} Add User
 

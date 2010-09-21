@@ -6,7 +6,7 @@ class AdminController < Controller
 
     def users
         @title += " - Users"
-        @headings = %w( ID Login Name Created Updated ) << ' '
+        @headings = %w( ID Login Name Created ) << ' '
         @users = Sequel::Model::User.order(:created_at)
     end
 
@@ -39,6 +39,14 @@ class AdminController < Controller
         end
     end
     
+    def delete_user
+        del_user_id = request[:user_id]
+        if del_user_id
+            Sequel::Model::User[del_user_id].delete
+        end
+        redirect self.route_self(:users)
+    end
+
     def change_password
         user_id = request[:user_id]
         @pwd_user = Sequel::Model::User[user_id]
