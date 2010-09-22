@@ -48,8 +48,8 @@ class User < Sequel::Model
     end
 
     def change_password (new_password)
-        salt = Digest::SHA1.hexdigest("--#{Time.now.to_f}--#{login}--")
-        crypted_password = self.class.encrypt(new_password, salt)
+        self.salt = Digest::SHA1.hexdigest("--#{Time.now.to_f}--#{self.login}--")
+        self.crypted_password = self.class.encrypt(new_password, self.salt)
         save    
     end
 
