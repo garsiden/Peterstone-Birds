@@ -21,7 +21,7 @@ class AccountController < Controller
         if logged_in?
             answer MyListController.r(user.login)     # default to home if nothing on stack
         else
-            redirect MainController.r #, :fail => :session)
+            redirect AccountController.r :login #, :fail => :session)
         end
     end
 
