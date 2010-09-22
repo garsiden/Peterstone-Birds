@@ -23,6 +23,11 @@
     %label{:for=>'password_confirmation'} 
       %b Confirm Password
     %input{:type=>'password', :id=>'password_confirmation', :name=>'password_confirmation'}
+    %script{:type=>'text/javascript'}
+      var conf = new LiveValidation('password_confirmation',
+      {validMessage: " ", onlyOnSubmit: true} );
+      conf.add(Validate.Confirmation,
+      {match: 'password', failureMessage: "Passwords do not match"} );
     %br
     %br
     %input{:type=>'submit', :value=>@submit}
