@@ -28,5 +28,3 @@ class MainController < Controller
         "there is no 'notemplate.xhtml' associated with this action"
     end
 end
-
-
