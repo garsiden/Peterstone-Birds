@@ -43,7 +43,11 @@ class Observation < Sequel::Model
     end
 
     def self.latest
-        self.eager(:bird, :user).order(:first_date.desc).first
+        unique_obs = self.group_and_count(:bto_code).
+            having(:count.sql_function(:bto_code)=>1).
+            select(:bto_code)
+        self.eager(:bird, :user).filter(:bto_code => unique_obs).
+            order(:first_date.desc).first
     end
         
     def self.first_observations
