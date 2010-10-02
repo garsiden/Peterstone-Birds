@@ -22,7 +22,7 @@ class Observation < Sequel::Model
         validates_unique([:user_id, :bto_code])
         validates_length_range 1..2, :bto_code
         validates_exact_length 2, :user_id
-#       validates_not_string :first_date
+        #       validates_not_string :first_date
     end
 
     # instance methods
@@ -43,13 +43,13 @@ class Observation < Sequel::Model
     end
 
     def self.latest
-        unique_obs = self.group_and_count(:bto_code).
-            having(:count.sql_function(:bto_code)=>1).
-            select(:bto_code)
-        self.eager(:bird, :user).filter(:bto_code => unique_obs).
+        latest = self.select(:bto_code,:min.sql_function(:first_date)).
+            group(:bto_code).order(:min.desc).first
+        self.eager(:bird).
+            filter(:bto_code=> latest[:bto_code], :first_date=>latest[:min]).
             order(:first_date.desc).first
     end
-        
+
     def self.first_observations
         obs = self.eager(:bird).order(:bto_code, :first_date)
 
