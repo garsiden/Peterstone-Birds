@@ -12,11 +12,11 @@ CREATE OR REPLACE VIEW first_obs AS
    min(CASE WHEN date_part('year', lv.list_date) = 2008 THEN lv.list_date ELSE NULL END) AS "2008",
    min(CASE WHEN date_part('year', lv.list_date) = 2009 THEN lv.list_date ELSE NULL END) AS "2009",
    min(CASE WHEN date_part('year', lv.list_date) = 2010 THEN lv.list_date ELSE NULL END) AS "2010",
-   min(lv.list_date) AS earliest,
-   max(lv.list_date) AS latest
-           FROM list_view lv
+   to_date('2004' || MIN(to_char(lv.list_date, 'MMDD')), 'YYYYMMDD') AS earliest,
+   to_date('2004' || MAX(to_char(lv.list_date, 'MMDD')), 'YYYYMMDD') AS latest
+              FROM list_view lv
           WHERE is_migrant = true
           GROUP BY lv.bto_code, lv.name
-  ORDER BY earliest;
+  ORDER BY earliest, species;
 
 COMMENT ON VIEW first_obs IS 'Crosstab by year of migrant arrival dates';
