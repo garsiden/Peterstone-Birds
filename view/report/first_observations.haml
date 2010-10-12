@@ -1,0 +1,23 @@
+%table.listing{:summary => @title}
+  %caption First Observations
+  %thead
+    %tr
+      - @headings.each do |h|
+        %th=h
+  %tbody
+    - @first_obs.each do |f|
+      %tr{:class => cycle}
+        %td.left= f[:species]
+        %td= f[:year04]
+        %td= f[:year05]
+        %td= f[:year06]
+        %td= f[:year07]
+        %td= f[:year08]
+        %td= f[:year09]
+        %td= f[:year10]
+        %td.total= f[:earliest]
+        %td.total= f[:latest]
+%br
+%p.textnote
+  Last updated: #{@last_updated.strftime("%d %B %Y")}
+

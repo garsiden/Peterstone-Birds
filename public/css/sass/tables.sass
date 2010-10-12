@@ -17,6 +17,15 @@ table.listing
   border-spacing: 0
   // margin-top: 1em;
   width: 100%
+  caption
+    background: $secondary-b-5
+    text-align: center
+    border: 1px solid $border_th
+    border-bottom-color: $border_th_bottom
+    font-size: 13px
+    font-weight: bold
+    padding: 2px .5em
+    vertical-align: bottom
   th
     text-align: center
     padding: 0 1em .1em 0
@@ -66,3 +75,5 @@ table.listing
       text-align: left
     &.right
       text-align: right
+    &.total
+      background-color: lighten($primary-5, 10)
