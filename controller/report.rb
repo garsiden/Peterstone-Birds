@@ -16,6 +16,16 @@ class ReportController < Controller
         @first_obs = ds.all
     end
 
+    def winter_wildfowl
+        @caption = "Winter Wildfowl" 
+        @title + " - " + @caption
+        ds = Report.winter_wildfowl
+        @wildfowl = ds.filter(:bto_code => "RK")
+        cols = ds.columns
+        @headings = cols[ 1 .. 11].map { |h| h.to_s.capitalize }
+        #@headings = heads[ 1 .. 11]
+    end
+
     private
 
     def fmt_date dt, fmt="%d %b"

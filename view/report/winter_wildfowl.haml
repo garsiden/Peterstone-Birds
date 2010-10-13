@@ -1,0 +1,24 @@
+%table.listing{:summary => @title}
+  %caption= @caption
+  %thead
+    %tr
+      - @headings.each do |h|
+        %th=h
+  %tbody
+    - @wildfowl.each do |w|
+      %tr{:class => cycle}
+        %td= w[:winter]
+        %td= w[:jul]
+        %td= w[:aug]
+        %td= w[:sep]
+        %td= w[:oct]
+        %td= w[:nov]
+        %td= w[:dec]
+        %td= w[:jan]
+        %td= w[:feb]
+        %td= w[:mar]
+        %td= w[:apr]
+%br
+%p.textnote
+  = "Last updated: #{fmt_date @last_updated, "%d %B %Y"}"
+

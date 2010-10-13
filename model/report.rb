@@ -8,4 +8,10 @@ class Report
         DB[:list].max(:list_date)
     end
 
+    def self.winter_wildfowl
+        path =  __DIR__ + "/../data/sql/views/wildfowl_max.sql"
+        sql = IO.read(path)
+        ww = DB[sql]
+        ww.from_self
+    end
 end
