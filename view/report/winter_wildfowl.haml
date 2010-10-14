@@ -1,6 +1,6 @@
-- @result.each do |k,v|
+- @result.each do |v|
   %table.listing{:summary => @title}
-    %caption= v[0][:bto_code]
+    %caption= v[0][:species]
     %thead
       %tr
         - @headings.each do |h|
@@ -8,9 +8,10 @@
     %tbody
       - v.each do |w|
         %tr{:class => cycle}
-          %td= w[:winter]
+          %td.total= w[:winter]
           - @months.each do |m|
             %td= w[m]
+          %td.total= w[:max];
   %br
 %br
 %p.textnote

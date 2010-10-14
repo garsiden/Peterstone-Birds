@@ -21,14 +21,14 @@ class ReportController < Controller
         ds = Report.winter_wildfowl
         wildfowl = ds.all
         cols = ds.columns
-        @headings = cols[ 1 .. 11].map { |h| h.to_s.capitalize }
-        @months = cols[2 .. 11]
+        @headings = cols[ 3 .. -1].map { |h| h.to_s.capitalize }
+        @months = cols[4 .. -2]
 
-        @result = Hash.new
-        codes = %w[ GV PT SV BW]
+        @result = Array.new
+        codes = %w[ GV PT SV BW BA L ]
 
-        codes.each do |c|
-            @result[c.to_sym] = wildfowl.select { |w| w[:bto_code] == c }
+        codes.sort.each do |c|
+            @result.push( wildfowl.select { |w| w[:bto_code] == c } )
         end
     end
 
