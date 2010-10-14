@@ -17,13 +17,19 @@ class ReportController < Controller
     end
 
     def winter_wildfowl
-        @caption = "Winter Wildfowl" 
-        @title + " - " + @caption
+        @title + " - Winter Wildfowl"
         ds = Report.winter_wildfowl
-        @wildfowl = ds.filter(:bto_code => "RK")
+        wildfowl = ds.all
         cols = ds.columns
         @headings = cols[ 1 .. 11].map { |h| h.to_s.capitalize }
-        #@headings = heads[ 1 .. 11]
+        @months = cols[2 .. 11]
+
+        @result = Hash.new
+        codes = %w[ GV PT SV BW]
+
+        codes.each do |c|
+            @result[c.to_sym] = wildfowl.select { |w| w[:bto_code] == c }
+        end
     end
 
     private
