@@ -5,3 +5,5 @@ public/css/sass/
 public/css/palette/
 public/.sass-cache/
 scripts/
+data/
+!data/sql/views/
