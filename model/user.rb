@@ -16,7 +16,8 @@ class User < Sequel::Model
 
     one_to_many :observations
     plugin :timestamps, :update_on_create=>true
-
+    unrestrict_primary_key
+    
     # For validation
     attr_accessor :password, :password_confirmation
 
