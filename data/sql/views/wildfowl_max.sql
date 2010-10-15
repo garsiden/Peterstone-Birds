@@ -14,7 +14,7 @@
         max(CASE WHEN mnth =  4 THEN max_count ELSE NULL END) AS apr,
         max(max_count) as max
    FROM (
-      SELECT bto_code, name as species, max(lv.species_count) AS max_count,
+      SELECT bto_code, species_name as species, max(lv.species_count) AS max_count,
       date_part('month', lv.list_date) AS mnth,
       CASE WHEN date_part('month', lv.list_date) < 7 THEN
           to_char(date_part('year', lv.list_date) - 1, 'FM0000') || to_char(lv.list_date, '-YY') ELSE
@@ -42,7 +42,7 @@ UNION ALL
         max(CASE WHEN mnth =  4 THEN max_count ELSE NULL END) AS apr,
         max(max_count) as max
    FROM (
-      SELECT bto_code, name as species, max(lv.species_count) AS max_count,
+      SELECT bto_code, species_name as species, max(lv.species_count) AS max_count,
       date_part('month', lv.list_date) AS mnth,
       'Maximum' AS winter
       FROM list_view lv
