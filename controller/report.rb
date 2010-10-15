@@ -16,16 +16,25 @@ class ReportController < Controller
         @first_obs = ds.all
     end
 
-    def winter_wildfowl
-        @title + " - Winter Wildfowl"
+    def wintering group
+
+        if group == 'waders'
+            codes = %w[ GV BW BA L]
+            @title + " - Winter Waders"
+        elsif group == 'wildfowl'
+            codes = %w[ SV PT SU ]
+            @title + " - Winter Wildfowl"
+        elsif group == 'waterpipit'
+            codes = %w[ WI]
+        end
+
         ds = Report.winter_wildfowl
         wildfowl = ds.all
         cols = ds.columns
-        @headings = cols[ 3 .. -1].map { |h| h.to_s.capitalize }
-        @months = cols[4 .. -2]
+        @headings = cols[ 2 .. -1].map { |h| h.to_s.capitalize }
+        @months = cols[3 .. -2]
 
         @result = Array.new
-        codes = %w[ GV PT SV BW BA L ]
 
         codes.sort.each do |c|
             @result.push( wildfowl.select { |w| w[:bto_code] == c } )

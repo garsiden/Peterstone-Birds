@@ -23,7 +23,7 @@
       FROM list_view lv
       WHERE lv.list_date >= '2004-07-01'
       GROUP BY bto_code, species, mnth, winter
-      HAVING bto_code in ('SU', 'PT', 'SV', 'WN', 'T', 'OC', 'BW', 'RK', 'GV', 'KN', 'DN', 'RP', 'BA', 'L') AND
+      HAVING bto_code in ('SU', 'PT', 'SV', 'WN', 'T', 'OC', 'BW', 'RK', 'GV', 'KN', 'DN', 'RP', 'BA', 'L', 'WI') AND
       date_part('month', lv.list_date) IN( 7,8,9,10,11,12,1,2,3,4)) x
 --   ORDER BY bto_code, winter, mnth) x
    GROUP BY bto_code, species, winter
@@ -48,7 +48,7 @@ UNION ALL
       FROM list_view lv
       WHERE lv.list_date >= '2004-07-01'
       GROUP BY bto_code, species, mnth, winter
-      HAVING bto_code in ('SU', 'PT', 'SV', 'WN', 'T', 'OC', 'BW', 'RK', 'GV', 'KN', 'DN', 'RP', 'BA', 'L') AND
+      HAVING bto_code in ('SU', 'PT', 'SV', 'WN', 'T', 'OC', 'BW', 'RK', 'GV', 'KN', 'DN', 'RP', 'BA', 'L', 'WI') AND
       date_part('month', lv.list_date) IN( 7,8,9,10,11,12,1,2,3,4)) x
 --   ORDER BY bto_code, winter, mnth) x
    GROUP BY bto_code, species, winter
