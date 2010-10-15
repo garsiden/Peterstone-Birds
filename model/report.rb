@@ -1,7 +1,8 @@
 class Report
 
     def self.first_observations
-        DB[:first_obs]
+        sql = self.get_sql 'first_obs.sql'
+        DB[sql]
     end
 
     def self.last_updated
@@ -9,9 +10,15 @@ class Report
     end
 
     def self.winter_wildfowl
-        path =  __DIR__ + "/../data/sql/views/wildfowl_max.sql"
-        sql = IO.read(path)
+        sql = self.get_sql 'wintering.sql'
         ww = DB[sql]
         ww.from_self
+    end
+
+    private
+
+    def self.get_sql query
+        path =  __DIR__ + "/../sql/" + query
+        sql = IO.read(path)
     end
 end
