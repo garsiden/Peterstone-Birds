@@ -49,7 +49,11 @@ UNION ALL
       SELECT bto_code, species_name as species, max(lv.species_count) AS max_count,
       date_part('month', lv.list_date) AS mnth,
       'Maximum' AS winter
-      FROM list_view lv
+      FROM (
+     SELECT l.sub_id, l.list_date, g.bto_code, b.name AS species_name, g.species_count
+        FROM sightings g, birds b, lists l
+        WHERE g.bto_code = b.bto_code
+        AND g.sub_id = l.sub_id) lv
       WHERE lv.list_date >= '2004-07-01'
       GROUP BY bto_code, species, mnth, winter
       HAVING bto_code in ('SU', 'PT', 'SV', 'WN', 'T', 'OC', 'BW', 'RK', 'GV', 'KN', 'DN', 'RP', 'BA', 'L', 'WI') AND
