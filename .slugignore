@@ -1,9 +1,7 @@
 start.rb
 TODO
-data/
 tmp/
 public/css/sass/
 public/css/palette/
 public/.sass-cache/
 scripts/
-!data/sql/views/
