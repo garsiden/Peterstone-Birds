@@ -1,17 +1,17 @@
-- @result.each do |v|
+- @results.each do |bird|
   %table.listing{:summary => @title}
-    %caption= v[0][:species]
+    %caption= bird[0][:species]
     %thead
       %tr
         - @headings.each do |h|
           %th=h
     %tbody
-      - v.each do |w|
+      - bird.each do |row|
         %tr{:class => cycle}
-          %td.total= w[:winter]
+          %td.total= row[:winter]
           - @months.each do |m|
-            %td= w[m]
-          %td.total= w[:max];
+            %td= row[m]
+          %td.total= row[:max];
   %br
 %br
 %p.textnote

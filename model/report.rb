@@ -9,10 +9,15 @@ class Report
         DB[:lists].max(:list_date)
     end
 
-    def self.winter_wildfowl
+    def self.wintering
         sql = self.get_sql 'wintering.sql'
         ww = DB[sql]
         ww.from_self
+    end
+
+    def self.hotspot
+        sql = self.get_sql 'hotspot.sql'
+        DB[sql];
     end
 
     private

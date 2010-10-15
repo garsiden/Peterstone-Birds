@@ -9,11 +9,12 @@ class ReportController < Controller
 
     def first_observations
         @title += " - First Observations"
+        @caption = 'First Observations'
         ds  = Report.first_observations
         cols = ds.columns
         @headings = cols.values_at(1, -9 .. 11).map { |h| h.to_s.capitalize }
         @years = cols[-9 .. 9]
-        @first_obs = ds.all
+        @results = ds.all
     end
 
     def wintering group
@@ -28,17 +29,27 @@ class ReportController < Controller
             codes = %w[ WI]
         end
 
-        ds = Report.winter_wildfowl
-        wildfowl = ds.all
+        ds = Report.wintering
+        winter = ds.all
         cols = ds.columns
         @headings = cols[ 2 .. -1].map { |h| h.to_s.capitalize }
         @months = cols[3 .. -2]
 
-        @result = Array.new
+        @results = Array.new
 
         codes.sort.each do |c|
-            @result.push( wildfowl.select { |w| w[:bto_code] == c } )
+            @results.push( winter.select { |w| w[:bto_code] == c } )
         end
+    end
+
+    def hotspot
+        @title += " - Hotspot"
+        @caption = 'Hotspot'
+        ds  = Report.hotspot
+        cols = ds.columns
+        @headings = cols.map { |h| h.to_s.capitalize }
+        @years = cols[1 .. -1]
+        @results = ds.all
     end
 
     private

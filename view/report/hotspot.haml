@@ -9,9 +9,7 @@
       %tr{:class => cycle}
         %td.left= row[:species]
         - @years.each do |year|
-          %td= fmt_date row[year]
-        %td.total= fmt_date row[:earliest]
-        %td.total= fmt_date row[:latest]
+          %td= row[year]
 %br
 %p.textnote
   = "Last updated: #{fmt_date @last_updated, "%d %B %Y"}"
