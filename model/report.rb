@@ -5,7 +5,7 @@ class Report
     end
 
     def self.last_updated
-        DB[:list].max(:list_date)
+        DB[:lists].max(:list_date)
     end
 
     def self.winter_wildfowl
