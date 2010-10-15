@@ -1,11 +1,11 @@
 -- View: list_view
 
--- DROP VIEW list_view;
+DROP VIEW list_view;
 
 CREATE OR REPLACE VIEW list_view AS 
  SELECT l.sub_id, l.list_date, l.start_time,
- g.bto_code, b.name, b.is_migrant, g.species_count, g.qualifier
-   FROM sighting g, birds b, list l
+ g.bto_code, b.name AS species_name, b.is_migrant, g.species_count, g.qualifier
+   FROM sightings g, birds b, lists l
   WHERE g.bto_code = b.bto_code
   AND g.sub_id = l.sub_id
   ORDER BY l.list_date, g.bto_code;
