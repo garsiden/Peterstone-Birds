@@ -6,8 +6,7 @@ Sequel::Model.plugin :timestamps
 Sequel::Model.plugin :schema
 Sequel::Model.plugin :validation_helpers
 
-DB = Sequel.connect(ENV['DATABASE_URL'] ||
-                    'postgres://garsiden:maggio26@localhost/psbirds')
+DB = Sequel.connect(ENV['DATABASE_URL'])
 
 require 'model/bird'
 require 'model/user'
