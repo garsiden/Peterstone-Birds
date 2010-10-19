@@ -11,8 +11,7 @@ class Report
 
     def self.wintering
         sql = self.get_sql 'wintering.sql'
-        ww = DB[sql]
-        ww.from_self
+        DB[sql].from_self
     end
 
     def self.hotspot
@@ -23,7 +22,7 @@ class Report
     private
 
     def self.get_sql query
-        path =  __DIR__ + "/../sql/" + query
+        path =  "sql/#{query}"
         sql = IO.read(path)
     end
 end
