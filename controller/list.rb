@@ -6,4 +6,10 @@ class ListController < Controller
         @sightings = Observation.first_observations
     end
 
+    def rarities
+        user = Sequel::Model::User[:user_id => 'BG']
+        @title = " - Rarities"
+        @headings = ['Species Name', 'First Date', 'Note' ]
+        @sightings = user.my_list
+    end
 end
