@@ -39,19 +39,30 @@ class Observation < Sequel::Model
     # class methods
     # example of a dataset_method
     def_dataset_method(:total) do
-        distinct.select(:bto_code).count
+        distinct.select(:bto_code).filter(~:user_id => 'BG').count
     end
 
     def self.latest
-        latest = self.select(:bto_code,:min.sql_function(:first_date)).
-            group(:bto_code).order(:min.desc).first
+        latest =
+            self.select(:bto_code, :min.sql_function(:first_date)).
+            filter(~:user_id => 'BG').
+            group(:bto_code).
+            order(:min.desc).
+            first
+
         self.eager(:bird).
-            filter(:bto_code=> latest[:bto_code], :first_date=>latest[:min]).
-            order(:first_date.desc).first
+            filter(:bto_code=> latest[:bto_code],
+                   :first_date=>latest[:min],
+                   ~:user_id=>'BG' ).
+            order(:first_date.desc).
+            first
     end
 
     def self.first_observations
-        obs = self.eager(:bird).order(:bto_code, :first_date)
+        obs =
+            self.eager(:bird).
+            filter(~:user_id => 'BG').
+            order(:bto_code, :first_date)
 
         first_obs = Array.new
         bto = nil
