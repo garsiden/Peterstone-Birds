@@ -1,0 +1,11 @@
+%table.listing{:summary => @title}
+  %thead
+    %tr
+      - @headings.each do |h|
+        %th=h
+  %tbody
+    - @sightings.each do |s|
+      %tr{:class => cycle}
+        %td.left= s.bird.name
+        %td= s.first_date.strftime("%d-%m-%Y")
+        %td.left= s.note
