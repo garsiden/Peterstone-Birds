@@ -1,5 +1,4 @@
 --DROP VIEW wildfowl_max;
-
 --CREATE OR REPLACE VIEW wildfowl_max AS
    SELECT bto_code, species, winter,
         max(CASE WHEN mnth =  7 THEN max_count ELSE NULL END) AS jul,
@@ -24,14 +23,14 @@
      SELECT l.sub_id, l.list_date, g.bto_code, b.name AS species_name, g.species_count
         FROM sightings g, birds b, lists l
         WHERE g.bto_code = b.bto_code
-        AND g.sub_id = l.sub_id) lv
+        AND g.sub_id = l.sub_id
+        AND g.species_count > 0) lv
        WHERE lv.list_date >= '2004-07-01'
       GROUP BY bto_code, species, mnth, winter
-      HAVING bto_code in ('SU', 'PT', 'SV', 'WN', 'T', 'OC', 'BW', 'RK', 'GV', 'KN', 'DN', 'RP', 'BA', 'L', 'WI') AND
+      HAVING bto_code in ('SU', 'PT', 'SV', 'WN', 'T', 'OC', 'BW', 'RK', 'GV', 'KN', 'DN', 'RP', 'BA',
+        'L', 'WI') AND
       date_part('month', lv.list_date) IN( 7,8,9,10,11,12,1,2,3,4)) x
---   ORDER BY bto_code, winter, mnth) x
    GROUP BY bto_code, species, winter
---   ORDER BY species, winter
 UNION ALL
    SELECT bto_code, species, winter,
         max(CASE WHEN mnth =  7 THEN max_count ELSE NULL END) AS jul,
@@ -53,12 +52,12 @@ UNION ALL
      SELECT l.sub_id, l.list_date, g.bto_code, b.name AS species_name, g.species_count
         FROM sightings g, birds b, lists l
         WHERE g.bto_code = b.bto_code
-        AND g.sub_id = l.sub_id) lv
+        AND g.sub_id = l.sub_id
+        AND g.species_count >0) lv
       WHERE lv.list_date >= '2004-07-01'
       GROUP BY bto_code, species, mnth, winter
-      HAVING bto_code in ('SU', 'PT', 'SV', 'WN', 'T', 'OC', 'BW', 'RK', 'GV', 'KN', 'DN', 'RP', 'BA', 'L', 'WI') AND
+      HAVING bto_code in ('SU', 'PT', 'SV', 'WN', 'T', 'OC', 'BW', 'RK', 'GV', 'KN', 'DN', 'RP', 'BA',
+        'L', 'WI') AND
       date_part('month', lv.list_date) IN( 7,8,9,10,11,12,1,2,3,4)) x
---   ORDER BY bto_code, winter, mnth) x
    GROUP BY bto_code, species, winter
    ORDER BY species, winter
-
