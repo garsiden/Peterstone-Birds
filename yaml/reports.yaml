@@ -1,0 +1,20 @@
+-
+  link: first_observations
+  name: First Observations
+  desc: Arrival dates of spring migrants, by year
+-
+  link: wintering/waders
+  name: Winter Waders
+  desc: Maximum wader count by month/year
+-
+  link: wintering/wildfowl
+  name: Winter Wildfowl
+  desc: Maximum wildfowl count by month/year
+-
+  link: hotspot
+  name: Hotspot
+  desc: Selected species with over 25 sightings per year
+-
+  link: wintering/waterpipit
+  name: Water Pipits
+  desc: Maximum counts of Water Pipits, by month/year
