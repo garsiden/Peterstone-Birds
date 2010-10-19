@@ -1,3 +1,6 @@
+=breadcrumb(request.request_uri)
+%br
+%br
 - @results.each do |bird|
   %table.listing{:summary => @title}
     %caption= bird[0][:species]
@@ -10,10 +13,8 @@
         %tr{:class => cycle}
           %td.total= row[:winter]
           - @months.each do |m|
-            %td= row[m]
+            %td.right= row[m]
           %td.total= row[:max];
   %br
 %br
-%p.textnote
-  = "Last updated: #{fmt_date @last_updated, "%d %B %Y"}"
-
+%p.reportnote= last_updated 
