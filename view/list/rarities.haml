@@ -9,3 +9,6 @@
         %td.left= s.bird.name
         %td= s.first_date.strftime("%d-%m-%Y")
         %td.left= s.note
+  %tfoot
+    %tr
+      %td.left{:colspan => 3}= "Total Species:  #{@sightings.count}"

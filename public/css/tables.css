@@ -64,6 +64,17 @@ table.listing tbody tr.even {
 table.listing tbody tr:hover {
   background: #e8ede5 !important;
 }
+table.listing tfoot {
+  background: #eae0d3;
+}
+table.listing tfoot td {
+  border: 1px solid #ded0bf;
+  border-bottom-color: #8c8296;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 0.5em;
+  vertical-align: bottom;
+}
 table.listing td {
   text-align: center;
 }
