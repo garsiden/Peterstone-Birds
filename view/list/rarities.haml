@@ -3,12 +3,12 @@
     %tr
       - @headings.each do |h|
         %th=h
-  %tbody
-    - @sightings.each do |s|
-      %tr{:class => cycle}
-        %td.left= s.bird.name
-        %td= s.first_date.strftime("%d-%m-%Y")
-        %td.left= s.note
   %tfoot
     %tr
       %td.left{:colspan => 3}= "Total Species:  #{@sightings.count}"
+  %tbody
+    - @sightings.each do |s|
+      %tr{:class => cycle}
+        %td.now= s.bird.name
+        %td= s.first_date.strftime("%d-%m-%Y")
+        %td.left= s.note

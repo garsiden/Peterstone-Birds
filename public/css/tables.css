@@ -84,6 +84,10 @@ table.listing td.left {
 table.listing td.right {
   text-align: right;
 }
+table.listing td.now {
+  text-align: left;
+  white-space: nowrap;
+}
 table.listing td.total {
   background-color: #e8ede5;
 }
