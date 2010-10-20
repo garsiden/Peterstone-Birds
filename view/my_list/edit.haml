@@ -19,7 +19,7 @@
     %br
     %label{:for=>'note'} Note
     %textarea#note{:name=>'note', :rows=>10, :cols=>35}
-      = h(@ob.note).gsub("\n", '')
+      = @ob.note.gsub("\n", '')
     %br
     %br
     %div

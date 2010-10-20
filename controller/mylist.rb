@@ -67,7 +67,8 @@ class MyListController < Controller
 
     def save
         return unless request.post?
-        @ob.note = h(request[:note])
+        @ob.note = request[:note]
+        p @ob.note
         first_date = validate_date(request[:first_date])
 
         unless first_date
