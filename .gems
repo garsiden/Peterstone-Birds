@@ -1,3 +1,4 @@
 ramaze -v 2010.06.18
 sequel -v 3.15.0
 haml -v 3.0.18
+patron -v 0.4.9
