@@ -84,8 +84,11 @@ table.listing td.left {
 table.listing td.right {
   text-align: right;
 }
-table.listing td.now {
+table.listing td.lnowrap {
   text-align: left;
+  white-space: nowrap;
+}
+table.listing td.cnowrap {
   white-space: nowrap;
 }
 table.listing td.total {

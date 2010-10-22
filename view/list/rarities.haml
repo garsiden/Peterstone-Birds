@@ -9,6 +9,6 @@
   %tbody
     - @sightings.each do |s|
       %tr{:class => cycle}
-        %td.now= s.bird.name
-        %td= s.first_date.strftime("%d-%m-%Y")
+        %td.lnowrap= s.bird.name
+        %td.cnowrap= s.first_date.strftime("%d-%m-%Y")
         %td.left= s.note
