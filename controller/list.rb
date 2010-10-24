@@ -12,4 +12,23 @@ class ListController < Controller
         @headings = ['Species Name', 'Date', 'Note' ]
         @sightings = user.my_list
     end
+
+    def daily 
+        sub_id = request[:sub_id]
+        @headings = %w[ Code Species Count Qualifier ]
+        @title += ' - BirdTrack List'
+        list = List[:sub_id => sub_id]
+        @daily = list.sightings_dataset.eager(:bird).order(:bto_code.asc)
+    end
+
+    private
+
+    def count_text count, q
+        case
+        when q == '+' then "#{count}#{q}"
+        when q == 'p' then 'present'
+        when q == 'c' then "<i>c</i> #{count}"
+        else count
+        end
+    end
 end

@@ -1,0 +1,12 @@
+%table.listing{:summary => @title}
+  %thead
+    %tr
+      - @headings.each do |h|
+        %th= h
+  %tbody
+    - @daily.each do |b|
+      %tr{:class => cycle}
+        %td= b.bto_code
+        %td.left= b.bird.name
+        %td.right= count_text b.species_count, b.qualifier
+        %td= b.qualifier

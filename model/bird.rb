@@ -9,8 +9,8 @@ class Bird < Sequel::Model
 
     create_table unless table_exists?
     unrestrict_primary_key
-    one_to_many :observations, :key=>'bto_code', :class_name=>'Observation'
-
+    one_to_many :observations, :key=> :bto_code, :class_name=> 'Observation'
+    one_to_many :sightings, :key=> :bto_code
     if empty?
 
 	create :bto_code => 'PE', :name => 'Peregrine',
