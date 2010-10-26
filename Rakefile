@@ -11,5 +11,5 @@ end
 desc "Update daily sightings from BirdTrack"
 task :bt_update do
     puts "Running bt_update rake task..."
-    ruby bin/bt_update.rb
+    ruby 'bin/bt_update.rb'
 end
