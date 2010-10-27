@@ -15,10 +15,10 @@ class ListController < Controller
 
     def daily 
         sub_id = request[:sub_id]
-        @headings = %w[ Code Species Count Qualifier ]
+        @headings = %w[ Code Species Count ]
         @title += ' - BirdTrack List'
-        list = List[:sub_id => sub_id]
-        @daily = list.sightings_dataset.eager(:bird).order(:bto_code.asc)
+        @list = List[:sub_id => sub_id]
+        @daily = @list.sightings_dataset.eager(:bird).order(:bto_code.asc)
     end
 
     private
