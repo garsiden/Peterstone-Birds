@@ -1,8 +1,22 @@
-
 require 'lib/birdtrack'
 
-test = false
+# Check for command line options
+year_str = ARGV.shift if ARGV
+this_year = Time.now.year
 
+if year_str
+    raise TypeError,
+        "Integer argument expected" unless (year = year_str.to_i) > 0
+    start_year = 2003
+    if year < start_year || year > this_year
+        raise ArgumentError,
+            "Year argument should be between #{start_year} & #{this_year}"
+    end
+else
+    year = this_year
+end
+
+test = false
 test_path = File.expand_path('~/Projects/git/peterstonebirds/data/src/')
 
 unless test
@@ -15,11 +29,8 @@ else
     obs_src = test_path + '/SUB128722826315949590277580.html'
 end
 
-year = Time.now.year
 subs_src.sub!(/YYYY/, year.to_s)
 obs_src.sub!(/YYYY/, year.to_s)
-
-p subs_src
 
 # filter out other sites
 web_subs = BirdTrack.get_subs_list(subs_src, get_html_method).select {
