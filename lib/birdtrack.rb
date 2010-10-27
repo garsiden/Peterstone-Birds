@@ -44,15 +44,8 @@ module BirdTrack
 
     def BirdTrack.get_bto_codes
         if @@bto.empty?
-            sql =
-                'SELECT '\
-                'CASE WHEN web_species.web_name IS NULL THEN birds.name ' \
-                'ELSE web_species.web_name ' \
-                'END AS name, birds.bto_code ' \
-                'FROM birds ' \
-                'LEFT JOIN web_species ON birds.name = web_species.bto_name'
             db = self.db_connect
-            @@bto = db[sql].select_hash(:name, :bto_code)
+            @@bto = db[:web_species_lookup].select_hash(:name, :bto_code)
         end
         @@bto
     end
