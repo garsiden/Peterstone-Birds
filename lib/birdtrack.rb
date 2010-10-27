@@ -1,19 +1,21 @@
+require 'rubygems'
+require 'patron'
+require 'nokogiri'
+require 'sequel'
+
 module BirdTrack
 
-    require 'rubygems'
-    require 'patron'
-    require 'nokogiri'
-    require 'sequel'
-
     BASE_URL = "http://blx1.bto.org/birdtrack/"
-    SUBS_URL = 'observations/list-submissions.jsp?' #YEAR=2010&SORT=A'
+    SUBS_URL = 'observations/list-submissions.jsp?'
     OBS_URL =
-        'observations/list-observations.jsp?SubmissionID=SUBID&YEAR=YYYY&SORT=A'
+        'observations/list-observations.jsp?SubmissionID='\
+        'SUBID&YEAR=YYYY&SORT=A'
     AUTH_URL =
         'servlet/AuthenticateUser?'\
         'SuccessURL=/birdtrack/main/data-home.jsp&'\
         'FailureURL=/birdtrack/login/login.html'
-    AGENT  = 'Mozilla/5.0 (Macintosh; U; PPC Mac OS X 10.4; en-US; rv:1.9.2.10) '\
+    AGENT  = 
+        'Mozilla/5.0 (Macintosh; U; PPC Mac OS X 10.4; en-US; rv:1.9.2.10) '\
         'Gecko/20100914 Firefox/3.6.10'
 
     @@bto = {}
@@ -42,28 +44,30 @@ module BirdTrack
 
     def BirdTrack.get_bto_codes
         if @@bto.empty?
-            sql = 'SELECT CASE WHEN web_species.web_name IS NULL THEN birds.name ' \
-                  'ELSE web_species.web_name ' \
-                  'END AS name, birds.bto_code ' \
-                  'FROM birds ' \
-                  'LEFT JOIN web_species ON birds.name = web_species.bto_name'
+            sql =
+                'SELECT '\
+                'CASE WHEN web_species.web_name IS NULL THEN birds.name ' \
+                'ELSE web_species.web_name ' \
+                'END AS name, birds.bto_code ' \
+                'FROM birds ' \
+                'LEFT JOIN web_species ON birds.name = web_species.bto_name'
             db = self.db_connect
             @@bto = db[sql].select_hash(:name, :bto_code)
         end
         @@bto
     end
-    
+
     def BirdTrack.get_subs_list subs_src, get_subs_method
-       doc = get_subs_method.call(subs_src)
-       parse_subs_list doc
+        doc = get_subs_method.call(subs_src)
+        parse_subs_list doc
     end
 
     def BirdTrack.parse_obs_list doc
         table = doc.at('//table[@id="stripeTable"]')
         obs_list = []
 
-        (table/("tr"))[1 .. -1].each do |tr| 
-            species, count = (tr/("td"))[0..1].map { |x| x.inner_text.strip }
+        (table/('tr'))[1 .. -1].each do |tr| 
+            species, count = (tr/('td'))[0..1].map { |x| x.inner_text.strip }
             next unless count
             next if (species =~ /^Terns|Number/)
             (count =~ /(^c?)(\d*)([+]?$)/)
@@ -71,35 +75,33 @@ module BirdTrack
                 prefix = $1
                 suffix = $3
                 qualifier = prefix.empty? ? (suffix.empty? ? nil : suffix ) : prefix
-                num.sub(',','')
+                num.sub!(',','')
             else
                 num = '-1'
                 qualifier = 'p'
             end
             obs_item = {
-                :species => species,
-                :species_count   => num,
-                :qualifier => qualifier
+                :species       => species,
+                :species_count => num,
+                :qualifier     => qualifier
             }
             obs_list.push obs_item
         end
 
-        #obs_list.each { |o| p o }
-
-        return obs_list
+        obs_list
     end
 
     def BirdTrack.parse_subs_list doc
         table = doc.at('//table[@id="any"]')
         subs_list = []
 
-        (table/("tr"))[1 .. -1].each do |tr| 
-            url, start_time, end_time, site_name = tr/("td")
+        (table/('tr'))[1 .. -1].each do |tr| 
+            url, start_time, end_time, site_name = tr/('td')
             link = (url/('a'))[0]
             next unless link['href'] =~ /(SUB[W]?\d+)/;
             sub_id = $1
             next unless link.inner_text =~ /(\d{2} [A-Z][a-z]{2} \d{4})/ 
-                list_date =  $1
+                list_date = $1
             sub_item = {
                 :sub_id     => sub_id,
                 :site_name  => site_name.inner_text.strip,
@@ -110,16 +112,14 @@ module BirdTrack
             subs_list.push sub_item
         end
 
-        #subs_list.each { |s| p s[:sub_id]}
-
-        return subs_list
+        subs_list
     end
 
     def BirdTrack.get_new_subs year, web_subs
         # array of sub_ids from database
         db = self.db_connect
         db_subs = db[:lists].
-            filter("date_part('year', list_date)=?", 2010).
+            filter("date_part('year', list_date)=?", year).
             select_order_map(:sub_id)
 
         # create hash of sub_ids
@@ -155,12 +155,11 @@ module BirdTrack
                 )
                 db[:sightings].multi_insert(sub[:obs])
             end
-            p "Added list #{sub[:sub_id]} to the database"
+            puts "Added list #{sub[:sub_id]} to the database"
         end
     end
 
     def BirdTrack.get_web_file path
-        # open test file to parse
         doc = open(path) { |f| Nokogiri::HTML(f) }
     end
 
@@ -171,21 +170,15 @@ module BirdTrack
         doc = Nokogiri::HTML(html)
     end
 
-    def BirdTrack.process_subs_lists subs, obs_src, meth
+    def BirdTrack.process_subs_lists subs, obs_src, get_html_method
 
         subs.each do |s|
-            src = obs_src
+            #src = obs_src
             src = obs_src.sub(/SUBID/, s[:sub_id])
-            html = meth.call src
+            html = get_html_method.call src
             s[:obs] = self.parse_obs_list html 
         end
-        
+
         self.add_db_list subs
     end
 end
-__END__
-SELECT CASE WHEN web_species.web_name IS NULL THEN birds.name
-            ELSE web_species.web_name
-        END AS web_name, birds.bto_code
-   FROM birds
-   LEFT JOIN web_species ON birds.name = web_species.bto_name
