@@ -1,8 +1,7 @@
 class Report
 
     def self.first_observations
-        sql = self.get_sql 'first_obs.sql'
-        DB[sql]
+        DB[:first_obs]
     end
 
     def self.last_updated
@@ -10,13 +9,11 @@ class Report
     end
 
     def self.wintering
-        sql = self.get_sql 'wintering.sql'
-        DB[sql].from_self
+        DB[:wintering].from_self
     end
 
     def self.hotspot
-        sql = self.get_sql 'hotspot.sql'
-        DB[sql];
+        DB[:hotspot]
     end
 
     private

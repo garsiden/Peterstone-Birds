@@ -2,7 +2,7 @@
 
 -- DROP VIEW web_species_lookup;
 
-CREATE OR REPLACE VIEW web_species_lookup AS 
+-- CREATE OR REPLACE VIEW web_species_lookup AS 
 SELECT 
         CASE
             WHEN web_species.web_name IS NULL THEN birds.name

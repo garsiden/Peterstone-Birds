@@ -31,3 +31,14 @@ task :foreign_keys do
     ruby 'bin/foreign_keys.rb'
 end
 
+desc 'Create/replace database views from SQL files'
+task :create_views do
+    Dir.glob('sql/*.sql') do |f|
+        sql = IO.read f
+        view = File.basename f, '.sql'
+        sql.chomp! ';'
+        DB.create_or_replace_view view, sql
+        puts "Created view #{view}"
+    end
+end
+
