@@ -157,3 +157,20 @@ p.reportnote {
   font-size: 0.9em;
   color: #88837c;
 }
+
+dl.whatsnew {
+  margin: 1em 0;
+  padding: 0;
+}
+dl.whatsnew dt {
+  position: relative;
+  left: 0;
+  top: 1.2em;
+  width: 6em;
+  font-weight: bold;
+  white-space: nowrap;
+}
+dl.whatsnew dd {
+  margin: 0 0 0 7em;
+  padding: 0 0 0.5em 0.5em;
+}

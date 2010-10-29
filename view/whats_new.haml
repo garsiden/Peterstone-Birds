@@ -1,0 +1,7 @@
+#textnote
+  %h3= @header
+  %dl.whatsnew
+    - @items.each do |item|
+      %dt= item['term'].strftime('%d %b %Y')
+      %dd= item['head']
+      %dd= item['desc']
