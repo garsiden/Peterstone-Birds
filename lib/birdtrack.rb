@@ -63,7 +63,7 @@ module BirdTrack
             species, count = (tr/('td'))[0..1].map { |x| x.inner_text.strip }
             next unless count
             next if (species =~ /^Terns|Number/)
-            (count =~ /(^c?)(\d*)([+]?$)/)
+            (count =~ /(^c?)(\d*,?\d*)([+]?$)/)
             unless (num = $2).empty?
                 prefix = $1
                 suffix = $3
