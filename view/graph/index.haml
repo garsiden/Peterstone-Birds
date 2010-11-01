@@ -1,0 +1,16 @@
+%a{:href => MainController.route('/')} Home
+%br
+%br
+%table.listing{:summary => @title}
+  %caption= @caption
+  %thead
+    %tr
+      %th Link
+      %th Description
+  %tbody
+    - @graphs.each do |r|
+      %tr{:class => cycle}
+        %td.left
+          %a{:href => "show/#{r['link']}"}
+            =r['name']
+        %td.left= r['desc']
