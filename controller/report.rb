@@ -1,7 +1,7 @@
 class ReportController < Controller
     require 'yaml'
 
-    layout 'report_layout'
+    layout 'nomenu_layout'
 
     def index
         @title += "- Reports"
