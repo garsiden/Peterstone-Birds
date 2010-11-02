@@ -1,4 +1,18 @@
--
-  link: water_pipits
-  name: Water Pipits
-  desc: Maximum counts of Water Pipits, by month
+water_pipits: {
+link: water_pipits,
+          name: Water Pipits,
+          title: Maximum Monthly Water Pipit Count,
+          desc: 'Maximum counts of Water Pipits, by month',
+          view: wintering_max,
+          bto_code: WI
+              }
+
+shoveler: {
+link: shoveler_max,
+          name: Shovelers,
+          title: Maximum Monthly Shoveler Count,
+          desc: 'Maximum counts of Shoveler, by month',
+          view: wintering_max,
+          bto_code: SV
+          }
+
