@@ -3,3 +3,4 @@ sequel -v 3.15.0
 haml -v 3.0.18
 patron -v 0.4.9
 nokogiri -v 1.4.3.1
+gruff -v 0.3.6
