@@ -8,9 +8,9 @@
       %th Link
       %th Description
   %tbody
-    - @graphs.each do |r|
+    - @graphs.each do |k,v|
       %tr{:class => cycle}
         %td.left
-          %a{:href => "show/#{r['link']}"}
-            =r['name']
-        %td.left= r['desc']
+          %a{:href => "show/#{k}"}
+            =v['name']
+        %td.left= v['desc']
