@@ -12,6 +12,10 @@ class Report
         DB[:wintering].from_self
     end
 
+    def self.wintering_max
+        DB[:wintering_max].from_self
+    end
+
     def self.hotspot
         DB[:hotspot]
     end
