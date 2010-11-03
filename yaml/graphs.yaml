@@ -14,8 +14,13 @@ link: shoveler_max,
           name: Shovelers,
           title: Maximum Monthly Shoveler Count,
           desc: 'Maximum counts of Shoveler, by month',
-          view: wintering_max,
+          view: wintering,
           bto_code: SV,
-          class: MonthlyLine
+          class: MonthlyLine,
+          text: |
+                 Maximum count per month since 2004
+
+                 Site importance thresholds: Great Britain 148, International 400
+                     (WeBS 2008/09)
           }
 
