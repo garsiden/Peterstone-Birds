@@ -1,7 +1,7 @@
 =breadcrumb(request.request_uri)
 %br
 %br
-%img{:src=> ImageController.r(:get_graph, @graph)}
+%img{:src=> ImageController.r(:get_graph, :id => @id)}
 %br
 %p= @text
 

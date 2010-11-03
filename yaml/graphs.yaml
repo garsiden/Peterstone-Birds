@@ -1,26 +1,58 @@
-water_pipits: {
-link: water_pipits,
+1: {
           name: Water Pipits,
           title: Maximum Monthly Water Pipit Count,
-          desc: 'Maximum counts of Water Pipits, by month',
+          desc: 'Monthly maximum counts of Water Pipits, by month',
           view: wintering_max,
           bto_code: WI,
           class: MonthlyBar,
-          bar_colour: '#8C8296'
+          legend_field: winter,
+          bar_colour: '#8C8296',
+          text: |
+                 Maximum count per month since 2004
               }
 
-shoveler: {
-link: shoveler_max,
+2: {
           name: Shovelers,
           title: Maximum Monthly Shoveler Count,
-          desc: 'Maximum counts of Shoveler, by month',
+          desc: 'Maximum annual counts of Shoveler, by month',
           view: wintering,
           bto_code: SV,
           class: MonthlyLine,
+          legend_field: winter,
           text: |
-                 Maximum count per month since 2004
+                 Maximum count per month for each winter 
 
                  Site importance thresholds: Great Britain 148, International 400
                      (WeBS 2008/09)
           }
 
+3: {
+          name: Pintail,
+          title: Maximum Monthly Pintail Count,
+          desc: 'Maximum annual counts of Pintail, by month',
+          view: wintering,
+          bto_code: PT,
+          class: MonthlyLine,
+          legend_field: winter,
+          text: |
+                 Maximum count per month for each winter 
+
+                 Site importance thresholds: Great Britain 279, International 600
+                     (WeBS 2008/09)
+          }
+
+4: {
+          name: Pintail,
+          title: Maximum Monthly Pintail Count,
+          desc: 'Monthly maximum counts of Pintail, by month',
+          view: wintering_max,
+          bto_code: PT,
+          class: MonthlyBar,
+          legend_field: winter,
+          bar_colour: '#8C8296',
+          text: |
+                 Maximum count per month for each winter 
+
+                 Site importance thresholds: Great Britain 279, International 600
+                     (WeBS 2008/09)
+          }

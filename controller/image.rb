@@ -1,5 +1,6 @@
 require 'lib/pbgraph'
 require 'yaml'
+require 'pp'
 
 class ImageController < Ramaze::Controller
     engine :None
@@ -9,9 +10,10 @@ class ImageController < Ramaze::Controller
         super
     end
 
-    def get_graph graph
-
-        g = Kernel.const_get(@graphs[graph]['class']).new(@graphs[graph])
+    def get_graph
+        id = request['id'].to_i
+        graph = @graphs[id]
+        g = Kernel.const_get(graph['class']).new(graph)
         g.set_data
         blob = g.to_blob
 
@@ -20,7 +22,7 @@ class ImageController < Ramaze::Controller
         response.header['Content-Type']='image/png'
         response.header['Content-Length']= blob.length
         response.header['Content-Disposition']= 'inline; filename="pipits.png"'
-        
+
         # return graph as blob
         blob
     end

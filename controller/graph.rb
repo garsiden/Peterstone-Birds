@@ -13,11 +13,10 @@ class GraphController < Controller
         @caption = 'Graphs'
     end
 
-    def show graph
-        text = graph.gsub(/\/|_/, ' ').gsub(/\b./) { |m| m.upcase }
-        @title += " - #{text} Graph"
-        @graph = graph
-        @text =  @graphs[graph]['text']
+    def show 
+        @id = request['id']
+        @graph = @graphs[@id.to_i]
+        @text =  @graph['text']
         @text.gsub!("\n", '<br/>') if @text
     end
 
@@ -25,12 +24,11 @@ class GraphController < Controller
 
     def breadcrumb path
         path =~ /(\w+$)/
-            mapping = path.sub(/^\/graph\//, '')
-        text = mapping.gsub(/\/|_/, ' ').gsub(/\b./) { |m| m.upcase }
+           mapping = path.sub(/^\/graph\//, '')
         bread = []
         bread << anchor('Home', MainController.r('/'))
         bread << anchor('Graphs', '/')
-        bread << anchor(text, mapping)
+        bread << anchor(@graph['name'], mapping)
         bread.join(' >> ')
     end
 end
