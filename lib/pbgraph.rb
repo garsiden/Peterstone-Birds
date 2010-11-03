@@ -58,19 +58,23 @@ class MonthlyLine< Gruff::Line
         ds = DB[@spec['view'].to_sym].
             from_self. 
             filter(:bto_code => @spec['bto_code']).
-            select(:jul,:aug,:sep,:oct, :nov,
+            select(:winter, :jul,:aug,:sep,:oct, :nov,
                    :dec,:jan,:feb,:mar,:apr)
-        row = ds.first
-        data =[] 
+        rows = ds.all
+
         labels = {}
-        key = 0
-        ds.columns.each do |c|
-            data.push row[c] #|| 0
-            labels[key]= c.to_s.capitalize
-            key += 1
-        end 
+        key = -1
+        ds.columns[1..-1].each { |c| labels[key+=1]= c.to_s.capitalize }
+
+        data_sets = []
+        rows.each do |row|
+            data =[] 
+            ds.columns.each { |c| data.push row[c] }
+            data_sets.push data
+        end
+
+        data_sets[-5..-2].each {|s| self.data(s[0], s[1 .. -1]) }
         @labels = labels
-        self.data('SV', data)
         @minimum_value = 0 # set after data
     end
 end
@@ -111,7 +115,7 @@ class MonthlyBar < Gruff::Bar
 
         @labels = labels
         self.data(@spec['name'], data)
-        pp self
+        #pp self
         @minimum_value = 0 # set after data
     end
 end
