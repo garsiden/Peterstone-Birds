@@ -1,28 +1,12 @@
 require 'gruff'
 require 'sequel'
 
-class PBGraph
 
-    @@g = nil
-    @@size = '720x540'
+class Gruff::Base
 
-    def initialize
-        @theme = create_theme
-    end
+    DEFAULT_SIZE = '720x540'
 
-    def init_graph
-        @@g.theme= @theme
-        @@g.title_font_size = 24
-        @@g.legend_font_size =20
-        @@g.marker_font_size = 20
-        @@g.font ='/usr/X11R6/lib/X11/fonts/TTF/Vera.ttf' 
-        @@g
-    end
-
-    private
-
-    def create_theme
-        # create Gruff theme
+    def my_theme
         @colors = [
             '#2f5a11', # green
             '#664114', # brown
@@ -31,27 +15,68 @@ class PBGraph
             '#58545c', # darkest grey
             '#72786e', # grey/green
         ]
-        theme = {
-            :colors => @colors[1,1],
+
+        self.theme = {
+            :colors => @colors,
             :marker_color => 'black',
             :font_color => 'black',
             :background_colors => '#f2f1f4'
         }
     end
-end
-
-class MonthlyBarGraph < PBGraph
 
     def init_graph
-        @@g = Gruff::Bar.new @@size
-        @@g.hide_legend = true
+        self.my_theme
+        self.title_font_size = 24
+        self.legend_font_size =20
+        self.marker_font_size = 20
+        self.font= '/usr/X11R6/lib/X11/fonts/TTF/Vera.ttf' 
+    end
+end
+
+class MonthlyLineGraph < Gruff::Line
+
+    def initialize
+        super DEFAULT_SIZE
+    end
+
+    def set_data hash
+        ds = DB[:wintering].
+            from_self. 
+            filter(:bto_code => hash['bto_code']).
+            select(:jul,:aug,:sep,:oct, :nov,
+                   :dec,:jan,:feb,:mar,:apr)
+        row = ds.first
+        data =[] 
+        labels = {}
+        key = 0
+        ds.columns.each do |c|
+            data.push row[c] #|| 0
+            labels[key]= c.to_s.capitalize
+            key += 1
+        end 
+
+        self.title = hash['title']
+        self.data(hash['title'], data)
+        self.labels = labels
+        self.minimum_value = 0 # set after data
+    end
+end
+
+class MonthlyBarGraph < Gruff::Bar
+
+    def initialize
+        super DEFAULT_SIZE
+    end
+
+    def init_graph
+        self.hide_legend = true
         super
     end
 
     def set_data hash
-        ds = DB[hash['view']].
+        ds = DB[hash['view'].to_sym].
             from_self. 
-            filter(:bto_code => hash[bto_code]).
+            filter(:bto_code => hash['bto_code']).
             select(:jul,:aug,:sep,:oct, :nov,
                    :dec,:jan,:feb,:mar,:apr)
         row = ds.first
@@ -66,14 +91,9 @@ class MonthlyBarGraph < PBGraph
             key += 1
         end 
 
-        g.title = hash['title']
-        g.data(hash['title'], data);
-        g.labels = labels
-        g.minimum_value = 0
-    end
-
-    def get_graph
-        @@g
+        self.title = hash['title']
+        self.data(hash['name'], data)
+        self.labels = labels
+        self.minimum_value = 0
     end
 end
-

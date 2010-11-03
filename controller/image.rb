@@ -6,15 +6,14 @@ class ImageController < Ramaze::Controller
     engine :None
 
     def initialize
-        @graphs = YAML::load_file('yaml/test.yaml')
+        @graphs = YAML::load_file('yaml/graphs.yaml')
         super
     end
 
     def get_graph graph
-        pbg = MonthlyBarGraph.new
-        pbg.init_graph
-        pbg.set_date @graphs[graph]
-        g = pbg.get_graph
+        g = MonthlyBarGraph.new
+        g.init_graph
+        g.set_data @graphs[graph]
         blob = g.to_blob
 
         # create response header
