@@ -4,7 +4,9 @@ link: water_pipits,
           title: Maximum Monthly Water Pipit Count,
           desc: 'Maximum counts of Water Pipits, by month',
           view: wintering_max,
-          bto_code: WI
+          bto_code: WI,
+          class: MonthlyBar,
+          bar_colour: '#8C8296'
               }
 
 shoveler: {
@@ -13,6 +15,7 @@ link: shoveler_max,
           title: Maximum Monthly Shoveler Count,
           desc: 'Maximum counts of Shoveler, by month',
           view: wintering_max,
-          bto_code: SV
+          bto_code: SV,
+          class: MonthlyLine
           }
 

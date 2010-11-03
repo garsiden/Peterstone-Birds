@@ -1,5 +1,4 @@
 require 'lib/pbgraph'
-#require 'gruff'
 require 'yaml'
 
 class ImageController < Ramaze::Controller
@@ -11,9 +10,9 @@ class ImageController < Ramaze::Controller
     end
 
     def get_graph graph
-        g = MonthlyBarGraph.new
-        g.init_graph
-        g.set_data @graphs[graph]
+
+        g = Kernel.const_get(@graphs[graph]['class']).new(@graphs[graph])
+        g.set_data
         blob = g.to_blob
 
         # create response header

@@ -1,10 +1,11 @@
 require 'gruff'
 require 'sequel'
-
+require 'pp'
 
 class Gruff::Base
 
     DEFAULT_SIZE = '720x540'
+    @spec = nil
 
     def my_theme
         @colors = [
@@ -24,25 +25,39 @@ class Gruff::Base
         }
     end
 
-    def init_graph
-        self.my_theme
-        self.title_font_size = 24
-        self.legend_font_size =20
-        self.marker_font_size = 20
-        self.font= '/usr/X11R6/lib/X11/fonts/TTF/Vera.ttf' 
+    private
+    def set_graph 
+        @title = @spec['title']
+        @title_font_size = 24.0
+        @legend_font_size = 20.0
+        @marker_font_size = 20.0
+        @font = '/usr/X11R6/lib/X11/fonts/TTF/Vera.ttf' 
+    end
+
+    def set_data
+        # needs to be set after instantiation - for scaling?
+        self.font = @font
     end
 end
 
-class MonthlyLineGraph < Gruff::Line
+class MonthlyLine< Gruff::Line
 
-    def initialize
+    def initialize spec
+        @spec = spec
         super DEFAULT_SIZE
+        my_theme
     end
 
-    def set_data hash
-        ds = DB[:wintering].
+    def initialize_ivars
+        super
+        set_graph
+    end
+
+    def set_data
+        super
+        ds = DB[@spec['view'].to_sym].
             from_self. 
-            filter(:bto_code => hash['bto_code']).
+            filter(:bto_code => @spec['bto_code']).
             select(:jul,:aug,:sep,:oct, :nov,
                    :dec,:jan,:feb,:mar,:apr)
         row = ds.first
@@ -54,29 +69,32 @@ class MonthlyLineGraph < Gruff::Line
             labels[key]= c.to_s.capitalize
             key += 1
         end 
-
-        self.title = hash['title']
-        self.data(hash['title'], data)
-        self.labels = labels
-        self.minimum_value = 0 # set after data
+        @labels = labels
+        self.data('SV', data)
+        @minimum_value = 0 # set after data
     end
 end
 
-class MonthlyBarGraph < Gruff::Bar
+class MonthlyBar < Gruff::Bar
 
-    def initialize
+    def initialize spec
+        @spec = spec
         super DEFAULT_SIZE
+        my_theme
+        @colors = [ @spec['bar_colour'] ] || @colors
     end
 
-    def init_graph
-        self.hide_legend = true
-        super
+    def initialize_ivars
+        super 
+        set_graph
+        @hide_legend = true
     end
 
-    def set_data hash
-        ds = DB[hash['view'].to_sym].
+    def set_data 
+        super # must call super here to set font correctly
+        ds = DB[@spec['view'].to_sym].
             from_self. 
-            filter(:bto_code => hash['bto_code']).
+            filter(:bto_code => @spec['bto_code']).
             select(:jul,:aug,:sep,:oct, :nov,
                    :dec,:jan,:feb,:mar,:apr)
         row = ds.first
@@ -91,9 +109,9 @@ class MonthlyBarGraph < Gruff::Bar
             key += 1
         end 
 
-        self.title = hash['title']
-        self.data(hash['name'], data)
-        self.labels = labels
-        self.minimum_value = 0
+        @labels = labels
+        self.data(@spec['name'], data)
+        pp self
+        @minimum_value = 0 # set after data
     end
 end
