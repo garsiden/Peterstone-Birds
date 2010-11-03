@@ -15,6 +15,7 @@ class Gruff::Base
             '#8C8296', # light purple
             '#58545c', # darkest grey
             '#72786e', # grey/green
+            'black',
         ]
 
         self.theme = {
@@ -58,7 +59,8 @@ class MonthlyLine< Gruff::Line
         ds = DB[@spec['view'].to_sym].
             from_self. 
             filter(:bto_code => @spec['bto_code']).
-            select(:winter, :jul,:aug,:sep,:oct, :nov,
+            select(@spec['legend_field'].to_sym,
+                   :jul,:aug,:sep,:oct, :nov,
                    :dec,:jan,:feb,:mar,:apr)
         rows = ds.all
 
