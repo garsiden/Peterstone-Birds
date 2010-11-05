@@ -1,5 +1,5 @@
-DROP VIEW wildfowl_max;
-CREATE OR REPLACE VIEW wintering AS
+-- DROP VIEW wildfowl_max;
+-- CREATE OR REPLACE VIEW wintering AS
    SELECT bto_code, species, winter,
         max(CASE WHEN mnth =  7 THEN max_count ELSE NULL END) AS jul,
         max(CASE WHEN mnth =  8 THEN max_count ELSE NULL END) AS aug,
