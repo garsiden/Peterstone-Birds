@@ -5,7 +5,6 @@
     A list of species not on the current list but which are accepted county
     records for the area. Sourced from <i>Birds of Gwent</i>, 1977 and 2005
     editions.
-
 -
   term: 2010-10-13 
   head: Reporting
@@ -13,4 +12,16 @@
     Daily sightings from March 2003 have been used to produce several reports,
     including a comparison of arrival dates of spring migrants over several
     years and summaries of the maximum counts of wintering wildfowl and waders.
+-
+  term: 2010-11-01
+  head: Winter Thrush Reports
+  desc: >
+    Tables reporting the maximum montly counts of Fieldfare, Redwing,
+    Blackbird, Song and Mistle Thrush
+-
+  term: 2010-11-05
+  head: Graphs
+  desc: >
+    Examples of basic line and bar graphs using the wintering data for
+    wildfowl and Water Pipits and the new Fieldfare data.
 
