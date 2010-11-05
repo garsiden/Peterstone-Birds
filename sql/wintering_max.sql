@@ -1,3 +1,6 @@
+-- DELETE VIEW wintering_max;
+-- CREATE OR REPLACE VIEW wintering_max AS
+
 SELECT bto_code, species, winter,
     max(CASE WHEN mnth =  7 THEN max_count ELSE NULL END) AS jul,
     max(CASE WHEN mnth =  8 THEN max_count ELSE NULL END) AS aug,
@@ -23,7 +26,7 @@ FROM (
   WHERE lv.list_date >= '2004-07-01'
   GROUP BY bto_code, species, mnth, winter
   HAVING bto_code in ('SU', 'PT', 'SV', 'WN', 'T', 'OC', 'BW', 'RK', 'GV', 'KN', 'DN', 'RP', 'BA',
-    'L', 'WI') AND
+    'L', 'WI', 'B', 'FF', 'RE', 'M', 'ST') AND
   date_part('month', lv.list_date) IN( 7,8,9,10,11,12,1,2,3,4)) x
 GROUP BY bto_code, species, winter
 ORDER BY species, winter
