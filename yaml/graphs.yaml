@@ -62,4 +62,31 @@
           text: |
                  Maximum count per month for each of the four most recent winters
           }
+6: {
+          title: Annual Maximum Black-tailed Godwit Count,
+          desc: Annual maximum monthly counts of Black-tailed Godwit,
+          view: wintering,
+          bto_code: BW,
+          type: Monthly Line,
+          legend_field: winter,
+          text: |
+                 Maximum count per month for each of the four most recent winters
 
+                 Site importance thresholds: Great Britain 150, International 470
+                     (WeBS 2008/09)
+          }
+
+7: {
+          title: Maximum Monthly Black-tailed Godwit Count,
+          desc: Monthly maximum counts of Black-tailed Godwit,
+          view: wintering_max,
+          bto_code: BW,
+          type: Monthly Bar,
+          legend_field: winter,
+          bar_colour: '#290D45',
+          text: |
+                 Maximum count for each month since 2004 
+
+                 Site importance thresholds: Great Britain 150, International 470
+                     (WeBS 2008/09)
+          }
