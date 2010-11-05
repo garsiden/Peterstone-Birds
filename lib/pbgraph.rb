@@ -42,6 +42,7 @@ class Gruff::Base
         @legend_font_size = 20.0
         @marker_font_size = 20.0
         @font = '/usr/X11R6/lib/X11/fonts/TTF/Vera.ttf' 
+        puts @font
     end
 
     def set_data
