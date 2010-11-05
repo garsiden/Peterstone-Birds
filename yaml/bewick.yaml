@@ -1,0 +1,116 @@
+-
+  species: Pigmy Curlew
+  linn: Scolopax Pygmaea
+  buff: Le plus petit des Courlis
+-
+  species: Judcock
+  linn: Scolopax Gallinula
+  buff: La petite Bécassine
+-
+  species: Red Godwit
+  linn: Scolopax lapponica
+  buff: La Barge Rousse
+-
+  species: Cinereous Godwit
+  linn: Scolopax canescenes
+  buff:
+-
+  species: Shore Sandpiper
+  linn: Tringa littorea
+  buff: Le Chevalier varié
+-
+  species: Gambet
+  linn: Tringa Gambetta
+  buff: La Gambette
+-
+  species: Red Sandpiper
+  linn: Tringa Islandica
+  buff:
+-
+  species: Ash-Cloured Sandpiper
+  linn: Tringa cinerea
+  buff:
+-
+  species: Greenwich Sandpiper
+  linn: Tringa Grenovicensis
+  buff:
+-
+  species: Brown Sandpiper
+  linn:
+  buff:
+-
+  species: Black Sandpiper
+  linn:
+  buff:
+-
+  species: Red-legged Sandpiper
+  linn:
+  buff:
+-
+  species: Purre
+  linn: Tringa Cinclus
+  buff: "L'Aloutte de Mer"
+-
+  species: Common Gallinule
+  linn: Gallinula chloropus
+  buff: "La Poule d'Eau"
+-
+  species: Tippet Grebe
+  linn:
+  buff: Le Grebé huppé
+-
+  species: Foolish Guillemot
+  linn:
+  buff: Le Guillemot
+-
+  species: Wagel
+  linn: Larus naevius
+  buff: Le Goéland varié, ou le Grisard
+-
+  species: Red-legged Gull
+  linn: Larus cinerarius
+  buff:
+-
+  species: Skua Gull
+  linn:
+  buff: Le Goéland brun
+-
+  species: Arctic Gull
+  linn:
+  buff: Le Labbe à longue queue
+-
+  species: Black-toed Gull
+  linn:
+  buff: Le Stercoraire
+-
+  species: Fork-tailed Petrel
+  linn:
+  buff:
+-
+  species: Dun-diver
+  linn: Mergus Castor
+  buff: Le Harle cendré, ou le Bièvre
+-
+  species: Lough-diver
+  linn:
+  buff:
+-
+  species: Wild Swan
+  linn: Anas Cygnus
+  buff: Le Cygne sauvage
+-
+  species: Cravat Goose
+  linn: Anas Canadensis
+  buff: "L'Oie à Cravate"
+-
+  species: Bernacle
+  linn: Anas Erythropus
+  buff: La Bernache
+-
+  species: Shieldrake
+  linn: Anas Tadorna
+  buff: La Tadorne
+-
+  species: Morillon
+  linn: Anas Glaucion
+  buff: La Morrillon

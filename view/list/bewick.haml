@@ -1,0 +1,11 @@
+%table.listing{:summary => @title}
+  %thead
+    %tr
+      - @headings.each do |h|
+        %th=h
+  %tbody
+    - @bewick.each do |b|
+      %tr{:class => cycle}
+        %td.lnowrap= b['species']
+        %td.lnowrap= b['linn']
+        %td.lnowrap= b['buff']
