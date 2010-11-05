@@ -23,17 +23,25 @@ class ReportController < Controller
 
     def wintering group
 
-        all = %w[ SU PT SV WN T OC BW RK GV KN DN RP BA L WI ]
+        waders= %w[ OC BW RK GV KN DN RP BA L ]
+        wildfowl = %w[ SU PT SV WN T ]
+        thrushes = %w[ B ST FF RE M ]
+        waterpipit = [ 'WI' ]
 
-        if group == 'waders'
-            codes = all[all.index('OC') ... -1]
-            @title + " - Winter Waders"
-        elsif group == 'wildfowl'
-            codes = all[0 ... all.index('OC')]
-            @title + " - Winter Wildfowl"
-        else group == 'waterpipit'
-            codes = all[-1, 1]
-        end
+        codes = case group
+                when 'waders' 
+                    @title + " - Winter Waders"
+                    waders
+                when 'wildfowl'
+                    @title + " - Winter Wildfowl"
+                    wildfowl
+                when 'waterpipit'
+                    @title + " - Water Pipits"
+                    waterpipit 
+                when 'thrushes'
+                    @title += ' - Winter Thrushes'
+                    thrushes
+                end
 
         ds = Report.wintering
         winter = ds.all
