@@ -11,6 +11,7 @@ class GraphController < Controller
     def index
         @title += " - Graphs"
         @caption = 'Graphs'
+        @headers = %w[ Description Type &nbsp; ]
     end
 
     def show 
@@ -28,7 +29,7 @@ class GraphController < Controller
         bread = []
         bread << anchor('Home', MainController.r('/'))
         bread << anchor('Graphs', '/')
-        bread << anchor(@graph['name'], mapping)
+        bread << anchor(@graph['title'], mapping)
         bread.join(' >> ')
     end
 end

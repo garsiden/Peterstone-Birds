@@ -5,9 +5,11 @@ require 'pp'
 class Gruff::Base
 
     DEFAULT_SIZE = '720x540'
+    DEFAULT_THEME = 'psbirds'
     @spec = nil
 
-    def my_theme
+    def theme_psbirds
+        reset_themes
         @colors = [
             '#2f5a11', # green
             '#664114', # brown
@@ -24,6 +26,13 @@ class Gruff::Base
             :font_color => 'black',
             :background_colors => '#f2f1f4'
         }
+    end
+
+    def theme_monochrome
+        reset_themes
+        @colors = "6E9C7ADB".scan(/./).collect { |c| "##{c * 6}"}
+        @marker_color = 'black'
+        @base_image = render_gradiated_background('white', 'white')
     end
 
     private
@@ -46,7 +55,8 @@ class MonthlyLine< Gruff::Line
     def initialize spec
         @spec = spec
         super DEFAULT_SIZE
-        my_theme
+        meth = spec['theme'] || DEFAULT_THEME
+        self.method('theme_' + meth).call
     end
 
     def initialize_ivars
@@ -86,7 +96,8 @@ class MonthlyBar < Gruff::Bar
     def initialize spec
         @spec = spec
         super DEFAULT_SIZE
-        my_theme
+        meth = spec['theme'] || DEFAULT_THEME
+        self.method('theme_' + meth).call
         @colors = [ @spec['bar_colour'] ] || @colors
     end
 

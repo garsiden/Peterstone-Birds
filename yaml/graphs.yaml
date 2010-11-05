@@ -1,58 +1,65 @@
 1: {
-          name: Water Pipits,
           title: Maximum Monthly Water Pipit Count,
-          desc: 'Monthly maximum counts of Water Pipits, by month',
+          desc: Monthly maximum counts of Water Pipits,
           view: wintering_max,
           bto_code: WI,
-          class: MonthlyBar,
+          type: Monthly Bar,
           legend_field: winter,
           bar_colour: '#8C8296',
           text: |
-                 Maximum count per month since 2004
+                 Maximum count for each month since 2004
               }
 
 2: {
-          name: Shovelers,
-          title: Maximum Monthly Shoveler Count,
-          desc: 'Maximum annual counts of Shoveler, by month',
+          title: Annual Maximum Shoveler Count,
+          desc: Annual maximum montly counts of Shoveler,
           view: wintering,
           bto_code: SV,
-          class: MonthlyLine,
+          type: Monthly Line,
           legend_field: winter,
           text: |
-                 Maximum count per month for each winter 
+                 Maximum count per month for each of the four most recent winters
 
                  Site importance thresholds: Great Britain 148, International 400
                      (WeBS 2008/09)
           }
 
 3: {
-          name: Pintail,
-          title: Maximum Monthly Pintail Count,
-          desc: 'Maximum annual counts of Pintail, by month',
+          title: Annual Maximum Pintail Count,
+          desc: Annual maximum monthly counts of Pintail,
           view: wintering,
           bto_code: PT,
-          class: MonthlyLine,
+          type: Monthly Line,
           legend_field: winter,
           text: |
-                 Maximum count per month for each winter 
+                 Maximum count per month for each of the four most recent winters
 
                  Site importance thresholds: Great Britain 279, International 600
                      (WeBS 2008/09)
           }
 
 4: {
-          name: Pintail,
           title: Maximum Monthly Pintail Count,
-          desc: 'Monthly maximum counts of Pintail, by month',
+          desc: Monthly maximum counts of Pintail,
           view: wintering_max,
           bto_code: PT,
-          class: MonthlyBar,
+          type: Monthly Bar,
           legend_field: winter,
           bar_colour: '#8C8296',
           text: |
-                 Maximum count per month for each winter 
+                 Maximum count for each month since 2004 
 
                  Site importance thresholds: Great Britain 279, International 600
                      (WeBS 2008/09)
           }
+5: {
+          title: Annual Maximum Fieldfare Count,
+          desc: Annual maximum monthly counts of Fieldfare,
+          view: wintering,
+          bto_code: FF,
+          type: Monthly Line,
+          legend_field: winter,
+          text: |
+                 Maximum count per month for each of the four most recent winters
+          }
+

@@ -13,7 +13,8 @@ class ImageController < Ramaze::Controller
     def get_graph
         id = request['id'].to_i
         graph = @graphs[id]
-        g = Kernel.const_get(graph['class']).new(graph)
+        class_name = graph['type'].gsub(' ', '')
+        g = Kernel.const_get(class_name).new(graph)
         g.set_data
         blob = g.to_blob
 

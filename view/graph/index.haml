@@ -5,11 +5,12 @@
   %caption= @caption
   %thead
     %tr
-      %th Description
-      %th Link
+      - @headers.each do |h|
+        %th= h
   %tbody
     - @graphs.each do |k,h|
       %tr{:class => cycle}
         %td.left= h['desc']
+        %td.left= h['type']
         %td.left
           %a{:href => route(:show, :id=> k)} View
