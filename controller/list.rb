@@ -1,3 +1,5 @@
+require 'yaml'
+
 class ListController < Controller
 
     def index
@@ -19,6 +21,12 @@ class ListController < Controller
         @title += ' - BirdTrack List'
         @list = List[:sub_id => sub_id]
         @daily = @list.sightings_dataset.eager(:bird).order(:bto_code.asc)
+    end
+
+    def bewick
+        @bewick = YAML::load_file 'yaml/bewick.yaml'
+        @headings = %w[ Bewick Linnaeus Buffon ]
+        @title += " Bewick's List"
     end
 
     private
