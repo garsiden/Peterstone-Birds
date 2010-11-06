@@ -1,0 +1,19 @@
+%table.listing{:summary => @title}
+  %thead
+    %tr
+      - @headings.each do |h|
+        %th=h
+  %tfoot
+    %tr
+      %td.left Total 
+      - @totals.keys.sort.each do |k|
+        %td= @totals[k]
+      %td= @summary.count
+  %tbody
+    - @summary.each do |b|
+      %tr{:class => cycle}
+        %td.lnowrap= b[:name]
+        %td= b[:ap]
+        %td= b[:ew]
+        %td= b[:ng]
+        %td= b[:first_date]
