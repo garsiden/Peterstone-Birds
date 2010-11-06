@@ -6,6 +6,10 @@ class List < Sequel::Model
        self.order(:list_date.desc).first(num)
    end
 
+   def self.by_user
+        DB[:summary_by_user]
+   end
+
    def date_and_time
        Time.parse(list_date.to_s + start_time.strftime(' %R %Z'))
    end

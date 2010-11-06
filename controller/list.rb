@@ -29,6 +29,22 @@ class ListController < Controller
         @title += " Bewick's List"
     end
 
+    def by_user
+        @summary = List::by_user
+        @headings = [ 'Species']
+        @title += ' - List by Observer'
+
+        # calculate totals
+        @totals = {}
+        @summary.columns.map { |c| @totals[c.to_s] = 0 if c.to_s =~ /^[a-z]{2}$/ }
+        @summary.each do |row|
+            @totals.each { |k,v| @totals[k] += 1 if row[k.to_sym] }
+        end
+
+        @totals.keys.sort.each { |k| @headings << k.upcase }
+        @headings << 'First Date'
+    end
+
     private
 
     def count_text count, q
