@@ -8,13 +8,13 @@
       - @headings.each do |h|
         %th= h
   %tbody
-    - @results.each do |row|
+    - @array.each do |row|
       %tr{:class => cycle}
         %td.left= row[:species]
         - @years.each do |year|
-          %td= fmt_date row[year]
-        %td.total= fmt_date row[:earliest]
-        %td.total= fmt_date row[:latest]
+          %td= fmt_date row[year], '%d %b'
+        %td.total= fmt_date row[:earliest], '%d %b'
+        %td.total= fmt_date row[:latest], '%d %b'
 %br
 %p.reportnote= last_updated 
 

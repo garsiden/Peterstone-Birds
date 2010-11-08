@@ -54,25 +54,31 @@ class Observation < Sequel::Model
             filter(:bto_code=> latest[:bto_code],
                    :first_date=>latest[:min],
                    ~:user_id=>'BG' ).
-            order(:first_date.desc).
-            first
+                   order(:first_date.desc).
+                   first
     end
 
     def self.first_observations
-        obs =
-            self.eager(:bird).
-            filter(~:user_id => 'BG').
-            order(:bto_code, :first_date)
+        f = group(:bto_code).
+            select(:bto_code,
+                   :min.sql_function(:first_date).as(:first_date)).
+                   filter(~:user_id => 'BG')
 
-        first_obs = Array.new
-        bto = nil
-        obs.each do |o|
-            if o.bto_code != bto
-                first_obs << o
-                bto = o.bto_code
-            end
-        end
-        first_obs.sort! {|a,b| b.first_date <=> a.first_date }
+        eager(:bird).
+            join_table(:inner, f, [:bto_code, :first_date]).
+            group(:bto_code).
+            select(:bto_code,
+                   :min.sql_function(:first_date).as(:first_date),
+                   :min.sql_function(:user_id).as(:user_id)).
+                   order(:first_date.desc, :bto_code.asc)
+    end
+
+    def self.complete
+        first_observations.union(
+            eager(:bird).
+            filter(~:bto_code=>self.filter(~:user_id=>'BG').select(:bto_code).distinct).
+            select(:bto_code, :first_date, :user_id)).
+            order(:first_date.desc, :bto_code)
     end
 
     if empty?

@@ -35,4 +35,8 @@ module AppHelpers
     def cycle
         (@isodd = !@isodd) ? 'even' : 'odd'
     end
+
+    def fmt_date dt, fmt='%d-%m-%Y'
+        dt.strftime(fmt) if dt
+    end
 end

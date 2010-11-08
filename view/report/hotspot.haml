@@ -8,7 +8,7 @@
       - @headings.each do |h|
         %th= h
   %tbody
-    - @results.each do |row|
+    - @arr.each do |row|
       %tr{:class => cycle}
         %td.left= row[:species]
         - @years.each do |year|

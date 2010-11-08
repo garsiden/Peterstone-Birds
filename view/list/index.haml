@@ -1,12 +1,20 @@
 %table.listing{:summary => @title}
+  %caption= @caption
   %thead
     %tr
       - @headings.each do |h|
-        %th=h
+        %th= h
+  %tfoot
+    %tr
+      %td
+      %td.left{:colspan => 3}= @footer 
   %tbody
-    - @sightings.each do |s|
+    - @ds.each do |row|
       %tr{:class => cycle}
-        %td= s.bto_code
-        %td.left= s.bird.name
-        %td= s.first_date.strftime("%d-%m-%Y")
-        %td= s.user_id
+        %td= row.bto_code
+        %td.left= row.bird.name
+        %td= fmt_date row.first_date
+        %td= row.user_id
+%br
+%a{:href=>'#wrapper'} Back to top
+

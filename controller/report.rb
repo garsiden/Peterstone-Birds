@@ -1,5 +1,6 @@
+require 'yaml'
+
 class ReportController < Controller
-    require 'yaml'
 
     layout 'nomenu_layout'
 
@@ -15,18 +16,17 @@ class ReportController < Controller
         @title += " - First Observations"
         @caption = 'First Observations'
         ds  = Report.first_observations
-        @results = ds.all
+        @array = ds.all
         cols = ds.columns
         @headings = cols.values_at(1, -9 .. 11).map { |h| h.to_s.capitalize }
         @years = cols[-9 .. 9]
     end
 
     def wintering group
-
         waders= %w[ OC BW RK GV KN DN RP BA L ]
         wildfowl = %w[ SU PT SV WN T ]
         thrushes = %w[ B ST FF RE M ]
-        waterpipit = [ 'WI' ]
+        waterpipit = %w[ WI ]
 
         codes = case group
                 when 'waders' 
@@ -48,10 +48,10 @@ class ReportController < Controller
         cols = ds.columns
         @headings = cols[ 2 .. -1].map { |h| h.to_s.capitalize }
         @months = cols[3 ... -1]
-        @results = Array.new
+        @arr = []
 
         codes.sort.each do |c|
-            @results.push( winter.select { |w| w[:bto_code] == c } )
+            @arr.push( winter.select { |w| w[:bto_code] == c } )
         end
     end
 
@@ -59,7 +59,7 @@ class ReportController < Controller
         @title += " - Hotspot"
         @caption = 'Hotspot'
         ds  = Report.hotspot
-        @results = ds.all
+        @arr = ds.all
         cols = ds.columns
         @headings = cols.map { |h| h.to_s.capitalize }
         @years = cols[1 .. -1]
@@ -67,10 +67,6 @@ class ReportController < Controller
 
     private
 
-    def fmt_date dt, fmt="%d %b"
-        dt.strftime(fmt) if dt
-    end
-    
     def breadcrumb path
         path =~ /(\w+$)/
         mapping = path.sub(/^\/report\//, '')

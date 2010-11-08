@@ -1,5 +1,5 @@
 %table.listing{:summary => @title}
-  %caption= "Daily List #{@list[:list_date].strftime('%d %B %Y')}"
+  %caption= @caption
   %thead
     %tr
       - @headings.each do |h|
@@ -7,11 +7,11 @@
   %tfoot
     %tr
       %td
-      %td.left Total
-      %td.right= @daily.count
+      %td.left Total species
+      %td.right= @ds.count
   %tbody
-    - @daily.each do |b|
+    - @ds.each do |row|
       %tr{:class => cycle}
-        %td= b.bto_code
-        %td.left= b.bird.name
-        %td.right= count_text b.species_count, b.qualifier
+        %td= row.bto_code
+        %td.left= row.bird.name
+        %td.right= count_text row.species_count, row.qualifier

@@ -1,5 +1,6 @@
+require 'date'
+
 class MyListController < Controller
-    require 'date'
 
     helper :aspect
 
@@ -68,7 +69,6 @@ class MyListController < Controller
     def save
         return unless request.post?
         @ob.note = request[:note]
-        p @ob.note
         first_date = validate_date(request[:first_date])
 
         unless first_date

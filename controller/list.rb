@@ -1,44 +1,65 @@
 require 'yaml'
+require 'pp'
 
 class ListController < Controller
 
+    helper :aspect
+    
+    before (:by_user) {login_first}
+
     def index
-        @title += " - Full List"
+        @title += " - List"
         @headings = ['Code', 'Species Name', 'First Date', 'Observer' ]
-        @sightings = Observation.first_observations
+        @ds = Observation.first_observations
+        n = @ds.count
+        @caption = "Peterstone List  (#{n} species)"
+        @footer = "Total Species:  #{n}"
     end
+    
+    def complete
+        @title += " - Complete"
+        @headings = ['Code', 'Species Name', 'First Date', 'Observer' ]
+        @ds = Observation.complete
+        n = @ds.count
+        @caption = "Complete List  (#{n} species)"
+        @footer = "Total Species: #{n}"
+    end  
 
     def rarities
-        user = Sequel::Model::User[:user_id => 'BG']
-        @title += " - Rarities"
+        @title  += " - Rarities"
+        @caption = 'Rarities'
         @headings = ['Species Name', 'Date', 'Note' ]
-        @sightings = user.my_list
+        @ds = Sequel::Model::User['BG'].my_list
+        @footer = "Total Species:  #{@ds.count}"
     end
 
     def daily 
         sub_id = request[:sub_id]
-        @headings = %w[ Code Species Count ]
         @title += ' - BirdTrack List'
-        @list = List[:sub_id => sub_id]
-        @daily = @list.sightings_dataset.eager(:bird).order(:bto_code.asc)
+        @headings = %w[ Code Species Count ]
+        list = List[sub_id]
+        @caption = "Daily List #{list[:list_date].strftime('%d %B %Y')}"
+        @ds = list.sightings_dataset.eager(:bird).order(:bto_code)
     end
 
     def bewick
         @bewick = YAML::load_file 'yaml/bewick.yaml'
+        @title += " Bewick's Species Names"
+        @caption = "Bewick's Species' Names"
         @headings = %w[ Bewick Linnaeus Buffon ]
-        @title += " Bewick's List"
     end
 
     def by_user
-        @summary = List::by_user
-        @headings = [ 'Species']
         @title += ' - List by Observer'
+        @caption = 'List by Observer'
+        @headings = [ 'Species']
+        @ds = List::by_user
 
         # calculate totals
         @totals = {}
-        @summary.columns.map { |c| @totals[c.to_s] = 0 if c.to_s =~ /^[a-z]{2}$/ }
-        @summary.each do |row|
-            @totals.each { |k,v| @totals[k] += 1 if row[k.to_sym] }
+        @ds.columns.map { |c| @totals[c.to_s] = 0 if c.to_s =~ /^[a-z]{2}$/ }
+        @ds.each do |row|
+            @totals.each_key { |k| @totals[k] += 1 if row[k.to_sym] }
         end
 
         @totals.keys.sort.each { |k| @headings << k.upcase }
@@ -48,10 +69,10 @@ class ListController < Controller
     private
 
     def count_text count, q
-        case
-        when q == '+' then "#{count}#{q}"
-        when q == 'p' then 'present'
-        when q == 'c' then "<i>c</i> #{count}"
+        case q
+        when '+' then "#{count}#{q}"
+        when 'p' then 'present'
+        when 'c' then "<i>c</i> #{count}"
         else count
         end
     end

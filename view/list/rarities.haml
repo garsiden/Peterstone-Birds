@@ -1,14 +1,18 @@
 %table.listing{:summary => @title}
+  %caption= @caption
   %thead
     %tr
       - @headings.each do |h|
-        %th=h
+        %th= h
   %tfoot
     %tr
-      %td.left{:colspan => 3}= "Total Species:  #{@sightings.count}"
+      %td.left{:colspan => 3}= @footer
   %tbody
-    - @sightings.each do |s|
+    - @ds.each do |row|
       %tr{:class => cycle}
-        %td.lnowrap= s.bird.name
-        %td.cnowrap= s.first_date.strftime("%d-%m-%Y")
-        %td.left= s.note
+        %td.lnowrap= row.bird.name
+        %td.cnowrap= fmt_date row.first_date
+        %td.left= row.note
+%br
+%a{:href=>'#wrapper'} Back to top
+
