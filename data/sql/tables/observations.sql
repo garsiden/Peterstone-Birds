@@ -7,7 +7,7 @@ CREATE TABLE observations
     user_id CHAR(2)  NOT NULL REFERENCES users
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-    bto_code CHAR(2) NOT NULL REFERENCES birds
+    bto_code VARCHAR(2) NOT NULL REFERENCES birds
     ON DELETE CASCADE
     ON UPDATE CASCADE,
     first_date DATE NOT NULL,
