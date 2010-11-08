@@ -32,8 +32,14 @@ task :foreign_keys do
 end
 
 desc 'Create/replace database views from SQL files'
-task :create_views do
-    Dir.glob('sql/*.sql') do |f|
+task :create_views, [:view] do |t, args|
+    if args.length
+        path = "sql/#{args.view}.sql"
+    else
+        path = 'sql/*.sql'
+    end
+    
+    Dir.glob(path) do |f|
         sql = IO.read f
         view = File.basename f, '.sql'
         sql.chomp! ';'
@@ -41,4 +47,3 @@ task :create_views do
         puts "Created view #{view}"
     end
 end
-
