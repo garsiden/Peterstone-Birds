@@ -44,13 +44,13 @@ class Observation < Sequel::Model
 
     def self.latest
         latest =
-            self.select(:bto_code, :min.sql_function(:first_date)).
+            select(:bto_code, :min.sql_function(:first_date)).
             filter(~:user_id => 'BG').
             group(:bto_code).
             order(:min.desc).
             first
 
-        self.eager(:bird).
+        eager(:bird).
             filter(:bto_code=> latest[:bto_code],
                    :first_date=>latest[:min],
                    ~:user_id=>'BG' ).
@@ -73,7 +73,7 @@ class Observation < Sequel::Model
                    order(:first_date.desc, :bto_code.asc)
     end
 
-    def self.complete
+    def self.combined
         first_observations.union(
             eager(:bird).
             filter(~:bto_code=>self.filter(~:user_id=>'BG').select(:bto_code).distinct).
