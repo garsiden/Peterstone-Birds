@@ -3,7 +3,7 @@
     %li
       %a{:href => MainController.r(:index)} Home
     %li
-      %a{:href => '/list', :title => 'A list' } List
+      %a{:href => '/list'} List
     - if logged_in?
       - if user.is_admin
         %li
@@ -14,6 +14,8 @@
         %a{:href => ListController.r(:by_user)} List by Observer
     %li
       %a{:href => ListController.r(:rarities)} Rarities
+    %li
+      %a{:href => ListController.r(:combined)} Combined List
     %li
       %a{:href => ReportController.r(:index)} Reports
     %li
