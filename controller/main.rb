@@ -18,7 +18,7 @@ class MainController < Controller
     def whats_new
         @title += " - What's New"
         @header = "What's New"
-        @items = YAML::load_file('yaml/whats_new.yaml')
+        @items = YAML::load_file(ENV['YAML_PATH'] + '/whats_new.yaml')
         @items.sort! {|a,b| b['term'] <=> a['term'] }
     end
 end

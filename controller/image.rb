@@ -6,7 +6,7 @@ class ImageController < Ramaze::Controller
     engine :None
 
     def initialize
-        @graphs = YAML::load_file('yaml/graphs.yaml')
+        @graphs = YAML::load_file(ENV['YAML_PATH'] + '/graphs.yaml')
         super
     end
 

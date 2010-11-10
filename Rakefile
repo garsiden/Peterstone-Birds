@@ -34,7 +34,8 @@ end
 desc 'Create/replace database views from SQL files'
 task :create_views, [:view] do |t, args|
 
-    path = args.view ? "sql/#{args.view}.sql" : 'sql/*.sql'
+    base = ENV['SQL_PATH']
+    path = args.view ? "#{base}/#{args.view}.sql" : "#{base}/*.sql"
 
     Dir.glob(path) do |f|
         sql = IO.read f

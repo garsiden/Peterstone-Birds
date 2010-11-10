@@ -7,7 +7,7 @@ class ReportController < Controller
     def index
         @title += "- Reports"
         @caption = 'Reports'
-        @reports = YAML::load_file('yaml/reports.yaml')
+        @reports = YAML::load_file(ENV['YAML_DIR'] + '/reports.yaml')
         # exclude hotspot for now
         @reports.reject!{ |r| r['link'] == 'hotspot' }
     end

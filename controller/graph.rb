@@ -5,7 +5,7 @@ class GraphController < Controller
 
     def initialize
         super
-        @graphs = YAML::load_file('yaml/graphs.yaml')
+        @graphs = YAML::load_file(ENV['YAML_PATH'] + '/graphs.yaml')
     end
 
     def index

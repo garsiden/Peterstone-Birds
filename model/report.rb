@@ -23,7 +23,7 @@ class Report
     private
 
     def self.get_sql query
-        path =  "sql/#{query}"
+        path =  ENV['SQL_PATH'] + query
         sql = IO.read(path)
     end
 end
