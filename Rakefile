@@ -20,7 +20,7 @@ task :bt_update, [:year] do |t, args|
     ruby "bin/bt_update.rb #{args.year}"
 end
 
-desc 'Print out number of sightings in database tabel'
+desc 'Print out number of sightings in database table'
 task :sightings do
     count = DB[:sightings].count
     puts "Number of sightings: #{count}"
@@ -33,17 +33,34 @@ end
 
 desc 'Create/replace database views from SQL files'
 task :create_views, [:view] do |t, args|
-    if args.length
-        path = "sql/#{args.view}.sql"
-    else
-        path = 'sql/*.sql'
-    end
-    
+
+    path = args.view ? "sql/#{args.view}.sql" : 'sql/*.sql'
+
     Dir.glob(path) do |f|
         sql = IO.read f
         view = File.basename f, '.sql'
         sql.chomp! ';'
         DB.create_or_replace_view view, sql
         puts "Created view #{view}"
+    end
+end
+
+desc 'Drop database public views'
+task :drop_views, [:view] do |t, args|
+
+    ds = DB["SELECT viewname FROM pg_views WHERE schemaname='public'"]
+
+    if args.view
+        if ds.from_self[:viewname=>args.view]
+            DB.drop_view args.view
+            puts "View #{args.view} dropped"
+        else
+            puts "View #{args.view} not found"
+        end
+    else
+        ds.each do |v|
+            DB.drop_view v[:viewname]
+            puts "View #{v[:viewname]} dropped"
+        end
     end
 end
