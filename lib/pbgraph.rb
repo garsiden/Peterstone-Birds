@@ -41,7 +41,9 @@ class Gruff::Base
         @title_font_size = 24.0
         @legend_font_size = 20.0
         @marker_font_size = 20.0
-        @font= ENV['MAGICK_FONT_PATH'] + '/Vera.ttf'
+        @font= ENV['MAGICK_FONT_PATH'] ?
+            ENV['MAGICK_FONT_PATH'] + '/Vera.ttf' :
+            nil 
     end
 
     def set_data
