@@ -19,7 +19,7 @@ class ListController < Controller
     def combined
         @title += " - Combined"
         @headings = ['Code', 'Species Name', 'First Date', 'Observer' ]
-        @ds = Observation.complete
+        @ds = Observation.combined
         n = @ds.count
         @caption = "Combined List  (#{n} species)"
         @footer = "Total Species: #{n}"
