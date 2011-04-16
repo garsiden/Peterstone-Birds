@@ -12,6 +12,7 @@
    min(CASE WHEN date_part('year', lv.list_date) = 2008 THEN lv.list_date ELSE NULL END) AS "2008",
    min(CASE WHEN date_part('year', lv.list_date) = 2009 THEN lv.list_date ELSE NULL END) AS "2009",
    min(CASE WHEN date_part('year', lv.list_date) = 2010 THEN lv.list_date ELSE NULL END) AS "2010",
+   min(CASE WHEN date_part('year', lv.list_date) = 2011 THEN lv.list_date ELSE NULL END) AS "2011",
    to_date('2004' || MIN(to_char(lv.list_date, 'MMDD')), 'YYYYMMDD') AS earliest,
    to_date('2004' || MAX(to_char(lv.list_date, 'MMDD')), 'YYYYMMDD') AS latest
    FROM (
