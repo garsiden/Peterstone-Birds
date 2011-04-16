@@ -18,8 +18,8 @@ class ReportController < Controller
         ds  = Report.first_observations
         @array = ds.all
         cols = ds.columns
-        @headings = cols.values_at(1, -9 .. 11).map { |h| h.to_s.capitalize }
-        @years = cols[-9 .. 9]
+        @headings = cols.values_at(1, -9 .. -1).map { |h| h.to_s.capitalize }
+        @years = cols[-9 .. -3]
     end
 
     def wintering group
