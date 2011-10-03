@@ -1,4 +1,4 @@
-require '../lib/birdtrack'
+require 'lib/birdtrack'
 
 # Check for command line options
 year_str = ARGV.shift if ARGV
