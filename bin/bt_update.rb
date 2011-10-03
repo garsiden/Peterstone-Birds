@@ -1,4 +1,4 @@
-require 'lib/birdtrack'
+require '../lib/birdtrack'
 
 # Check for command line options
 year_str = ARGV.shift if ARGV
@@ -33,14 +33,19 @@ subs_src.sub!(/YYYY/, year.to_s)
 obs_src.sub!(/YYYY/, year.to_s)
 
 # filter out other sites
-web_subs = BirdTrack.get_subs_list(subs_src, get_html_method).select {
-    |w| w[:site_name] =~ /Peterstone Gout/
-}
+web_subs = BirdTrack.get_subs_list(subs_src, get_html_method).
+    reject! {|k,v| v[:site_name] !~ /Peterstone Gout/ }
 
 # compare to BirdTrack sourced lists
-updates = BirdTrack.get_new_subs year, web_subs
+deletes, updates = BirdTrack.get_new_subs year, web_subs
 
-p updates
-BirdTrack.process_subs_lists updates, obs_src, get_html_method
+#p updates
+#p deletes
+
+if deletes.count > 5
+    puts "Maximum number of deletes exceeded (#{deletes.count})"
+else
+    BirdTrack.process_subs_lists deletes, updates, obs_src, get_html_method
+end
 
 

@@ -2,6 +2,7 @@ require 'rubygems'
 require 'patron'
 require 'nokogiri'
 require 'sequel'
+require 'set'
 
 module BirdTrack
 
@@ -32,6 +33,7 @@ module BirdTrack
         unless @@sess
             cookie = cookie || ENV['BTO_COOKIE']
             sess = Patron::Session.new
+            sess.timeout = 10
             sess.base_url = BASE_URL
             sess.handle_cookies
             resp = sess.head(AUTH_URL,
@@ -86,7 +88,7 @@ module BirdTrack
 
     def BirdTrack.parse_subs_list doc
         table = doc.at('//table[@id="any"]')
-        subs_list = []
+        subs_list = {}
 
         (table/('tr'))[1 .. -1].each do |tr| 
             url, start_time, end_time, site_name = tr/('td')
@@ -96,34 +98,36 @@ module BirdTrack
             next unless link.inner_text =~ /(\d{2} [A-Z][a-z]{2} \d{4})/ 
                 list_date = $1
             sub_item = {
-                :sub_id     => sub_id,
                 :site_name  => site_name.inner_text.strip,
                 :list_date  => list_date,
                 :start_time => start_time.inner_text.strip,
                 :end_time   => end_time.inner_text.strip
             }
-            subs_list.push sub_item
+            subs_list[sub_id] = sub_item
         end
 
         subs_list
     end
 
     def BirdTrack.get_new_subs year, web_subs
-        # array of sub_ids from database
         db = self.db_connect
-        db_subs = db[:lists].
+        db_set = db[:lists].
             filter("date_part('year', list_date)=?", year).
-            select_order_map(:sub_id)
+            select_map(:sub_id).to_set
 
-        # create hash of sub_ids
-        seen = Hash[*db_subs.map { |v| [v, nil] }.flatten]
+        web_set = web_subs.keys.to_set
+        updates = web_set - db_set
+        deletes = db_set - web_set
 
-        # compare to BirdTrack sourced lists
-        updates = web_subs.select { |s| not seen.has_key? s[:sub_id] }
+        puts "DB subs: #{db_set.count}\nBT subs: #{web_set.count}\nDiff: #{updates.length}"
+        puts "Deletes: #{deletes.length}"
 
-        puts "DB subs: #{db_subs.count}\nBT subs: #{web_subs.count}\nDiff: #{updates.length}"
+        new = updates.inject({}) do |hash, value|
+            hash[value] = web_subs[value]
+            hash
+        end
 
-        updates
+        return deletes.to_a, new
     end
 
     def BirdTrack.add_db_list updates
@@ -133,22 +137,22 @@ module BirdTrack
         db = self.db_connect
 
         # add BTO codes to obs hash
-        updates.each do |sub|
+        updates.each do |key,sub|
             sub[:obs].each do |ob|
                 ob[:bto_code] = bto[ob[:species]]
-                ob[:sub_id] = sub[:sub_id]
+                ob[:sub_id] = key
                 ob.delete :species
             end 
             db.transaction do
                 db[:lists].insert(
-                    :sub_id     => sub[:sub_id],
+                    :sub_id     => key,
                     :list_date  => sub[:list_date],
                     :start_time => sub[:start_time],
                     :end_time   => sub[:end_time]
                 )
                 db[:sightings].multi_insert(sub[:obs])
             end
-            puts "Added list #{sub[:sub_id]} to the database"
+            puts "Added list #{key} to the database"
         end
     end
 
@@ -163,15 +167,21 @@ module BirdTrack
         doc = Nokogiri::HTML(html)
     end
 
-    def BirdTrack.process_subs_lists subs, obs_src, get_html_method
+    def BirdTrack.process_subs_lists deletes, new, obs_src, get_html_method
 
-        subs.each do |s|
-            #src = obs_src
-            src = obs_src.sub(/SUBID/, s[:sub_id])
+        new.each do |key, sub|
+            src = obs_src.sub(/SUBID/, key)
             html = get_html_method.call src
-            s[:obs] = self.parse_obs_list html 
+            sub[:obs] = self.parse_obs_list html 
         end
 
-        self.add_db_list subs
+        self.delete_db_list deletes
+        self.add_db_list new
+    end
+
+    def BirdTrack.delete_db_list deletes
+        return nil if deletes.empty?
+        db = self.db_connect
+        db[:lists].filter(:sub_id => deletes).delete
     end
 end
