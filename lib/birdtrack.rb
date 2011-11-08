@@ -93,7 +93,7 @@ module BirdTrack
         (table/('tr'))[1 .. -1].each do |tr| 
             url, start_time, end_time, site_name = tr/('td')
             link = (url/('a'))[0]
-            next unless link['href'] =~ /(SUB[W]?\d+)/;
+            next unless link['href'] =~ /(SUBW?\d+-?\d+)/;
             sub_id = $1
             next unless link.inner_text =~ /(\d{2} [A-Z][a-z]{2} \d{4})/ 
                 list_date = $1
